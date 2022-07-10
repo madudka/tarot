@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".view.divination.VerifyFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/verify"
+        android:textAppearance="@style/Custom.TextAppearanceHeadline"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_verify_cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_height="400dp"
+        tools:listitem="@layout/list_item_divination_verify"/>
+
+    <TextView
+        android:id="@+id/verify_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/Custom.TextAppearanceInfo"
+        tools:text="7 из 10 карт находятся в прямом положении.
+            Высшие силы сегодня настроены благосклонно. Можно делать расклад."/>
+
+</LinearLayout>

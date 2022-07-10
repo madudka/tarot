@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".view.divination.DayCardImageFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/day_card"
+        android:textAppearance="@style/Custom.TextAppearanceHeadline"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Нажмите на карту, чтобы узнать подробности..."
+        android:textAppearance="@style/Custom.TextAppearanceHeadline2"
+        android:gravity="center"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/imgViewCard"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        tools:src="@drawable/test_back_card_img"/>
+
+</LinearLayout>

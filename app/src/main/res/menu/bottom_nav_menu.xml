@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cardsFragment"
+        android:icon="@drawable/ic_menu_item_cards"
+        android:title="@string/label_cards"/>
+
+    <item
+        android:id="@+id/layoutsFragment"
+        android:icon="@drawable/ic_menu_item_layouts"
+        android:title="@string/label_layouts"/>
+
+    <item
+        android:id="@+id/divinationFragment"
+        android:icon="@drawable/ic_menu_item_divination"
+        android:title="@string/label_divination"/>
+
+    <item
+        android:id="@+id/potionsFragment"
+        android:icon="@drawable/ic_menu_item_potions"
+        android:title="@string/label_potions"/>
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_menu_item_settings"
+        android:title="@string/label_settings"/>
+
+</menu>

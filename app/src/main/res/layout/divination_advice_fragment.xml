@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".view.divination.DayCardFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/day_card"
+        android:textAppearance="@style/Custom.TextAppearanceHeadline"
+        android:gravity="center"/>
+
+    <androidx.cardview.widget.CardView
+        xmlns:cardView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/carView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        cardView:cardBackgroundColor="@android:color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_view_day_card"
+                android:layout_width="190dp"
+                android:layout_height="300dp"
+                cardView:layout_constraintLeft_toLeftOf="parent"
+                cardView:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/test_card_img"/>
+
+            <TextView
+                android:id="@+id/tv_card_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                cardView:layout_constraintLeft_toRightOf="@id/img_view_day_card"
+                cardView:layout_constraintTop_toTopOf="parent"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintBottom_toTopOf="@id/tv_card_other_name"
+                style="@style/Custom.TextAppearanceHeadline1"
+                tools:text="Жрец"/>
+
+            <TextView
+                android:id="@+id/tv_card_other_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                cardView:layout_constraintLeft_toRightOf="@id/img_view_day_card"
+                cardView:layout_constraintTop_toBottomOf="@id/tv_card_name"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintBottom_toTopOf="@+id/tv_card_type"
+                style="@style/Custom.TextAppearanceHeadline2"
+                tools:text="Верховный жрец, Иерофант"/>
+
+            <TextView
+                android:id="@+id/tv_card_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                cardView:layout_constraintLeft_toRightOf="@id/img_view_day_card"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintTop_toBottomOf="@id/tv_card_other_name"
+                cardView:layout_constraintBottom_toBottomOf="parent"
+                style="@style/Custom.TextAppearanceHeadline2"
+                tools:text="Старшие арканы"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Custom.TextAppearanceInfo"
+            tools:text="Вы, несомненно, многое знаете, вы достигли некоего положения, но не стоит путать гордость и гордыню, не нужно останавливаться на достигнутом, зацикливаться, это может привести вас к фанатизму. Нельзя быть уверенным на все 100% в своей правоте, ведь вопрос можно решить и другими способами. Возможно, что вы можете подсказать ответ человеку, однако ваш поступок должен быть правильным, не поспешным, иначе он может навредить, а не помочь. Верховный Жрец предупреждает вас о том, что возможно вас учат не тому, что правильно. Постарайтесь взглянуть на обучение с разных сторон, не застревайте в косности, не бойтесь выглянуть за рамки обыденности."/>
+
+    </ScrollView>
+
+</LinearLayout>

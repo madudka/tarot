@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Таро</string>
+    <string name="label_cards">Карты</string>
+    <string name="label_layouts">Расклады</string>
+    <string name="label_divination">Гадание</string>
+    <string name="label_potions">Зелья</string>
+    <string name="label_settings">Настройки</string>
+    <string name="day_card">Карта дня</string>
+    <string name="card_advice">Совет карты</string>
+    <string name="select_divination_type">Выберите тип гадания</string>
+    <string name="verify">Верификация</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="your_choice">Вы сами делаете свой выбор...\nНикто не сделает его за Вас...</string>
+    <string name="write_num_0_9">Введите число от 0 до 9</string>
+</resources>

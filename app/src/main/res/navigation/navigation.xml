@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/divinationFragment">
+
+    <fragment
+        android:id="@+id/divinationFragment"
+        android:name="com.madudka.tarot.view.divination.DivinationFragment"
+        android:label="divination_fragment"
+        tools:layout="@layout/divination_fragment" >
+        <action
+            android:id="@+id/action_divinationFragment_to_divinationVerifyFragment"
+            app:destination="@id/divinationVerifyFragment" />
+        <action
+            android:id="@+id/action_divinationFragment_to_divinationAdviceFragment"
+            app:destination="@id/divinationAdviceFragment" />
+        <action
+            android:id="@+id/action_divinationFragment_to_divinationDayCardInputFragment"
+            app:destination="@id/divinationDayCardInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.madudka.tarot.view.CardsFragment"
+        android:label="cards_fragment"
+        tools:layout="@layout/cards_fragment" />
+    <fragment
+        android:id="@+id/layoutsFragment"
+        android:name="com.madudka.tarot.view.LayoutsFragment"
+        android:label="layouts_fragment"
+        tools:layout="@layout/layouts_fragment" />
+    <fragment
+        android:id="@+id/potionsFragment"
+        android:name="com.madudka.tarot.view.PotionsFragment"
+        android:label="potions_fragment"
+        tools:layout="@layout/potions_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.madudka.tarot.view.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/divinationVerifyFragment"
+        android:name="com.madudka.tarot.view.divination.VerifyFragment"
+        android:label="divination_verify_fragment"
+        tools:layout="@layout/divination_verify_fragment" />
+    <fragment
+        android:id="@+id/divinationDayCardFragment"
+        android:name="com.madudka.tarot.view.divination.DayCardFragment"
+        android:label="divination_day_card_fragment"
+        tools:layout="@layout/divination_day_card_fragment" />
+    <fragment
+        android:id="@+id/divinationAdviceFragment"
+        android:name="com.madudka.tarot.view.divination.CardAdviceFragment"
+        android:label="divination_advice_fragment"
+        tools:layout="@layout/divination_advice_fragment" />
+    <fragment
+        android:id="@+id/divinationDayCardInputFragment"
+        android:name="com.madudka.tarot.view.divination.DayCardInputFragment"
+        android:label="fragment_divination_day_card_input"
+        tools:layout="@layout/divination_day_card_input_fragment" >
+        <action
+            android:id="@+id/action_divinationDayCardInputFragment_to_divinationDayCardImageFragment"
+            app:destination="@id/divinationDayCardImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/divinationDayCardImageFragment"
+        android:name="com.madudka.tarot.view.divination.DayCardImageFragment"
+        android:label="divination_day_card_image_fragment"
+        tools:layout="@layout/divination_day_card_image_fragment" >
+        <action
+            android:id="@+id/action_divinationDayCardImageFragment_to_divinationDayCardFragment"
+            app:destination="@id/divinationDayCardFragment" />
+    </fragment>
+</navigation>
