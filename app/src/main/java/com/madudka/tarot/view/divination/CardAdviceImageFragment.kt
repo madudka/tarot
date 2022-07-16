@@ -1,6 +1,5 @@
 package com.madudka.tarot.view.divination
 
-
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -10,19 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.madudka.tarot.R
-import com.madudka.tarot.databinding.DivinationDayCardImageFragmentBinding
-import com.madudka.tarot.view.App.Companion.now
-import com.madudka.tarot.view.App.Companion.settings
+import com.madudka.tarot.databinding.DivinationCardAdviceImageFragmentBinding
 import com.madudka.tarot.view.customCenterYRotate
-import com.madudka.tarot.view.customScaleOutWithMove
-import com.madudka.tarot.viewmodel.divination.DayCardViewModel
+import com.madudka.tarot.viewmodel.divination.CardAdviceViewModel
 
-class DayCardImageFragment : Fragment() {
+class CardAdviceImageFragment : Fragment() {
 
-    private lateinit var binding: DivinationDayCardImageFragmentBinding
-    private val viewModel: DayCardViewModel by activityViewModels()
+    private lateinit var binding: DivinationCardAdviceImageFragmentBinding
+    private val viewModel: CardAdviceViewModel by activityViewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -41,10 +38,7 @@ class DayCardImageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DivinationDayCardImageFragmentBinding.inflate(layoutInflater, container, false)
-
-        settings.dayCardDate = now
-
+        binding = DivinationCardAdviceImageFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -56,12 +50,10 @@ class DayCardImageFragment : Fragment() {
 
         var imgRotate = false
         binding.imgViewCard.setOnClickListener {
-            if (imgRotate) {
+            if (imgRotate){
                 binding.tvHelp.visibility = View.INVISIBLE
-                binding.imgViewCard.customScaleOutWithMove {
-                    findNavController().navigate(R.id.action_divinationDayCardImageFragment_to_divinationDayCardFragment)
-                }
-            } else {
+                findNavController().navigate(R.id.action_divinationCardAdviceImageFragment_to_divinationAdviceFragment)
+            } else{
                 imgRotate = true
 
                 binding.imgViewCard.customCenterYRotate(0.0f, 90.0f, dur = 700)
@@ -72,10 +64,7 @@ class DayCardImageFragment : Fragment() {
                         )
                     }
                 }
-                binding.tvHelp.visibility = View.VISIBLE
             }
         }
     }
-
-
 }

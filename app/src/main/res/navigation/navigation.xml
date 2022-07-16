@@ -5,6 +5,7 @@
     android:id="@+id/navigation"
     app:startDestination="@id/divinationFragment">
 
+    <!--DIVINATION-->
     <fragment
         android:id="@+id/divinationFragment"
         android:name="com.madudka.tarot.view.divination.DivinationFragment"
@@ -14,51 +15,29 @@
             android:id="@+id/action_divinationFragment_to_divinationVerifyFragment"
             app:destination="@id/divinationVerifyFragment" />
         <action
-            android:id="@+id/action_divinationFragment_to_divinationAdviceFragment"
-            app:destination="@id/divinationAdviceFragment" />
-        <action
             android:id="@+id/action_divinationFragment_to_divinationDayCardInputFragment"
             app:destination="@id/divinationDayCardInputFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_divinationFragment_to_divinationCardAdviceInputFragment"
+            app:destination="@id/divinationCardAdviceInputFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
-    <fragment
-        android:id="@+id/cardsFragment"
-        android:name="com.madudka.tarot.view.CardsFragment"
-        android:label="cards_fragment"
-        tools:layout="@layout/cards_fragment" />
-    <fragment
-        android:id="@+id/layoutsFragment"
-        android:name="com.madudka.tarot.view.LayoutsFragment"
-        android:label="layouts_fragment"
-        tools:layout="@layout/layouts_fragment" />
-    <fragment
-        android:id="@+id/potionsFragment"
-        android:name="com.madudka.tarot.view.PotionsFragment"
-        android:label="potions_fragment"
-        tools:layout="@layout/potions_fragment" />
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.madudka.tarot.view.SettingsFragment"
-        android:label="settings_fragment"
-        tools:layout="@layout/settings_fragment" />
+
+    <!--DIVINATION VERIFY-->
     <fragment
         android:id="@+id/divinationVerifyFragment"
         android:name="com.madudka.tarot.view.divination.VerifyFragment"
         android:label="divination_verify_fragment"
         tools:layout="@layout/divination_verify_fragment" />
-    <fragment
-        android:id="@+id/divinationDayCardFragment"
-        android:name="com.madudka.tarot.view.divination.DayCardFragment"
-        android:label="divination_day_card_fragment"
-        tools:layout="@layout/divination_day_card_fragment" />
-    <fragment
-        android:id="@+id/divinationAdviceFragment"
-        android:name="com.madudka.tarot.view.divination.CardAdviceFragment"
-        android:label="divination_advice_fragment"
-        tools:layout="@layout/divination_advice_fragment" />
+
+    <!--DIVINATION DAY CARD-->
     <fragment
         android:id="@+id/divinationDayCardInputFragment"
         android:name="com.madudka.tarot.view.divination.DayCardInputFragment"
@@ -87,4 +66,67 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/divinationFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/divinationDayCardFragment"
+        android:name="com.madudka.tarot.view.divination.DayCardFragment"
+        android:label="divination_day_card_fragment"
+        tools:layout="@layout/divination_day_card_fragment" />
+
+    <!--DIVINATION CARD ADVICE-->
+    <fragment
+        android:id="@+id/divinationCardAdviceInputFragment"
+        android:name="com.madudka.tarot.view.divination.CardAdviceInputFragment"
+        android:label="divination_card_advice_input_fragment"
+        tools:layout="@layout/divination_card_advice_input_fragment" >
+        <action
+            android:id="@+id/action_divinationCardAdviceInputFragment_to_divinationCardAdviceImageFragment"
+            app:destination="@id/divinationCardAdviceImageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/divinationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/divinationCardAdviceImageFragment"
+        android:name="com.madudka.tarot.view.divination.CardAdviceImageFragment"
+        android:label="divination_card_advice_image_fragment"
+        tools:layout="@layout/divination_card_advice_image_fragment" >
+        <action
+            android:id="@+id/action_divinationCardAdviceImageFragment_to_divinationAdviceFragment"
+            app:destination="@id/divinationAdviceFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/divinationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/divinationAdviceFragment"
+        android:name="com.madudka.tarot.view.divination.CardAdviceFragment"
+        android:label="divination_advice_fragment"
+        tools:layout="@layout/divination_card_advice_fragment" />
+
+
+
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.madudka.tarot.view.CardsFragment"
+        android:label="cards_fragment"
+        tools:layout="@layout/cards_fragment" />
+    <fragment
+        android:id="@+id/layoutsFragment"
+        android:name="com.madudka.tarot.view.LayoutsFragment"
+        android:label="layouts_fragment"
+        tools:layout="@layout/layouts_fragment" />
+    <fragment
+        android:id="@+id/potionsFragment"
+        android:name="com.madudka.tarot.view.PotionsFragment"
+        android:label="potions_fragment"
+        tools:layout="@layout/potions_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.madudka.tarot.view.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" />
 </navigation>

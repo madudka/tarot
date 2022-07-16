@@ -19,9 +19,7 @@ class DayCardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DivinationDayCardFragmentBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

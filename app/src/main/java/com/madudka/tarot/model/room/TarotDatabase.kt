@@ -11,6 +11,7 @@ import androidx.room.RoomDatabase
 abstract class TarotDatabase : RoomDatabase() {
 
     abstract fun getDayCardDao() : DayCardDao
+    abstract fun getCardAdviceDao(): CardAdviceDao
 
     companion object : SingletonHolder<TarotDatabase, Context>({
         Room.databaseBuilder(it.applicationContext, TarotDatabase::class.java, "tarot.db")
