@@ -18,7 +18,11 @@
             app:destination="@id/divinationAdviceFragment" />
         <action
             android:id="@+id/action_divinationFragment_to_divinationDayCardInputFragment"
-            app:destination="@id/divinationDayCardInputFragment" />
+            app:destination="@id/divinationDayCardInputFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/cardsFragment"
@@ -62,7 +66,12 @@
         tools:layout="@layout/divination_day_card_input_fragment" >
         <action
             android:id="@+id/action_divinationDayCardInputFragment_to_divinationDayCardImageFragment"
-            app:destination="@id/divinationDayCardImageFragment" />
+            app:destination="@id/divinationDayCardImageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/divinationFragment" />
     </fragment>
     <fragment
         android:id="@+id/divinationDayCardImageFragment"
@@ -71,6 +80,11 @@
         tools:layout="@layout/divination_day_card_image_fragment" >
         <action
             android:id="@+id/action_divinationDayCardImageFragment_to_divinationDayCardFragment"
-            app:destination="@id/divinationDayCardFragment" />
+            app:destination="@id/divinationDayCardFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/divinationFragment" />
     </fragment>
 </navigation>

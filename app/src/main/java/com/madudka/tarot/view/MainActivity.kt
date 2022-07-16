@@ -2,6 +2,8 @@ package com.madudka.tarot.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -11,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
+import com.madudka.tarot.view.divination.DayCardImageFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,15 +27,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // private fun hideSystemUI()
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, view).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.statusBars())
-            //controller.hide(WindowInsetsCompat.Type.systemBars())
-            //controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
         supportActionBar?.hide()
-
 
         val navView = binding.bottomNavView
         val navController = findNavController(R.id.nav_host_fragment)

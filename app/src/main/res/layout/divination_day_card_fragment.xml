@@ -25,12 +25,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/img_view_day_card"
-                android:layout_width="190dp"
-                android:layout_height="300dp"
+                android:layout_width="wrap_content"
+                android:layout_height="280dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                cardView:shapeAppearance="@style/roundedImageView"
                 cardView:layout_constraintLeft_toLeftOf="parent"
                 cardView:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/test_card_img"/>
@@ -76,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="100dp"
         android:scrollbars="vertical"
         android:fillViewport="true"
         android:nestedScrollingEnabled="true">
