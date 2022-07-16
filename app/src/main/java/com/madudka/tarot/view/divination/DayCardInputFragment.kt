@@ -24,10 +24,12 @@ class DayCardInputFragment : Fragment() {
         binding = DivinationDayCardInputFragmentBinding.inflate(layoutInflater, container, false)
 
         binding.textInput.doOnTextChanged { text, _, _, _ ->
-            val num = text.toString().toInt()
-            if (num in (0..9)) {
-                viewModel.loadCard(num)
-                findNavController().navigate(R.id.action_divinationDayCardInputFragment_to_divinationDayCardImageFragment)
+            text?.let {
+                val num = it.toString().toInt()
+                if (num in (0..9)) {
+                    viewModel.loadCard(num)
+                    findNavController().navigate(R.id.action_divinationDayCardInputFragment_to_divinationDayCardImageFragment)
+                }
             }
         }
 

@@ -1,6 +1,6 @@
 package com.madudka.tarot.model
 
-data class DayCardModel(
+data class DivinationCardModel(
     val id: Int,
     val name: String,
     val type: String,
@@ -12,7 +12,7 @@ data class DayCardModel(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as DayCardModel
+        other as DivinationCardModel
 
         if (id != other.id) return false
         if (info != other.info) return false
@@ -28,8 +28,3 @@ data class DayCardModel(
         return result
     }
 }
-
-//fun DayCardEntity.toModel() = DayCardModel(
-//    id = this.id,
-//    info = this.day
-//)

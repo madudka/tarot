@@ -5,32 +5,36 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".view.divination.DayCardFragment">
+    tools:context=".view.divination.CardAdviceFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/day_card"
+        android:text="@string/card_advice"
         android:textAppearance="@style/Custom.TextAppearanceHeadline"
         android:gravity="center"/>
 
-    <androidx.cardview.widget.CardView
-        xmlns:cardView="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/carView"
+
+    <androidx.cardview.widget.CardView xmlns:cardView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         cardView:cardBackgroundColor="@android:color/transparent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/img_view_day_card"
-                android:layout_width="190dp"
-                android:layout_height="300dp"
+                android:layout_width="wrap_content"
+                android:layout_height="280dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                cardView:shapeAppearance="@style/roundedImageView"
                 cardView:layout_constraintLeft_toLeftOf="parent"
                 cardView:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/test_card_img"/>
@@ -73,17 +77,20 @@
     </androidx.cardview.widget.CardView>
 
     <ScrollView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="100dp"
         android:scrollbars="vertical"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true">
 
         <TextView
+            android:id="@+id/tv_card_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Custom.TextAppearanceInfo"
-            tools:text="Вы, несомненно, многое знаете, вы достигли некоего положения, но не стоит путать гордость и гордыню, не нужно останавливаться на достигнутом, зацикливаться, это может привести вас к фанатизму. Нельзя быть уверенным на все 100% в своей правоте, ведь вопрос можно решить и другими способами. Возможно, что вы можете подсказать ответ человеку, однако ваш поступок должен быть правильным, не поспешным, иначе он может навредить, а не помочь. Верховный Жрец предупреждает вас о том, что возможно вас учат не тому, что правильно. Постарайтесь взглянуть на обучение с разных сторон, не застревайте в косности, не бойтесь выглянуть за рамки обыденности."/>
-
+            tools:text="Стоит морально настроиться на преодоление препятствий, взяв волю в кулак и вспомнив о дисциплине. Не стоит переоценивать свои возможности и проявлять высокомерие в отношении других людей. Также не стоит давать возможность начальству слишком себя контролировать."/>
     </ScrollView>
 
 </LinearLayout>

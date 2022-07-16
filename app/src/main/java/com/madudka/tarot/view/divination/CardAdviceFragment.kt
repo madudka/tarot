@@ -1,33 +1,41 @@
 package com.madudka.tarot.view.divination
 
-import androidx.lifecycle.ViewModelProvider
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.madudka.tarot.R
-import com.madudka.tarot.viewmodel.divination.AdviceViewModel
+import androidx.fragment.app.activityViewModels
+import com.madudka.tarot.databinding.DivinationCardAdviceFragmentBinding
+import com.madudka.tarot.viewmodel.divination.CardAdviceViewModel
 
 class CardAdviceFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CardAdviceFragment()
-    }
-
-    private lateinit var viewModel: AdviceViewModel
+    private lateinit var binding: DivinationCardAdviceFragmentBinding
+    private val viewModel: CardAdviceViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.divination_advice_fragment, container, false)
+        binding = DivinationCardAdviceFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AdviceViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getCardAdvice().observe(viewLifecycleOwner){
+            binding.tvCardName.text = it.name
+            binding.tvCardOtherName.text = it.otherName
+            binding.tvCardType.text = it.type
+            binding.tvCardInfo.text = it.info
+            binding.imgViewDayCard.setImageBitmap(
+                BitmapFactory.decodeByteArray(
+                    it.image, 0, it.image.size
+                )
+            )
+        }
+    }
 }

@@ -39,7 +39,7 @@ class DivinationFragment : Fragment() {
             else showDialogInfo(requireContext())
         }
         binding.btnDivinationAdvice.setOnClickListener {
-            it.findNavController().navigate(R.id.action_divinationFragment_to_divinationAdviceFragment)
+            it.findNavController().navigate(R.id.action_divinationFragment_to_divinationCardAdviceInputFragment)
         }
     }
 

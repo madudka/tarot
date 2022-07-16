@@ -51,6 +51,7 @@ class DayCardImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //TODO: убрать тестовую рубашку, определить рабочий вариант
         binding.imgViewCard.setImageResource(R.drawable.test_back_card_img)
 
         var imgRotate = false
