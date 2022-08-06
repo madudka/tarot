@@ -16,11 +16,23 @@
     <string name="your_question">Введите Ваш вопрос…\nИли проговаривайте вопрос про себя…</string>
     <string name="write_question_mark">Введите знак «?»</string>
     <string name="think_question">Обязательно думайте о вопросе</string>
+    <!--ВЕРИФИКАЦИЯ-->
+    <string name="verify_info_yes">%1$d из 10 карт находятся в прямом положении.
+        \nВысшие силы сегодня настроены благосклонно.
+        \nМожно делать расклад.</string>
+    <string name="verify_info_unknown">5 из 10 карт находятся в прямом положении.
+        \nНе рекомендуется гадать самастоятельно.
+        \nОбратитесь за раскладом к тарологу.</string>
+    <string name="verify_info_no">%1$d из 10 карт находятся в прямом положении.
+        \nВысшие силы сегодня не готовы ответить на Ваши вопросы.
+        \nРасклад лучше перенести на другой день.</string>ы
     <!--ДИАЛОГ-->
     <string name="title_limit">Не сегодня…</string>
     <string name="day_limit">Данное гадание можно осуществлять раз в сутки, пожалуйста приходите завтра</string>
     <string name="ok">Хорошо</string>
+
+    <string name="click_to_find_out_more">Нажмите на карту, чтобы узнать подробности...</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="click_to_find_out_more">Нажмите на карту, чтобы узнать подробности...</string>
+
 </resources>

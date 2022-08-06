@@ -13,7 +13,11 @@
         tools:layout="@layout/divination_fragment" >
         <action
             android:id="@+id/action_divinationFragment_to_divinationVerifyFragment"
-            app:destination="@id/divinationVerifyFragment" />
+            app:destination="@id/divinationVerifyFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_divinationFragment_to_divinationDayCardInputFragment"
             app:destination="@id/divinationDayCardInputFragment"
@@ -35,7 +39,25 @@
         android:id="@+id/divinationVerifyFragment"
         android:name="com.madudka.tarot.view.divination.VerifyFragment"
         android:label="divination_verify_fragment"
-        tools:layout="@layout/divination_verify_fragment" />
+        tools:layout="@layout/divination_verify_fragment" >
+        <action
+            android:id="@+id/action_divinationVerifyFragment_to_divinationVerifyViewPagerFragment"
+            app:destination="@id/divinationVerifyViewPagerFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/divinationVerifyViewPagerFragment"
+        android:name="com.madudka.tarot.view.divination.VerifyViewPagerFragment"
+        android:label="divination_verify_view_pager_fragment"
+        tools:layout="@layout/divination_verify_view_pager_fragment" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
     <!--DIVINATION DAY CARD-->
     <fragment

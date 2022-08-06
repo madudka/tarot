@@ -6,7 +6,7 @@ import com.madudka.tarot.model.DivinationCardModel
 class DayCardRepository {
     private val dbAccess = db.getDayCardDao()
 
-    suspend fun getDayCardFromDb(id: Int): DivinationCardModel{
+    fun getDayCardFromDb(id: Int): DivinationCardModel{
            return dbAccess.selectDayCard(id)
     }
 }

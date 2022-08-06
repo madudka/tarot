@@ -41,10 +41,9 @@ class DayCardImageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DivinationDayCardImageFragmentBinding.inflate(layoutInflater, container, false)
-
         settings.dayCardDate = now
 
+        binding = DivinationDayCardImageFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

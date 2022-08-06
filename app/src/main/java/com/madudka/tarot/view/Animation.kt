@@ -48,6 +48,31 @@ fun View.customScaleOutWithMove(
     }.start()
 }
 
+fun View.customScalePulseWithMove(
+    dur: Long = 1000,
+    del: Long = 0){
+    val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1F, 2.2F, 1F)
+    val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1F, 2.2F, 1F)
+    val scale = ObjectAnimator.ofPropertyValuesHolder(this, scaleX, scaleY).apply {
+        //duration = dur
+        //startDelay = del
+        disableViewDuringAnimation(this@customScalePulseWithMove)
+    }
+
+    val moveX = PropertyValuesHolder.ofFloat(View.TRANSLATION_X, 0F)
+    val moveY = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, 0F)
+    val move = ObjectAnimator.ofPropertyValuesHolder(this, moveX, moveY).apply {
+        //duration = dur
+        //startDelay = del
+    }
+
+    AnimatorSet().apply {
+        playTogether(scale, move)
+        duration = dur
+        startDelay = del
+    }.start()
+}
+
 private fun ObjectAnimator.disableViewDuringAnimation(view: View) {
     addListener(object : AnimatorListenerAdapter() {
         override fun onAnimationStart(animation: Animator?) {

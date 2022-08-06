@@ -6,11 +6,12 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(entities = [CardsEntity::class, CardTypesEntity::class,
-    CardInfoEntity::class, ImagesClassicEntity::class],
+    CardInfoEntity::class, ImagesEntity::class],
     exportSchema = false, version = 1)
 abstract class TarotDatabase : RoomDatabase() {
 
-    abstract fun getDayCardDao() : DayCardDao
+    abstract fun getVerify(): VerifyDao
+    abstract fun getDayCardDao(): DayCardDao
     abstract fun getCardAdviceDao(): CardAdviceDao
 
     companion object : SingletonHolder<TarotDatabase, Context>({

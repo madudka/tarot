@@ -6,7 +6,7 @@ import com.madudka.tarot.view.App.Companion.db
 class CardAdviceRepository {
     private val dbAccess = db.getCardAdviceDao()
 
-    suspend fun getCardAdviceFromDb(id: Int): DivinationCardModel{
+    fun getCardAdviceFromDb(id: Int): DivinationCardModel{
         return dbAccess.selectCardAdvice(id)
     }
 }

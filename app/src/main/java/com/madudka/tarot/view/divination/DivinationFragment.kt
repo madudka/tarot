@@ -32,10 +32,17 @@ class DivinationFragment : Fragment() {
 
     private fun setupNavController(){
         binding.btnDivinationVerify.setOnClickListener {
-            it.findNavController().navigate(R.id.action_divinationFragment_to_divinationVerifyFragment)
+            if (flagVerify){
+                it.findNavController()
+                    .navigate(R.id.action_divinationFragment_to_divinationVerifyFragment)
+            }
+            else showDialogInfo(requireContext())
         }
         binding.btnDivinationDayCard.setOnClickListener {
-            if (flagDayCard) it.findNavController().navigate(R.id.action_divinationFragment_to_divinationDayCardInputFragment)
+            if (flagDayCard) {
+                it.findNavController()
+                    .navigate(R.id.action_divinationFragment_to_divinationDayCardInputFragment)
+            }
             else showDialogInfo(requireContext())
         }
         binding.btnDivinationAdvice.setOnClickListener {

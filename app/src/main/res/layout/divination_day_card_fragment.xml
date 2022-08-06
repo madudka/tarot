@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".view.divination.DayCardFragment">
+    <!--tools:background="@drawable/background"-->
 
     <TextView
         android:layout_width="match_parent"
@@ -80,7 +80,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="100dp"
         android:scrollbars="vertical"
         android:fillViewport="true"
         android:nestedScrollingEnabled="true">
