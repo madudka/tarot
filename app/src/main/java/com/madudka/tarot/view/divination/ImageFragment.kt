@@ -1,6 +1,5 @@
 package com.madudka.tarot.view.divination
 
-
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -11,18 +10,21 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.madudka.tarot.DivinationType
 import com.madudka.tarot.R
-import com.madudka.tarot.databinding.DivinationDayCardImageFragmentBinding
+import com.madudka.tarot.databinding.DivinationImageFragmentBinding
 import com.madudka.tarot.view.App.Companion.now
 import com.madudka.tarot.view.App.Companion.settings
 import com.madudka.tarot.view.customCenterYRotate
 import com.madudka.tarot.view.customScaleOutWithMove
-import com.madudka.tarot.viewmodel.divination.DayCardViewModel
+import com.madudka.tarot.viewmodel.divination.CardViewModel
 
-class DayCardImageFragment : Fragment() {
+class ImageFragment : Fragment() {
 
-    private lateinit var binding: DivinationDayCardImageFragmentBinding
-    private val viewModel: DayCardViewModel by activityViewModels()
+    private lateinit var binding: DivinationImageFragmentBinding
+    private val viewModel: CardViewModel by activityViewModels()
+    private val args: ImageFragmentArgs by navArgs()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -41,14 +43,19 @@ class DayCardImageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settings.dayCardDate = now
-
-        binding = DivinationDayCardImageFragmentBinding.inflate(layoutInflater, container, false)
+        binding = DivinationImageFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        if (args.divinationType == DivinationType.DAY_CARD) settings.dayCardDate = now
+        updateView()
+    }
+
+    private fun updateView(){
+        binding.tvHeader.text =
+            if (args.divinationType == DivinationType.DAY_CARD) getString(R.string.day_card)
+            else getString(R.string.card_advice)
 
         //TODO: убрать тестовую рубашку, определить рабочий вариант
         binding.imgViewCard.setImageResource(R.drawable.test_back_card_img)
@@ -58,7 +65,7 @@ class DayCardImageFragment : Fragment() {
             if (imgRotate) {
                 binding.tvHelp.visibility = View.INVISIBLE
                 binding.imgViewCard.customScaleOutWithMove {
-                    findNavController().navigate(R.id.action_divinationDayCardImageFragment_to_divinationDayCardFragment)
+                    findNavController().navigate(R.id.action_imageFragment_to_cardFragment)
                 }
             } else {
                 imgRotate = true
@@ -75,6 +82,4 @@ class DayCardImageFragment : Fragment() {
             }
         }
     }
-
-
 }

@@ -72,7 +72,7 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
     private val clickListener = object : OnItemClickListener<VerifyModel> {
         override fun onItemClick(item: VerifyModel, position: Int) {
             val action = VerifyFragmentDirections
-                .actionDivinationVerifyFragmentToDivinationVerifyViewPagerFragment(position)
+                .actionVerifyFragmentToVerifyViewPagerFragment(position)
             findNavController().navigate(action)
         }
     }

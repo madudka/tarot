@@ -7,26 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.madudka.tarot.databinding.DivinationDayCardFragmentBinding
-import com.madudka.tarot.viewmodel.divination.DayCardViewModel
+import com.madudka.tarot.databinding.DivinationCardFragmentBinding
+import com.madudka.tarot.viewmodel.divination.CardViewModel
 
-class DayCardFragment : Fragment() {
+class CardFragment : Fragment() {
 
-    private lateinit var binding: DivinationDayCardFragmentBinding
-    private val viewModel: DayCardViewModel by activityViewModels()
+    private lateinit var binding: DivinationCardFragmentBinding
+    private val viewModel: CardViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DivinationDayCardFragmentBinding.inflate(inflater, container, false)
+        binding = DivinationCardFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        updateView()
+    }
 
-        viewModel.getDayCard().observe(viewLifecycleOwner) {
+    private fun updateView(){
+        viewModel.getCard().observe(viewLifecycleOwner) {
             binding.tvCardName.text = it.name
             binding.tvCardOtherName.text = it.otherName
             binding.tvCardType.text = it.type

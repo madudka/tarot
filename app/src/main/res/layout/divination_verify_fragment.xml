@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.divination.VerifyFragment"
     tools:background="@drawable/background">
-    <!--tools:background="@drawable/background"-->
 
     <TextView
         android:id="@+id/verify_header"

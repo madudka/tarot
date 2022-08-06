@@ -5,46 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.divination.CardAdviceInputFragment">
-    <!--tools:background="@drawable/background"-->
+    tools:context=".view.divination.InputFragment"
+    tools:background="@drawable/background">
 
     <TextView
+        android:id="@+id/tv_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/card_advice"
         android:textAppearance="@style/Custom.TextAppearanceHeadline"
-        android:gravity="center"/>
+        android:gravity="center"
+        tools:text="Заголовок"/>
 
     <TextView
+        android:id="@+id/tv_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:layout_marginBottom="64dp"
-        android:text="@string/your_question"
         android:textAppearance="@style/Custom.TextAppearanceHeadline1"
-        android:gravity="center"/>
+        android:gravity="center"
+        tools:text="Описание"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField"
+        android:id="@+id/text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/write_question_mark"
         android:padding="12dp"
         app:endIconMode="clear_text"
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:helperTextEnabled="true"
-        app:helperText="@string/think_question"
         app:startIconDrawable="@drawable/ic_create"
-        style="@style/Custom.TextInput">
+        style="@style/Custom.TextInput"
+        tools:hint="Подсказка ввода"
+        tools:helperText="Небольшое описание">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInput"
+            android:id="@+id/text_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
             android:fontFamily="@font/elmessiri_semibold"/>
 
     </com.google.android.material.textfield.TextInputLayout>

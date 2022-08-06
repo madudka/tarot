@@ -4,23 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.divination.CardAdviceFragment">
-    <!--tools:background="@drawable/background"-->
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/card_advice"
-        android:textAppearance="@style/Custom.TextAppearanceHeadline"
-        android:gravity="center"/>
+    tools:context=".view.divination.CardFragment"
+    tools:background="@drawable/background">
 
 
     <androidx.cardview.widget.CardView xmlns:cardView="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_marginTop="48dp"
         cardView:cardBackgroundColor="@android:color/transparent">
 
         <androidx.constraintlayout.widget.ConstraintLayout

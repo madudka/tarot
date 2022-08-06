@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.madudka.tarot.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationFragmentBinding
 import com.madudka.tarot.view.App.Companion.now
@@ -34,19 +35,20 @@ class DivinationFragment : Fragment() {
         binding.btnDivinationVerify.setOnClickListener {
             if (flagVerify){
                 it.findNavController()
-                    .navigate(R.id.action_divinationFragment_to_divinationVerifyFragment)
+                    .navigate(R.id.action_divinationFragment_to_verifyFragment)
             }
             else showDialogInfo(requireContext())
         }
         binding.btnDivinationDayCard.setOnClickListener {
             if (flagDayCard) {
-                it.findNavController()
-                    .navigate(R.id.action_divinationFragment_to_divinationDayCardInputFragment)
+                val action = DivinationFragmentDirections.actionDivinationFragmentToInputFragment(DivinationType.DAY_CARD)
+                it.findNavController().navigate(action)
             }
             else showDialogInfo(requireContext())
         }
         binding.btnDivinationAdvice.setOnClickListener {
-            it.findNavController().navigate(R.id.action_divinationFragment_to_divinationCardAdviceInputFragment)
+            val action = DivinationFragmentDirections.actionDivinationFragmentToInputFragment(DivinationType.ADVICE)
+            it.findNavController().navigate(action)
         }
     }
 

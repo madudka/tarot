@@ -2,18 +2,12 @@ package com.madudka.tarot.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
-import com.madudka.tarot.view.divination.DayCardImageFragment
 
 class MainActivity : AppCompatActivity() {
 

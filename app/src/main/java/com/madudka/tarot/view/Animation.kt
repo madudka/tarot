@@ -34,7 +34,7 @@ fun View.customScaleOutWithMove(
     }
 
     val moveX = PropertyValuesHolder.ofFloat(View.TRANSLATION_X, -310F)
-    val moveY = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, -260F)
+    val moveY = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, -400F)
     val move = ObjectAnimator.ofPropertyValuesHolder(this, moveX, moveY).apply {
         //duration = dur
         //startDelay = del
