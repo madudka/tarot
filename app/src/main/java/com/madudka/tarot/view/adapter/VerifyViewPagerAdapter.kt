@@ -14,7 +14,7 @@ class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
         return ImageCardHolder(binding)
     }
 
-    inner class ImageCardHolder(val binding: DivinationVerifyViewPagerItemBinding) : BaseViewHolder(binding.root){
+    inner class ImageCardHolder(private val binding: DivinationVerifyViewPagerItemBinding) : BaseViewHolder(binding.root){
         override fun bindView(position: Int) {
             val item = listData[position]
 

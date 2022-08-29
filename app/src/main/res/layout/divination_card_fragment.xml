@@ -7,7 +7,6 @@
     tools:context=".view.divination.CardFragment"
     tools:background="@drawable/background">
 
-
     <androidx.cardview.widget.CardView xmlns:cardView="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cardView"
         android:layout_width="match_parent"

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
+        <item name="checkboxStyle">@style/Custom.CheckBox</item>
     </style>
 
     <style name="Custom.BottomNavView" parent="Widget.Material3.BottomNavigationView">
@@ -127,6 +128,14 @@
 
     <style name="Custom.AlertDialog.Button.Text" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">@color/dark_red</item>
+    </style>
+    
+    <!--CHECKBOX-->
+    
+    <style name="Custom.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="android:buttonTint">@drawable/custom_checkbox_color_selector</item>
+        <item name="android:textColor">@color/peach</item>
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
     </style>
 
 </resources>

@@ -3,11 +3,8 @@ package com.madudka.tarot.view.adapter
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import com.madudka.tarot.databinding.ListItemDivinationVerifyBinding
 import com.madudka.tarot.model.VerifyModel
-import com.madudka.tarot.view.customScalePulseWithMove
-import com.madudka.tarot.view.divination.VerifyViewPagerFragment
 
 class VerifyListAdapter : BaseAdapter<VerifyModel>(){
 
@@ -19,7 +16,7 @@ class VerifyListAdapter : BaseAdapter<VerifyModel>(){
         return ImageCardHolder(binding)
     }
 
-    inner class ImageCardHolder(val binding: ListItemDivinationVerifyBinding) : BaseViewHolder(binding.root){
+    inner class ImageCardHolder(private val binding: ListItemDivinationVerifyBinding) : BaseViewHolder(binding.root){
         override fun bindView(position: Int) {
             val item = listData[position]
 

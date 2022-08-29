@@ -17,7 +17,6 @@ import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.view.adapter.VerifyListAdapter
 import com.madudka.tarot.viewmodel.divination.VerifyViewModel
-import java.text.FieldPosition
 
 class VerifyFragment : BaseFragment<List<VerifyModel>>() {
 
@@ -62,7 +61,7 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
         }
     }
 
-    private fun setVerifyInfo(straight: Int): String = when {
+    private fun setVerifyInfo(straight: Int) = when {
         straight > 5 -> getString(R.string.verify_info_yes, straight)
         straight < 5 -> getString(R.string.verify_info_no, straight)
         else -> getString(R.string.verify_info_unknown)

@@ -12,7 +12,7 @@
         android:title="@string/label_layouts"/>
 
     <item
-        android:id="@+id/divinationFragment"
+        android:id="@+id/divination"
         android:icon="@drawable/ic_menu_item_divination"
         android:title="@string/label_divination"/>
 

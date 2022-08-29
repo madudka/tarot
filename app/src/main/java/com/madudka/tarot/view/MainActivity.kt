@@ -2,16 +2,20 @@ package com.madudka.tarot.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
+    //private lateinit var navController: NavController
+    //private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,17 +27,18 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val navView = binding.bottomNavView
-        val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.cardsFragment,
-            R.id.layoutsFragment,
-            R.id.divinationFragment,
-            R.id.potionsFragment,
-            R.id.settingsFragment
-        ))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        //if (savedInstanceState == null)
+        setupBottomNavigationView()
+    }
 
+//    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+//        super.onRestoreInstanceState(savedInstanceState)
+//        //setupBottomNavigationView()
+//    }
+
+    private fun setupBottomNavigationView(){
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavView.setupWithNavController(navController)
     }
 }
