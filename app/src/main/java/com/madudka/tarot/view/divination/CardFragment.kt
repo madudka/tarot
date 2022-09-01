@@ -19,7 +19,7 @@ class CardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DivinationCardFragmentBinding.inflate(layoutInflater, container, false)
+        binding = DivinationCardFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

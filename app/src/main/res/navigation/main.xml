@@ -7,11 +7,8 @@
 
     <include app:graph="@navigation/divination"/>
 
-    <fragment
-        android:id="@+id/cardsFragment"
-        android:name="com.madudka.tarot.view.cards.CardsFragment"
-        android:label="cards_fragment"
-        tools:layout="@layout/cards_fragment" />
+    <include app:graph="@navigation/cards"/>
+
     <fragment
         android:id="@+id/layoutsFragment"
         android:name="com.madudka.tarot.view.LayoutsFragment"

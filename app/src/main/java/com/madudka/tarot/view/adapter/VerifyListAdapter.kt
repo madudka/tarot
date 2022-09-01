@@ -27,7 +27,7 @@ class VerifyListAdapter : BaseAdapter<VerifyModel>(){
                 rotation = if (item.inverted) 180F else 0F
             }
 
-            binding.frameItemVerify.setOnClickListener {
+            binding.layoutItemVerify.setOnClickListener {
                 clickListener.onItemClick(item, position)
             }
         }

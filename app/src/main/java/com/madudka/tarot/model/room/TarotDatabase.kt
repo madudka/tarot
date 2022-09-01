@@ -14,6 +14,8 @@ abstract class TarotDatabase : RoomDatabase() {
     abstract fun getDayCardDao(): DayCardDao
     abstract fun getCardAdviceDao(): CardAdviceDao
 
+    abstract fun getCards(): CardsDao
+
     companion object : SingletonHolder<TarotDatabase, Context>({
         Room.databaseBuilder(it.applicationContext, TarotDatabase::class.java, "tarot.db")
             .createFromAsset("database/tarot.db")

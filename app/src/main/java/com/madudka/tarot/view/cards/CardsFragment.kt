@@ -1,33 +1,126 @@
 package com.madudka.tarot.view.cards
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.madudka.tarot.CardType
 import com.madudka.tarot.R
-import com.madudka.tarot.viewmodel.CardsViewModel
+import com.madudka.tarot.databinding.CardsFragmentBinding
+import com.madudka.tarot.model.CardModel
+import com.madudka.tarot.view.BaseFragment
+import com.madudka.tarot.view.adapter.CardsListAdapter
+import com.madudka.tarot.view.adapter.OnItemClickListener
+import com.madudka.tarot.viewmodel.cards.CardsViewModel
 
-class CardsFragment : Fragment() {
+class CardsFragment : BaseFragment<List<CardModel>>() {
 
-    companion object {
-        fun newInstance() = CardsFragment()
-    }
-
-    private lateinit var viewModel: CardsViewModel
+    private lateinit var binding: CardsFragmentBinding
+    private val viewModel: CardsViewModel by activityViewModels()
+    private val cardsListAdapter = CardsListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.cards_fragment, container, false)
+        binding = CardsFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CardsViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val manager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
+        cardsListAdapter.clickListener = clickListener
+        binding.rvCards.apply {
+            adapter = cardsListAdapter
+            layoutManager = manager
+            layoutAnimation = animation
+            setHasFixedSize(true)
+        }
+
+        setSearchView()
+        setCheckBoxes()
+
+        viewModel.getCards().observe(viewLifecycleOwner){
+            setData(it)
+            updateView()
+        }
     }
 
+    override fun updateView() {
+        listData?.let { list ->
+            cardsListAdapter.updateData(list)
+            binding.rvCards.scheduleLayoutAnimation()
+        }
+    }
+
+    private val clickListener = object : OnItemClickListener<CardModel>{
+        override fun onItemClick(item: CardModel, position: Int) {
+            //TODO Добавить переход на подробную информацию о карте
+        }
+    }
+
+    private fun setSearchView(){
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                filterData(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterData(newText)
+                return false
+            }
+        })
+    }
+
+    private fun filterData(s: String? = binding.searchView.query.toString()) {
+        val cardTypeList = mutableListOf(
+            CardType.MAJOR_ARCANA,
+            CardType.WANDS,
+            CardType.CUPS,
+            CardType.SWORDS,
+            CardType.PENTACLES
+        )
+
+        if (!binding.cbMajorArcana.isChecked) cardTypeList.remove(CardType.MAJOR_ARCANA)
+        if (!binding.cbWands.isChecked) cardTypeList.remove(CardType.WANDS)
+        if (!binding.cbCups.isChecked) cardTypeList.remove(CardType.CUPS)
+        if (!binding.cbSwords.isChecked) cardTypeList.remove(CardType.SWORDS)
+        if (!binding.cbPentacles.isChecked) cardTypeList.remove(CardType.PENTACLES)
+
+        s?.let {
+            listData?.let { list ->
+                cardsListAdapter.updateData(
+                    list.filter { item -> item.type in cardTypeList.map { it.id } }
+                        .filter { it.name.lowercase().contains(s.trim()) }
+                )
+            }
+        }
+    }
+
+    private fun setCheckBoxes(){
+        binding.cbMajorArcana.setOnCheckedChangeListener { _, _ ->
+            filterData()
+        }
+        binding.cbWands.setOnCheckedChangeListener { _, _ ->
+            filterData()
+        }
+        binding.cbCups.setOnCheckedChangeListener { _, _ ->
+            filterData()
+        }
+        binding.cbSwords.setOnCheckedChangeListener { _, _ ->
+            filterData()
+        }
+        binding.cbPentacles.setOnCheckedChangeListener { _, _ ->
+            filterData()
+        }
+    }
 }

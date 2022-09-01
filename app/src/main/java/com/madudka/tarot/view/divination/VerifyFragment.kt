@@ -30,7 +30,7 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
     ): View? {
         settings.verifyDate = now
 
-        binding = DivinationVerifyFragmentBinding.inflate(layoutInflater, container, false)
+        binding = DivinationVerifyFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

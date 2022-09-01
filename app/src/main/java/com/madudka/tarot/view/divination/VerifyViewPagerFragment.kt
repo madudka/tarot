@@ -23,7 +23,7 @@ class VerifyViewPagerFragment : BaseFragment<List<VerifyModel>>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DivinationVerifyViewPagerFragmentBinding.inflate(layoutInflater, container, false)
+        binding = DivinationVerifyViewPagerFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
