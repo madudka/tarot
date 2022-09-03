@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.madudka.tarot.CardType
 import com.madudka.tarot.R
@@ -16,6 +17,7 @@ import com.madudka.tarot.model.CardModel
 import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.view.adapter.CardsListAdapter
 import com.madudka.tarot.view.adapter.OnItemClickListener
+import com.madudka.tarot.viewmodel.cards.CardFullViewModel
 import com.madudka.tarot.viewmodel.cards.CardsViewModel
 
 class CardsFragment : BaseFragment<List<CardModel>>() {
@@ -23,6 +25,7 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
     private lateinit var binding: CardsFragmentBinding
     private val viewModel: CardsViewModel by activityViewModels()
     private val cardsListAdapter = CardsListAdapter()
+    private val viewModelFull: CardFullViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +36,6 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         val manager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
         cardsListAdapter.clickListener = clickListener
@@ -63,7 +64,8 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
 
     private val clickListener = object : OnItemClickListener<CardModel>{
         override fun onItemClick(item: CardModel, position: Int) {
-            //TODO Добавить переход на подробную информацию о карте
+            viewModelFull.loadCardFull(item.id)
+            findNavController().navigate(R.id.action_cardsFragment_to_cardFullFragment)
         }
     }
 

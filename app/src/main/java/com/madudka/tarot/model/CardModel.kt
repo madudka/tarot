@@ -14,6 +14,7 @@ data class CardModel(
 
         if (id != other.id) return false
         if (name != other.name) return false
+        if (type != other.type) return false
         if (!image.contentEquals(other.image)) return false
 
         return true
@@ -22,7 +23,9 @@ data class CardModel(
     override fun hashCode(): Int {
         var result = id
         result = 31 * result + name.hashCode()
+        result = 31 * result + type
         result = 31 * result + image.contentHashCode()
         return result
     }
+
 }

@@ -10,11 +10,12 @@ import androidx.room.RoomDatabase
     exportSchema = false, version = 1)
 abstract class TarotDatabase : RoomDatabase() {
 
-    abstract fun getVerify(): VerifyDao
+    abstract fun getVerifyDao(): VerifyDao
     abstract fun getDayCardDao(): DayCardDao
     abstract fun getCardAdviceDao(): CardAdviceDao
 
-    abstract fun getCards(): CardsDao
+    abstract fun getCardsDao(): CardsDao
+    abstract fun getCardFullDao(): CardFullDao
 
     companion object : SingletonHolder<TarotDatabase, Context>({
         Room.databaseBuilder(it.applicationContext, TarotDatabase::class.java, "tarot.db")

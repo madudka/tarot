@@ -9,5 +9,17 @@
         android:id="@+id/cardsFragment"
         android:name="com.madudka.tarot.view.cards.CardsFragment"
         android:label="cards_fragment"
-        tools:layout="@layout/cards_fragment" />
+        tools:layout="@layout/cards_fragment" >
+        <action
+            android:id="@+id/action_cardsFragment_to_cardFullFragment"
+            app:destination="@id/cardFullFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardFullFragment"
+        android:name="com.madudka.tarot.view.cards.CardFullFragment"
+        android:label="cards_card_fragment"
+        tools:layout="@layout/cards_card_fragment" />
 </navigation>

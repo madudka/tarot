@@ -35,8 +35,6 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         val manager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
         val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
         imageCardListAdapter.clickListener = clickListener

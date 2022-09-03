@@ -1,5 +1,6 @@
 package com.madudka.tarot.model.repository
 
+import com.madudka.tarot.model.CardFullModel
 import com.madudka.tarot.model.CardModel
 import com.madudka.tarot.model.DivinationCardModel
 import com.madudka.tarot.view.App.Companion.db
@@ -9,5 +10,7 @@ class CardRepository {
 
     fun getDayCardFromDb(id: Int) : DivinationCardModel = db.getDayCardDao().selectDayCard(id)
 
-    fun getAllCards() : List<CardModel> = db.getCards().selectAllCards()
+    fun getAllCards() : List<CardModel> = db.getCardsDao().selectAllCards()
+
+    fun getCardFull(id: Int) : CardFullModel = db.getCardFullDao().selectCard(id)
 }

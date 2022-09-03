@@ -25,7 +25,7 @@
         \nОбратитесь за раскладом к тарологу.</string>
     <string name="verify_info_no">%1$d из 10 карт находятся в прямом положении.
         \nВысшие силы сегодня не готовы ответить на Ваши вопросы.
-        \nРасклад лучше перенести на другой день.</string>ы
+        \nРасклад лучше перенести на другой день.</string>
     <!--ДИАЛОГ-->
     <string name="title_limit">Не сегодня…</string>
     <string name="day_limit">Данное гадание можно осуществлять раз в сутки, пожалуйста приходите завтра</string>
@@ -34,11 +34,24 @@
     <string name="click_to_find_out_more">Нажмите на карту, чтобы узнать подробности...</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    
+
     <!--КАРТЫ-->
     <string name="major_arcana">Старшие арканы</string>
     <string name="wands">Жезлы</string>
     <string name="cups">Кубки</string>
     <string name="swords">Мечи</string>
     <string name="pentacles">Пентакли</string>
+    
+    <string name="briefly">Кратко</string>
+    <string name="common">Общее</string>
+    <string name="love">Любовь/отношения</string>
+    <string name="question">Ситуация/вопрос</string>
+    <string name="straight">\nПрямое положение\n</string>
+    <string name="inverted">\nПеревернутое положение\n</string>
+    <string name="card_info">%1$s
+        \n<b>Прямое положение</b>
+        \n%2$s
+        \n<b>Перевернутое положение</b>
+        \n%3$s</string>
+    <string name="card_info_single">%1$s\n%2$s/</string>
 </resources>

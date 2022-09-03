@@ -15,6 +15,9 @@ data class DivinationCardModel(
         other as DivinationCardModel
 
         if (id != other.id) return false
+        if (name != other.name) return false
+        if (type != other.type) return false
+        if (otherName != other.otherName) return false
         if (info != other.info) return false
         if (!image.contentEquals(other.image)) return false
 
@@ -23,8 +26,12 @@ data class DivinationCardModel(
 
     override fun hashCode(): Int {
         var result = id
+        result = 31 * result + name.hashCode()
+        result = 31 * result + type.hashCode()
+        result = 31 * result + otherName.hashCode()
         result = 31 * result + info.hashCode()
         result = 31 * result + image.contentHashCode()
         return result
     }
+
 }
