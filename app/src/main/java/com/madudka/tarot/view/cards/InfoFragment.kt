@@ -54,6 +54,8 @@ class InfoFragment : Fragment() {
         }
     }
 
+
+
     private fun setExpandableTextView(etv: ItemExpandedTextViewBinding, header: String, straight: String, inverted: String){
         setExpandImage(etv)
         etv.expandTextView.text = setExpandTextViewHeader(header)

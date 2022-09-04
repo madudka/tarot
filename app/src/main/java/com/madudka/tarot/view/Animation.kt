@@ -1,6 +1,7 @@
 package com.madudka.tarot.view
 
 import android.animation.*
+import android.opengl.Visibility
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.core.animation.doOnEnd
@@ -83,4 +84,26 @@ private fun ObjectAnimator.disableViewDuringAnimation(view: View) {
             view.isEnabled = true
         }
     })
+}
+
+fun View.fadeHide() {
+    this.animate()
+        .alpha(0F)
+        .setDuration(resources.getInteger(android.R.integer.config_mediumAnimTime).toLong())
+        .setListener(object : AnimatorListenerAdapter(){
+            override fun onAnimationEnd(animation: Animator?) {
+                this@fadeHide.visibility = View.GONE
+            }
+        })
+}
+
+fun View.fadeShow() {
+    this.animate()
+        .alpha(1F)
+        .setDuration(resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
+        .setListener(object : AnimatorListenerAdapter(){
+            override fun onAnimationEnd(animation: Animator?) {
+                this@fadeShow.visibility = View.VISIBLE
+            }
+        })
 }

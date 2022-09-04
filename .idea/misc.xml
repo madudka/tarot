@@ -16,18 +16,19 @@
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_card_image_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_fragment.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_image_fragment.xml" value="0.22" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_info_fragment.xml" value="0.22" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_advice_fragment.xml" value="0.1" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_advice_input_fragment.xml" value="0.16621376811594202" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_card_advice_fragment.xml" value="0.1" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_card_advice_image_fragment.xml" value="0.1" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_card_advice_input_fragment.xml" value="0.16621376811594202" />
-        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_card_fragment.xml" value="0.25" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_card_fragment.xml" value="0.17037037037037037" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_day_card_fragment.xml" value="0.2247191011235955" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_day_card_image_fragment.xml" value="0.2" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_day_card_input_fragment.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_fragment.xml" value="0.22" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_image_fragment.xml" value="0.20416666666666666" />
-        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_input_fragment.xml" value="0.203125" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_input_fragment.xml" value="0.1" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_verify_fragment.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_verify_item_view_pager.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/divination_verify_list_fragment.xml" value="0.1" />

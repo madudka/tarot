@@ -7,6 +7,32 @@
     android:background="@drawable/background"
     tools:context=".view.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="15dp"
+            android:src="@drawable/ic_arrow_back"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="15dp"
+            android:src="@drawable/ic_broom"/>
+        
+    </LinearLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -16,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_panel"
         app:navGraph="@navigation/main" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
