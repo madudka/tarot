@@ -15,12 +15,9 @@ import com.madudka.tarot.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
-    //private lateinit var navController: NavController
-    //private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
@@ -28,14 +25,12 @@ class MainActivity : AppCompatActivity(){
 
         supportActionBar?.hide()
 
-        //if (savedInstanceState == null)
         setupBottomNavigationView()
-    }
 
-//    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-//        super.onRestoreInstanceState(savedInstanceState)
-//        //setupBottomNavigationView()
-//    }
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
 
     private fun setupBottomNavigationView(){
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -45,6 +40,13 @@ class MainActivity : AppCompatActivity(){
             binding.bottomNavView.visibility =
                 if(destination.id == R.id.imageCardsFragment) View.GONE
                 else View.VISIBLE
+
+            when (destination.id) {
+                R.id.cardsFragment, R.id.layoutsFragment, R.id.divinationFragment,
+                R.id.potionsFragment, R.id.settingsFragment -> binding.topPanel.fadeHide()
+                else -> binding.topPanel.fadeShow()
+
+            }
         }
     }
 }
