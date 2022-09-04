@@ -18,6 +18,7 @@ class CardFullViewModel : ViewModel() {
     }
 
     fun getCardFull(): LiveData<CardFullModel> = cardFull
+    fun getImage() = cardFull.value?.image
 
     fun loadCardFull(id: Int){
         viewModelScope.launch {

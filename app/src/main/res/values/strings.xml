@@ -41,11 +41,13 @@
     <string name="cups">Кубки</string>
     <string name="swords">Мечи</string>
     <string name="pentacles">Пентакли</string>
-    
+
     <string name="briefly">Кратко</string>
     <string name="common">Общее</string>
     <string name="love">Любовь/отношения</string>
     <string name="question">Ситуация/вопрос</string>
+    <string name="day">Карта дня\n</string>
+    <string name="advice">Совет карты\n</string>
     <string name="straight">\nПрямое положение\n</string>
     <string name="inverted">\nПеревернутое положение\n</string>
     <string name="card_info">%1$s

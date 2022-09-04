@@ -2,6 +2,7 @@ package com.madudka.tarot.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -40,5 +41,10 @@ class MainActivity : AppCompatActivity(){
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bottomNavView.visibility =
+                if(destination.id == R.id.imageCardsFragment) View.GONE
+                else View.VISIBLE
+        }
     }
 }

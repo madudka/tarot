@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -65,7 +64,7 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
     private val clickListener = object : OnItemClickListener<CardModel>{
         override fun onItemClick(item: CardModel, position: Int) {
             viewModelFull.loadCardFull(item.id)
-            findNavController().navigate(R.id.action_cardsFragment_to_cardFullFragment)
+            findNavController().navigate(R.id.action_cardsFragment_to_cardsInfoFragment)
         }
     }
 

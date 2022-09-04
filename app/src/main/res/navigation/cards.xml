@@ -11,15 +11,29 @@
         android:label="cards_fragment"
         tools:layout="@layout/cards_fragment" >
         <action
-            android:id="@+id/action_cardsFragment_to_cardFullFragment"
-            app:destination="@id/cardFullFragment"
+            android:id="@+id/action_cardsFragment_to_cardsInfoFragment"
+            app:destination="@id/cardsInfoFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in" />
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/cardFullFragment"
-        android:name="com.madudka.tarot.view.cards.CardFullFragment"
-        android:label="cards_card_fragment"
-        tools:layout="@layout/cards_card_fragment" />
+        android:id="@+id/cardsInfoFragment"
+        android:name="com.madudka.tarot.view.cards.InfoFragment"
+        android:label="cards_info_fragment"
+        tools:layout="@layout/cards_info_fragment" >
+        <action
+            android:id="@+id/action_cardsInfoFragment_to_imageFragment"
+            app:destination="@id/imageCardsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageCardsFragment"
+        android:name="com.madudka.tarot.view.cards.ImageFragment"
+        android:label="cards_image_fragment"
+        tools:layout="@layout/cards_image_fragment" />
 </navigation>

@@ -9,13 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:maxCollapsedLines="1"
+        app:animAlphaStart="1"
         app:animDuration="200">
 
         <TextView
             android:id="@id/expandable_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             style="@style/Custom.TextAppearanceInfoFull"/>
 
         <ImageButton
@@ -23,10 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_arrow_down"
             android:layout_gravity="end"
-            android:layout_marginBottom="10dp"
-            android:padding="16dp"/>
+            android:paddingEnd="16dp"/>
 
     </com.ms.square.android.expandabletextview.ExpandableTextView>
 
