@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_checkbox_color_selector.xml" value="0.117" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_chip_bg_color_selector.xml" value="0.113" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_chip_stroke_color_selector.xml" value="0.113" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_cursor_color.xml" value="0.153" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_linear_layout_bg_shape.xml" value="0.117" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_nav_bar_ripple_color_selector.xml" value="0.1105" />

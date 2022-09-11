@@ -9,11 +9,8 @@
 
     <include app:graph="@navigation/cards"/>
 
-    <fragment
-        android:id="@+id/layoutsFragment"
-        android:name="com.madudka.tarot.view.LayoutsFragment"
-        android:label="layouts_fragment"
-        tools:layout="@layout/layouts_fragment" />
+    <include app:graph="@navigation/layouts"/>
+
     <fragment
         android:id="@+id/potionsFragment"
         android:name="com.madudka.tarot.view.PotionsFragment"

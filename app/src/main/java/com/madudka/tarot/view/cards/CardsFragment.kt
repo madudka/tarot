@@ -46,7 +46,7 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
         }
 
         setSearchView()
-        setCheckBoxes()
+        setChips()
 
         viewModel.getCards().observe(viewLifecycleOwner){
             setData(it)
@@ -91,11 +91,11 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
             CardType.PENTACLES
         )
 
-        if (!binding.cbMajorArcana.isChecked) cardTypeList.remove(CardType.MAJOR_ARCANA)
-        if (!binding.cbWands.isChecked) cardTypeList.remove(CardType.WANDS)
-        if (!binding.cbCups.isChecked) cardTypeList.remove(CardType.CUPS)
-        if (!binding.cbSwords.isChecked) cardTypeList.remove(CardType.SWORDS)
-        if (!binding.cbPentacles.isChecked) cardTypeList.remove(CardType.PENTACLES)
+        if (!binding.chipMajorArcana.isChecked) cardTypeList.remove(CardType.MAJOR_ARCANA)
+        if (!binding.chipWands.isChecked) cardTypeList.remove(CardType.WANDS)
+        if (!binding.chipCups.isChecked) cardTypeList.remove(CardType.CUPS)
+        if (!binding.chipSwords.isChecked) cardTypeList.remove(CardType.SWORDS)
+        if (!binding.chipPentacles.isChecked) cardTypeList.remove(CardType.PENTACLES)
 
         s?.let {
             listData?.let { list ->
@@ -107,20 +107,8 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
         }
     }
 
-    private fun setCheckBoxes(){
-        binding.cbMajorArcana.setOnCheckedChangeListener { _, _ ->
-            filterData()
-        }
-        binding.cbWands.setOnCheckedChangeListener { _, _ ->
-            filterData()
-        }
-        binding.cbCups.setOnCheckedChangeListener { _, _ ->
-            filterData()
-        }
-        binding.cbSwords.setOnCheckedChangeListener { _, _ ->
-            filterData()
-        }
-        binding.cbPentacles.setOnCheckedChangeListener { _, _ ->
+    private fun setChips(){
+        binding.chipGroupFilter.setOnCheckedStateChangeListener { _, _ ->
             filterData()
         }
     }

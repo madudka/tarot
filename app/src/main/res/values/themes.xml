@@ -147,4 +147,16 @@
         <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
     </style>
 
+    <!--CHIP-->
+    <style name="Custom.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
+        <item name="android:textColor">@color/peach</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="checkedIcon">@drawable/ic_visibility</item>
+        <item name="chipStrokeColor">@drawable/custom_chip_stroke_color_selector</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
+        <item name="rippleColor">@color/dark_red</item>
+    </style>
+
 </resources>
