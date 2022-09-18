@@ -66,7 +66,7 @@
         <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
         <item name="android:textColor">@color/platinum</item>
         <item name="fontFamily">@font/elmessiri_semibold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:padding">12dp</item>
         <item name="android:textAlignment">center</item>
     </style>
@@ -129,6 +129,7 @@
         <item name="android:buttonBarPositiveButtonStyle">@style/Custom.AlertDialog.Button</item>
         <item name="android:background">@color/platinum</item>
         <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="Custom.AlertDialog.Button" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
@@ -157,6 +158,24 @@
         <item name="chipStrokeWidth">2dp</item>
         <item name="chipSurfaceColor">@android:color/transparent</item>
         <item name="rippleColor">@color/dark_red</item>
+    </style>
+
+    <!--ExposedDropDownMenu-->
+
+    <style name="Custom.ExposedDropdownMenu"
+        parent="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="android:textColorHint">@color/platinum</item>
+        <item name="android:textAlignment">center</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="counterTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="counterTextColor">@color/platinum</item>
+        <item name="errorTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="helperTextTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="helperTextTextColor">@color/platinum</item>
+        <item name="hintTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="hintTextColor">@color/platinum</item>
+        <item name="placeholderTextColor">@color/dark_red</item>
     </style>
 
 </resources>

@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layouts">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layouts"
+    app:startDestination="@id/layoutsFragment">
 
+    <fragment
+        android:id="@+id/layoutsFragment"
+        android:name="com.madudka.tarot.view.layouts.LayoutsFragment"
+        android:label="layouts_fragment"
+        tools:layout="@layout/layouts_fragment" >
+        <action
+            android:id="@+id/action_layoutsFragment_to_infoFragment"
+            app:destination="@id/infoFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.madudka.tarot.view.layouts.InfoFragment"
+        android:label="layouts_info_fragment"
+        tools:layout="@layout/layouts_info_fragment" />
 </navigation>

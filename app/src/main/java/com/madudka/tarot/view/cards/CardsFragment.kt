@@ -97,13 +97,10 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
         if (!binding.chipSwords.isChecked) cardTypeList.remove(CardType.SWORDS)
         if (!binding.chipPentacles.isChecked) cardTypeList.remove(CardType.PENTACLES)
 
-        s?.let {
-            listData?.let { list ->
-                cardsListAdapter.updateData(
-                    list.filter { item -> item.type in cardTypeList.map { it.id } }
-                        .filter { it.name.lowercase().contains(s.trim()) }
-                )
-            }
+        listData?.let { _list ->
+            var list = _list.filter { item -> item.type in cardTypeList.map { it.id } }
+            if (!s.isNullOrBlank()) list = list.filter { it.name.lowercase().contains(s.trim()) }
+            cardsListAdapter.updateData(list)
         }
     }
 

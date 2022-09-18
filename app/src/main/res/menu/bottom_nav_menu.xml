@@ -7,7 +7,7 @@
         android:title="@string/label_cards"/>
 
     <item
-        android:id="@+id/layoutsFragment"
+        android:id="@+id/layouts"
         android:icon="@drawable/ic_menu_item_layouts"
         android:title="@string/label_layouts"/>
 
