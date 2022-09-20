@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_box_stroke_color_selector.xml" value="0.113" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_checkbox_color_selector.xml" value="0.117" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_chip_background_selector.xml" value="0.1065" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_chip_bg_color_selector.xml" value="0.113" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_chip_bg_selector.xml" value="0.1065" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_chip_stroke_color_selector.xml" value="0.113" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_cursor_color.xml" value="0.153" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_filter_spinner_bg_shape.xml" value="0.1" />
@@ -17,6 +19,8 @@
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_dialog_eye_triangle.xml" value="0.117" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/list_item_divination_verify.xml" value="0.1105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/astro_fragment.xml" value="0.25" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/astro_info_fragment.xml" value="0.18" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_card_fragment.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_card_image_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/cards_fragment.xml" value="0.22957198443579765" />

@@ -160,6 +160,13 @@
         <item name="rippleColor">@color/dark_red</item>
     </style>
 
+    <style name="Custom.ChipChoice" parent="Widget.Material3.Chip.Suggestion">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
+        <item name="android:textColor">@color/platinum</item>
+        <item name="android:textSize">22sp</item>
+        <item name="chipBackgroundColor">@drawable/custom_chip_bg_selector</item>
+    </style>
+
     <!--ExposedDropDownMenu-->
 
     <style name="Custom.ExposedDropdownMenu"

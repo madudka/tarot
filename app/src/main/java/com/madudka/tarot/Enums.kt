@@ -1,5 +1,7 @@
 package com.madudka.tarot
 
+import android.app.ActivityManager
+
 enum class DivinationType {
     DAY_CARD,
     ADVICE
@@ -25,3 +27,36 @@ enum class LayoutType(val id: Int, val description: String) {
     CHILDREN(8, "Дети"),
     TRAVEL(9, "Поездки/переезды/путешествия")
 }
+
+enum class SignType(val id: Int, val description: String) {
+    Aries(1, "Овен"),
+    Taurus(2, "Телец"),
+    Gemini(3, "Близнецы"),
+    Cancer(4, "Рак"),
+    Leo(5, "Лев"),
+    Virgo(6, "Дева"),
+    Libra(7, "Весы"),
+    Scorpio(8, "Скорпион"),
+    Sagittarius(9,"Стрелец"),
+    Capricorn(10,"Козерог"),
+    Aquarius(11,"Водолей"),
+    Pisces(12,"Рыбы")
+}
+
+enum class DayType(val id: Int, val description: String){
+    today(1, "Сегодня"),
+    yesterday(2, "Вчера"),
+    tomorrow(3, "Завтра")
+}
+
+
+
+
+
+
+
+
+
+
+
+

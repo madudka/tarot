@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/background"
+    tools:context=".view.astro.AstroFragment">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:chipSpacingHorizontal="30dp"
+        app:selectionRequired="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_yesterday"
+            style="@style/Custom.ChipChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вчера" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_today"
+            style="@style/Custom.ChipChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Сегодня" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_tomorrow"
+            style="@style/Custom.ChipChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Завтра" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <ImageView
+        android:id="@+id/img_view_aries"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/aries_circle"
+        app:layout_constraintBottom_toTopOf="@+id/img_view_taurus"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_leo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_group_day" />
+
+    <ImageView
+        android:id="@+id/img_view_leo"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/leo_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_aries"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_sagittarius"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_aries"
+        app:layout_constraintTop_toTopOf="@+id/img_view_aries" />
+
+    <ImageView
+        android:id="@+id/img_view_sagittarius"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/sagittarius_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_aries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_leo"
+        app:layout_constraintTop_toTopOf="@+id/img_view_aries" />
+
+    <ImageView
+        android:id="@+id/img_view_taurus"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/taurus_circle"
+        app:layout_constraintBottom_toTopOf="@+id/img_view_gemini"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_virgo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_view_aries" />
+
+    <ImageView
+        android:id="@+id/img_view_virgo"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/virgo_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_taurus"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_capricornus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_taurus"
+        app:layout_constraintTop_toTopOf="@+id/img_view_taurus" />
+
+    <ImageView
+        android:id="@+id/img_view_capricornus"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/capricornus_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_taurus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_virgo"
+        app:layout_constraintTop_toTopOf="@+id/img_view_taurus" />
+
+    <ImageView
+        android:id="@+id/img_view_gemini"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/gemini_circle"
+        app:layout_constraintBottom_toTopOf="@+id/img_view_cancer"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_libra"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_view_taurus" />
+
+    <ImageView
+        android:id="@+id/img_view_libra"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/libra_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_gemini"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_aquarius"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_gemini"
+        app:layout_constraintTop_toTopOf="@+id/img_view_gemini" />
+
+    <ImageView
+        android:id="@+id/img_view_aquarius"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/aquarius_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_gemini"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_libra"
+        app:layout_constraintTop_toTopOf="@+id/img_view_gemini" />
+
+    <ImageView
+        android:id="@+id/img_view_cancer"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/cancer_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_scorpio"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_view_gemini" />
+
+    <ImageView
+        android:id="@+id/img_view_scorpio"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/scorpio_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_cancer"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_pisces"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_cancer"
+        app:layout_constraintTop_toTopOf="@+id/img_view_cancer" />
+
+    <ImageView
+        android:id="@+id/img_view_pisces"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/pisces_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/img_view_cancer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_view_scorpio"
+        app:layout_constraintTop_toTopOf="@+id/img_view_cancer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

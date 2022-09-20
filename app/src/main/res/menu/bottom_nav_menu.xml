@@ -17,8 +17,8 @@
         android:title="@string/label_divination"/>
 
     <item
-        android:id="@+id/potionsFragment"
-        android:icon="@drawable/ic_menu_item_potions"
+        android:id="@+id/astro"
+        android:icon="@drawable/ic_menu_item_astro"
         android:title="@string/label_potions"/>
 
     <item

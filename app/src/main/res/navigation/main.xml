@@ -11,11 +11,8 @@
 
     <include app:graph="@navigation/layouts"/>
 
-    <fragment
-        android:id="@+id/potionsFragment"
-        android:name="com.madudka.tarot.view.PotionsFragment"
-        android:label="potions_fragment"
-        tools:layout="@layout/potions_fragment" />
+    <include app:graph="@navigation/astro"/>
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.madudka.tarot.view.SettingsFragment"

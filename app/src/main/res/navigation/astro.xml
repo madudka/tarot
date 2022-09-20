@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/astro"
+    app:startDestination="@id/astroFragment">
+
+    <fragment
+        android:id="@+id/astroFragment"
+        android:name="com.madudka.tarot.view.astro.AstroFragment"
+        android:label="astro_fragment"
+        tools:layout="@layout/astro_fragment" >
+        <action
+            android:id="@+id/action_astroFragment_to_astroInfoFragment"
+            app:destination="@id/astroInfoFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/astroInfoFragment"
+        android:name="com.madudka.tarot.view.astro.InfoFragment"
+        android:label="astro_info_fragment"
+        tools:layout="@layout/astro_info_fragment" />
+</navigation>
