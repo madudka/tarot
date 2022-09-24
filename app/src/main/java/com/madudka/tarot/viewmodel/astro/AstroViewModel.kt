@@ -21,22 +21,15 @@ class AstroViewModel : ViewModel() {
 
     private val astro: MutableLiveData<AstroModel> by lazy { MutableLiveData<AstroModel>() }
     private val error: MutableLiveData<String> by lazy { MutableLiveData<String>() }
-    private val loading: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
 
     fun getAstro(): LiveData<AstroModel> = astro
     fun getError(): LiveData<String> = error
-    fun getLoading(): LiveData<Boolean> = loading
 
     fun loadAstro(signType: SignType, dayType: DayType){
         viewModelScope.launch(exceptionHandler) {
             val fetchResult = fetchAstro(signType.name, dayType.name)
-            if (fetchResult.isSuccessful) {
-                astro.postValue(fetchResult.body())
-                loading.postValue(false)
-            } else {
-                error.postValue("Error: ${fetchResult.message()}")
-                loading.postValue(false)
-            }
+            if (fetchResult.isSuccessful) astro.postValue(fetchResult.body())
+            else error.postValue("Error: ${fetchResult.message()}")
         }
     }
 
@@ -48,6 +41,5 @@ class AstroViewModel : ViewModel() {
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         error.postValue("Exception handled: ${throwable.localizedMessage}")
-        loading.postValue(false)
     }
 }

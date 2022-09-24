@@ -8,19 +8,20 @@
     tools:background="@drawable/background">
 
     <ImageView
+        android:id="@+id/img_view_sign"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
         android:src="@drawable/taurus_circle"/>
 
     <TextView
-        android:id="@+id/tv_date"
+        android:id="@+id/tv_sign_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="20dp"
         android:textAppearance="@style/Custom.TextAppearanceInfoFull"
-        tools:text="Сегодня 20.09.2022"/>
+        tools:text="Тельцы 20.09.2022 Сегодня"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,9 +33,11 @@
         android:scrollbarThumbVertical="@color/peach">
 
         <LinearLayout
+            android:id="@+id/info_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tv_description"
@@ -82,10 +85,18 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textAppearance="@style/Custom.TextAppearanceInfoFull"
-                tools:text="Счастливое время: 05:00"/>
+                tools:text="Удачное время: 05:00"/>
 
         </LinearLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/img_view_loading"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        tools:background="@drawable/anim_potions"/>
 
 </LinearLayout>

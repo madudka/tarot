@@ -19,7 +19,7 @@
     <item
         android:id="@+id/astro"
         android:icon="@drawable/ic_menu_item_astro"
-        android:title="@string/label_potions"/>
+        android:title="@string/label_astro"/>
 
     <item
         android:id="@+id/settingsFragment"

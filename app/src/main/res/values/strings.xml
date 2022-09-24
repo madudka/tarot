@@ -3,7 +3,7 @@
     <string name="label_cards">Карты</string>
     <string name="label_layouts">Расклады</string>
     <string name="label_divination">Гадание</string>
-    <string name="label_potions">Зелья</string>
+    <string name="label_astro">Астро</string>
     <string name="label_settings">Настройки</string>
     <!--ГАДАНИЕ-->
     <string name="day_card">Карта дня</string>
@@ -87,4 +87,13 @@
         \nТаро — интуитивный Оракул, поэтому я вам рекомендую выбирать сигнификатор расклада также интуитивно. Если изображение на карте вызывает у вас чувство абсолютной уверенности, что лучше эту ситуацию никакая другая карта описать не может — значит, эта карта и будет самым правильным сигнификатором.
         \nЕсли вы хорошо знаете значение карт Таро — можете использовать и перевернутые карты в качестве Сигнификатора.
     </string>
+
+    <!--АСТРО-->
+    <string name="compatibility">Совместимость: %1$s</string>
+    <string name="mood">Настроение: %1$s</string>
+    <string name="color">Цвет: %1$s</string>
+    <string name="lucky_number">Счастливое число: %1$s</string>
+    <string name="lucky_time">Удачное время: %1$s</string>
+
+
 </resources>

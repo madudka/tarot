@@ -12,11 +12,9 @@ import com.madudka.tarot.DayType
 import com.madudka.tarot.R
 import com.madudka.tarot.SignType
 import com.madudka.tarot.databinding.AstroFragmentBinding
-import com.madudka.tarot.model.AstroModel
-import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
 
-class AstroFragment : BaseFragment<AstroModel>() {
+class AstroFragment : Fragment() {
 
     private lateinit var binding: AstroFragmentBinding
     private val viewModel: AstroViewModel by activityViewModels()
@@ -44,10 +42,6 @@ class AstroFragment : BaseFragment<AstroModel>() {
         binding.imgViewPisces.onSignClick()
     }
 
-    override fun updateView() {
-
-    }
-
     private fun ImageView.onSignClick() {
         this.setOnClickListener {
             val day = if (binding.chipYesterday.isChecked) DayType.yesterday
@@ -70,7 +64,8 @@ class AstroFragment : BaseFragment<AstroModel>() {
             }
 
             viewModel.loadAstro(sign, day)
-            findNavController().navigate(R.id.action_astroFragment_to_astroInfoFragment)
+            val action = AstroFragmentDirections.actionAstroFragmentToAstroInfoFragment(sign, day)
+            findNavController().navigate(action)
         }
     }
 }

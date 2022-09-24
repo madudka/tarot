@@ -8,8 +8,8 @@ import retrofit2.http.Query
 
 interface AstroApi {
 
-    @POST
-    fun getAstroData(
+    @POST(".")
+    suspend fun getAstroData(
         @Query("sign") sign: String,
         @Query("day") day: String = "Today"
     ) : Response<AstroModel>

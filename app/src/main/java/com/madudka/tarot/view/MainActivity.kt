@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(){
 
             when (destination.id) {
                 R.id.cardsFragment, R.id.layoutsFragment, R.id.divinationFragment,
-                R.id.potionsFragment, R.id.settingsFragment -> binding.topPanel.fadeHide()
+                R.id.astroFragment, R.id.settingsFragment -> binding.topPanel.fadeHide()
                 else -> binding.topPanel.fadeShow()
 
             }

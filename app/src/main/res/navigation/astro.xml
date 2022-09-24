@@ -22,5 +22,12 @@
         android:id="@+id/astroInfoFragment"
         android:name="com.madudka.tarot.view.astro.InfoFragment"
         android:label="astro_info_fragment"
-        tools:layout="@layout/astro_info_fragment" />
+        tools:layout="@layout/astro_info_fragment" >
+        <argument
+            android:name="signType"
+            app:argType="com.madudka.tarot.SignType" />
+        <argument
+            android:name="dayType"
+            app:argType="com.madudka.tarot.DayType" />
+    </fragment>
 </navigation>
