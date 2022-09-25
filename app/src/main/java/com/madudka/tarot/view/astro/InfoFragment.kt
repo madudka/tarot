@@ -7,11 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.madudka.tarot.R
 import com.madudka.tarot.SignType
 import com.madudka.tarot.databinding.AstroInfoFragmentBinding
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
+import com.madudka.tarot.viewmodel.astro.TranslatorViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -21,6 +26,7 @@ class InfoFragment : Fragment() {
     private lateinit var binding: AstroInfoFragmentBinding
     private val viewModel: AstroViewModel by activityViewModels()
     private val args: InfoFragmentArgs by navArgs()
+    private val translatorViewModel: TranslatorViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,17 +49,33 @@ class InfoFragment : Fragment() {
             .append(args.dayType.description)
 
         viewModel.getAstro().observe(viewLifecycleOwner){
-            binding.tvDescription.text = it.description
+            translatorViewModel.translateAstro(it)
+            translatorViewModel.getDescription().observe(viewLifecycleOwner){ description ->
+                binding.tvDescription.text = description
+            }
+
             binding.tvCompatibility.text = getString(R.string.compatibility, it.compatibility.signTranslate())
-            binding.tvMood.text = getString(R.string.mood, it.mood)
-            binding.tvColor.text = getString(R.string.color, it.color)
+
+            translatorViewModel.getMood().observe(viewLifecycleOwner){ mood ->
+                binding.tvMood.text = getString(R.string.mood, mood)
+            }
+            translatorViewModel.getColor().observe(viewLifecycleOwner){ color ->
+                binding.tvColor.text = getString(R.string.color, color)
+            }
+
             binding.tvLuckyNumber.text = getString(R.string.lucky_number, it.lucky_number)
             binding.tvLuckyTime.text = getString(R.string.lucky_time, it.lucky_time.normalizeTime())
 
-            (binding.imgViewLoading.background as AnimationDrawable).stop()
-            binding.imgViewLoading.visibility = View.GONE
+            viewLifecycleOwner.lifecycleScope.launch{
+                translatorViewModel.getTranslating().collectLatest { flag ->
+                    if (flag){
+                        (binding.imgViewLoading.background as AnimationDrawable).stop()
+                        binding.imgViewLoading.visibility = View.GONE
 
-            binding.infoLayout.visibility = View.VISIBLE
+                        binding.infoLayout.visibility = View.VISIBLE
+                    }
+                }
+            }
         }
 
         viewModel.getError().observe(viewLifecycleOwner){
@@ -61,7 +83,6 @@ class InfoFragment : Fragment() {
             (binding.imgViewLoading.background as AnimationDrawable).stop()
             binding.imgViewLoading.setBackgroundResource(R.drawable.ic_error)
         }
-
     }
 
     private fun getSignDrawable(): Int = when (args.signType) {
@@ -86,4 +107,5 @@ class InfoFragment : Fragment() {
 
     private fun String.signTranslate() =
         SignType.values().firstOrNull { it.name == this }?.description ?: ""
+
 }
