@@ -94,6 +94,7 @@
     <string name="color">Цвет: %1$s</string>
     <string name="lucky_number">Счастливое число: %1$s</string>
     <string name="lucky_time">Удачное время: %1$s</string>
+    <string name="string_with_origin">%1$s (оригинал)</string>
 
 
 </resources>

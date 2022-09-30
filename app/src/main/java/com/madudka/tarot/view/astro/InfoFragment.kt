@@ -2,10 +2,15 @@ package com.madudka.tarot.view.astro
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -51,16 +56,16 @@ class InfoFragment : Fragment() {
         viewModel.getAstro().observe(viewLifecycleOwner){
             translatorViewModel.translateAstro(it)
             translatorViewModel.getDescription().observe(viewLifecycleOwner){ description ->
-                binding.tvDescription.text = description
+                binding.tvDescription.setClickableOrigin(description, it.description)
             }
 
             binding.tvCompatibility.text = getString(R.string.compatibility, it.compatibility.signTranslate())
 
             translatorViewModel.getMood().observe(viewLifecycleOwner){ mood ->
-                binding.tvMood.text = getString(R.string.mood, mood)
+                binding.tvMood.setClickableOrigin(getString(R.string.mood, mood), getString(R.string.mood, it.mood))
             }
             translatorViewModel.getColor().observe(viewLifecycleOwner){ color ->
-                binding.tvColor.text = getString(R.string.color, color)
+                binding.tvColor.setClickableOrigin(getString(R.string.color, color), getString(R.string.color, it.color))
             }
 
             binding.tvLuckyNumber.text = getString(R.string.lucky_number, it.lucky_number)
@@ -108,4 +113,21 @@ class InfoFragment : Fragment() {
     private fun String.signTranslate() =
         SignType.values().firstOrNull { it.name == this }?.description ?: ""
 
+    private fun TextView.setClickableOrigin(text: String, origin: String){
+        val spannableString = SpannableString(getString(R.string.string_with_origin, text))
+
+        spannableString.setSpan(
+                object : ClickableSpan(){
+                    override fun onClick(widget: View) {
+                        (widget as TextView).text = origin
+                    }
+                },
+            text.length + 2,
+            text.length + 10,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        this.setText(spannableString, TextView.BufferType.SPANNABLE)
+        this.movementMethod = LinkMovementMethod.getInstance()
+    }
 }
