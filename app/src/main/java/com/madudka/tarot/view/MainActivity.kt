@@ -1,20 +1,34 @@
 package com.madudka.tarot.view
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.IBinder
 import android.view.View
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var soundService: SoundService
+    private var ssBound = false
+    private val ssConnection = object : ServiceConnection{
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            soundService = (service as SoundService.SSBinder).getService()
+            ssBound = true
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+            ssBound = false
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +43,26 @@ class MainActivity : AppCompatActivity(){
 
         binding.btnBack.setOnClickListener {
             onBackPressed()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Intent(this, SoundService::class.java).also {
+            bindService(it, ssConnection, Context.BIND_AUTO_CREATE)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (ssBound) soundService.pause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (ssBound) {
+            unbindService(ssConnection)
+            ssBound = false
         }
     }
 

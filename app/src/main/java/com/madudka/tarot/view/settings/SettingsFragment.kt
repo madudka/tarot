@@ -1,4 +1,4 @@
-package com.madudka.tarot.view
+package com.madudka.tarot.view.settings
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

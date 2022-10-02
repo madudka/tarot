@@ -185,4 +185,9 @@
         <item name="placeholderTextColor">@color/dark_red</item>
     </style>
 
+    <style name="Custom.Switch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline1</item>
+        <item name="thumbTint">@drawable/custom_switch_color_selector</item>
+    </style>
+
 </resources>

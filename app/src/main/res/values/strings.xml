@@ -96,5 +96,8 @@
     <string name="lucky_time">Удачное время: %1$s</string>
     <string name="string_with_origin">%1$s (оригинал)</string>
 
+    <!--НАСТРОЙКИ-->
+    <string name="music">Музыка</string>
+
 
 </resources>
