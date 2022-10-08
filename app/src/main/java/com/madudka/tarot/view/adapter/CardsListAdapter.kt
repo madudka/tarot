@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemCardsBinding
 import com.madudka.tarot.model.CardModel
+import com.madudka.tarot.view.toBitmap
 
 class CardsListAdapter : BaseAdapter<CardModel>() {
 
@@ -20,9 +21,7 @@ class CardsListAdapter : BaseAdapter<CardModel>() {
         override fun bindView(position: Int) {
             val item = listData[position]
 
-            binding.imgViewItemCard.setImageBitmap(
-                BitmapFactory.decodeByteArray(item.image, 0, item.image.size)
-            )
+            binding.imgViewItemCard.setImageBitmap(item.image.toBitmap())
 
             binding.tvCardName.text = item.name
 

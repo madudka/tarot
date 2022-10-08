@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.CardsImageFragmentBinding
+import com.madudka.tarot.view.toBitmap
 import com.madudka.tarot.viewmodel.cards.CardFullViewModel
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
@@ -28,9 +29,7 @@ class ImageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getImage()?.let {
-            binding.imgViewCard.setImageBitmap(
-                BitmapFactory.decodeByteArray(it, 0, it.size)
-            )
+            binding.imgViewCard.setImageBitmap(it.toBitmap())
         }
     }
 }

@@ -188,6 +188,12 @@
     <style name="Custom.Switch" parent="Widget.Material3.CompoundButton.Switch">
         <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline1</item>
         <item name="thumbTint">@drawable/custom_switch_color_selector</item>
+        <item name="trackTint">@drawable/custom_switch_track_color_selector</item>
+    </style>
+    
+    <!--CARD VIEW-->
+    <style name="Custom.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/dark_purple_90</item>
     </style>
 
 </resources>

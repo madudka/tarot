@@ -17,7 +17,10 @@
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_nav_bar_ripple_color_selector.xml" value="0.1105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_outline_btn_ripple_color_selector.xml" value="0.1105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_switch_color_selector.xml" value="0.115" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_switch_track_color_selector.xml" value="0.105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/custom_text_input_layout_color_selector.xml" value="0.126" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_broom.xml" value="0.105" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_create.xml" value="0.105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_dialog_eye_triangle.xml" value="0.117" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_potions_1.xml" value="0.115" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_potions_2.xml" value="0.115" />
@@ -26,6 +29,7 @@
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_potions_5.xml" value="0.115" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_potions_6.xml" value="0.115" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_potions_7.xml" value="0.115" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/ic_visibility.xml" value="0.105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/drawable/list_item_divination_verify.xml" value="0.1105" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/astro_fragment.xml" value="0.25" />
@@ -56,10 +60,12 @@
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/item_expanded_text_view.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/layouts_fragment.xml" value="0.22" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/layouts_info_fragment.xml" value="0.18" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/list_item_card_styles.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/list_item_cards.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/list_item_divination_verify.xml" value="0.25" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/list_item_layouts.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/list_item_layouts_filter.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/list_item_settings_styles.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/potions_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/layout/settings_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/Android/Kotlin/Tarot/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />

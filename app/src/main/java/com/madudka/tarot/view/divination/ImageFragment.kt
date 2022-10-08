@@ -18,6 +18,7 @@ import com.madudka.tarot.view.App.Companion.now
 import com.madudka.tarot.view.App.Companion.settings
 import com.madudka.tarot.view.customCenterYRotate
 import com.madudka.tarot.view.customScaleOutWithMove
+import com.madudka.tarot.view.toBitmap
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class ImageFragment : Fragment() {
@@ -73,9 +74,7 @@ class ImageFragment : Fragment() {
                 binding.imgViewCard.customCenterYRotate(0.0f, 90.0f, dur = 700)
                 binding.imgViewCard.customCenterYRotate(270.0f, 360.0f, dur = 700, del = 700){
                     viewModel.getImage()?.let {
-                        binding.imgViewCard.setImageBitmap(
-                            BitmapFactory.decodeByteArray(it, 0, it.size)
-                        )
+                        binding.imgViewCard.setImageBitmap(it.toBitmap())
                     }
                 }
                 binding.tvHelp.visibility = View.VISIBLE

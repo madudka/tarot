@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "278436182104",
+    "project_id": "tarot-c4040",
+    "storage_bucket": "tarot-c4040.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278436182104:android:91e1c9f71c7c2451b0f22d",
+        "android_client_info": {
+          "package_name": "com.madudka.tarot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278436182104-2tqtdtkg0ta6k8ce2h287drh5l319lqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.madudka.tarot",
+            "certificate_hash": "1cc51cb46a0cde16d5a5f111f4a32efecc10aedb"
+          }
+        },
+        {
+          "client_id": "278436182104-t0u0gjrdcpqdatms18gv2duvk8216f55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCburVhkZQqwOX9NOUuAJgeM_T-vr06wbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278436182104-t0u0gjrdcpqdatms18gv2duvk8216f55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

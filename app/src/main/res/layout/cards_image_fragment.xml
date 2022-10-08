@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            tools:src="@drawable/test_card_img" />
+            tools:src="@drawable/test" />
 
     </androidx.cardview.widget.CardView>
 

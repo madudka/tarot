@@ -13,4 +13,8 @@
     <color name="dark_purple">#FF2E1028</color>
     <color name="dark_red">#FF4D1828</color>
     <color name="peach">#FFF9A952</color>
+
+    <color name="dark_red_50">#804D1828</color>
+    <color name="peach_50">#80F9A952</color>
+    <color name="dark_purple_90">#E64D1828</color>
 </resources>

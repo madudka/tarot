@@ -1,10 +1,10 @@
 package com.madudka.tarot.view.adapter
 
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.DivinationVerifyViewPagerItemBinding
 import com.madudka.tarot.model.VerifyModel
+import com.madudka.tarot.view.toBitmap
 
 class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
 
@@ -19,9 +19,7 @@ class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
             val item = listData[position]
 
             binding.imgViewCard.apply {
-                setImageBitmap(
-                    BitmapFactory.decodeByteArray(item.image, 0, item.image.size)
-                )
+                setImageBitmap(item.image.toBitmap())
                 rotation = if (item.inverted) 180F else 0F
             }
         }

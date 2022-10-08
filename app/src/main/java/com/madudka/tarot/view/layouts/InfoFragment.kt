@@ -15,6 +15,7 @@ import com.madudka.tarot.LayoutType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.LayoutsInfoFragmentBinding
 import com.madudka.tarot.view.showSignificatorInfo
+import com.madudka.tarot.view.toBitmap
 import com.madudka.tarot.viewmodel.layouts.LayoutsFullViewModel
 
 class InfoFragment : Fragment() {
@@ -32,9 +33,8 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getLayout().observe(viewLifecycleOwner) {
-            binding.imgViewLayout.setImageBitmap(
-                BitmapFactory.decodeByteArray(it.image, 0, it.image?.size!!)
-            )
+            //TODO после добавления в БД всех изображений в моделе сделать image не null
+            binding.imgViewLayout.setImageBitmap(it.image?.toBitmap())
             binding.tvLayoutName.text = it.name
             binding.tvLayoutCardCount.text = getString(R.string.layout_card_count, it.cardCount)
             binding.tvLayoutSignificatorCount.text = getString(

@@ -1,4 +1,4 @@
-package com.madudka.tarot.view
+package com.madudka.tarot.services
 
 import android.app.Service
 import android.content.Intent
@@ -6,12 +6,13 @@ import android.media.MediaPlayer
 import android.os.Binder
 import android.os.IBinder
 import com.madudka.tarot.R
+import com.madudka.tarot.view.App.Companion.settings
 
 class SoundService : Service() {
     private var mediaPlayer: MediaPlayer? = null
     private var binder = SSBinder()
 
-    private fun start() = mediaPlayer?.start()
+    fun start() = mediaPlayer?.start()
     fun pause() = mediaPlayer?.pause()
     private fun stop() = mediaPlayer?.let {
         it.stop()
@@ -38,7 +39,7 @@ class SoundService : Service() {
     }
 
     override fun onBind(intent: Intent?): IBinder {
-        start()
+        if (settings.music) start()
         return binder
     }
 }

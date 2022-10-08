@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
+import com.madudka.tarot.services.SoundService
 
 class MainActivity : AppCompatActivity(){
 
@@ -27,7 +28,6 @@ class MainActivity : AppCompatActivity(){
         override fun onServiceDisconnected(name: ComponentName?) {
             ssBound = false
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity(){
                 R.id.cardsFragment, R.id.layoutsFragment, R.id.divinationFragment,
                 R.id.astroFragment, R.id.settingsFragment -> binding.topPanel.fadeHide()
                 else -> binding.topPanel.fadeShow()
-
             }
         }
     }
