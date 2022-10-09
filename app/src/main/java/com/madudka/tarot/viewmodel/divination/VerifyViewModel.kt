@@ -26,13 +26,6 @@ class VerifyViewModel : ViewModel() {
         }
     }
 
-//    fun loadVerify(idArray: Array<Int>, type: Int){
-//        viewModelScope.launch {
-//            val verifyFetchResult = fetchVerify(getIdArray(), 1)
-//            verify.postValue(verifyFetchResult)
-//        }
-//    }
-
     private suspend fun fetchVerify(idArray: Array<Int>, type: Int): List<VerifyModel>{
         return withContext(Dispatchers.IO){
             verifyRepository.getVerifyFromDb(idArray, type)

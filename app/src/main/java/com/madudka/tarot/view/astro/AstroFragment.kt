@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.madudka.tarot.DayType
+import com.madudka.tarot.utils.DayType
 import com.madudka.tarot.R
-import com.madudka.tarot.SignType
+import com.madudka.tarot.utils.SignType
 import com.madudka.tarot.databinding.AstroFragmentBinding
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
 

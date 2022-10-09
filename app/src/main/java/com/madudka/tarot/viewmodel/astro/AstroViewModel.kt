@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.madudka.tarot.DayType
-import com.madudka.tarot.SignType
+import com.madudka.tarot.utils.DayType
+import com.madudka.tarot.utils.SignType
 import com.madudka.tarot.model.AstroModel
 import com.madudka.tarot.model.api.API
 import com.madudka.tarot.model.repository.AstroRepository

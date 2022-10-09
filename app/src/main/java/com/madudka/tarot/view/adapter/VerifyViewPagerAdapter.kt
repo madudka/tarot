@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.DivinationVerifyViewPagerItemBinding
 import com.madudka.tarot.model.VerifyModel
-import com.madudka.tarot.view.toBitmap
+import com.madudka.tarot.utils.toBitmap
 
 class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
 

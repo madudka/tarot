@@ -16,8 +16,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.madudka.tarot.R
-import com.madudka.tarot.SignType
 import com.madudka.tarot.databinding.AstroInfoFragmentBinding
+import com.madudka.tarot.utils.SignType
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
 import com.madudka.tarot.viewmodel.astro.TranslatorViewModel
 import kotlinx.coroutines.flow.collectLatest

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemSettingsStylesBinding
 import com.madudka.tarot.model.SettingsStylesModel
 import com.madudka.tarot.glide.loadImage
+import java.util.*
 
 class SettingsStylesAdapter : BaseAdapter<SettingsStylesModel>() {
 
@@ -20,14 +21,13 @@ class SettingsStylesAdapter : BaseAdapter<SettingsStylesModel>() {
     inner class SettingsStyleViewHolder(val binding: ListItemSettingsStylesBinding, val context: Context) : BaseViewHolder(binding.root){
         override fun bindView(position: Int) {
             val item = listData[position]
-            //val context = binding.root.context
 
             loadImage(context, item.pathRefCard, binding.imgViewCard)
             loadImage(context, item.pathRefCardBack, binding.imgViewBackCard)
 
-            //binding.imgViewCard.setImageBitmap(item.imageCard.toBitmap())
-            //binding.imgViewBackCard.setImageBitmap(item.imageCardBack.toBitmap())
-            binding.tvCardStyleName.text = item.name
+            binding.tvCardStyleName.text = item.name.replaceFirstChar {
+                if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
+            }
 
             binding.cardView.setOnLongClickListener {
                 clickListener.onItemClick(item, position)

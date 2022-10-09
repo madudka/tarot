@@ -13,6 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
 import com.madudka.tarot.services.SoundService
+import com.madudka.tarot.utils.fadeHide
+import com.madudka.tarot.utils.fadeShow
 
 class MainActivity : AppCompatActivity(){
 

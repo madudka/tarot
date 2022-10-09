@@ -1,11 +1,10 @@
-package com.madudka.tarot.view
+package com.madudka.tarot.utils
 
 import android.animation.*
 import android.graphics.Bitmap
 import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.RectF
-import android.opengl.Visibility
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator

@@ -3,7 +3,7 @@ package com.madudka.tarot.view
 import android.app.Application
 import android.content.Intent
 import com.madudka.tarot.model.room.TarotDatabase
-import java.net.Inet4Address
+import com.madudka.tarot.utils.Settings
 import java.time.LocalDate
 import kotlin.properties.Delegates
 

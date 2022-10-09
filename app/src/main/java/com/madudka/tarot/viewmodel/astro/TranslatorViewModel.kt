@@ -12,7 +12,6 @@ import com.google.mlkit.nl.translate.TranslatorOptions
 import com.madudka.tarot.model.AstroModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.tasks.await
 
 private const val NUM_TRANSLATORS = 1
 class TranslatorViewModel : ViewModel() {

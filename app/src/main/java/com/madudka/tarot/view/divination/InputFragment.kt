@@ -10,7 +10,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.madudka.tarot.DivinationType
+import com.madudka.tarot.utils.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationInputFragmentBinding
 import com.madudka.tarot.viewmodel.divination.CardViewModel

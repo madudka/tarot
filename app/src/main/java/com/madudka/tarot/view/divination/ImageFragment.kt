@@ -1,7 +1,6 @@
 package com.madudka.tarot.view.divination
 
 import android.content.Context
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,14 +10,14 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.madudka.tarot.DivinationType
+import com.madudka.tarot.utils.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationImageFragmentBinding
 import com.madudka.tarot.view.App.Companion.now
 import com.madudka.tarot.view.App.Companion.settings
-import com.madudka.tarot.view.customCenterYRotate
-import com.madudka.tarot.view.customScaleOutWithMove
-import com.madudka.tarot.view.toBitmap
+import com.madudka.tarot.utils.customCenterYRotate
+import com.madudka.tarot.utils.customScaleOutWithMove
+import com.madudka.tarot.utils.toBitmap
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class ImageFragment : Fragment() {

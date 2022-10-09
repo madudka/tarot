@@ -1,6 +1,5 @@
 package com.madudka.tarot.view.cards
 
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import androidx.fragment.app.Fragment
@@ -17,7 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.CardsInfoFragmentBinding
 import com.madudka.tarot.databinding.ItemExpandedTextViewBinding
-import com.madudka.tarot.view.toBitmap
+import com.madudka.tarot.utils.toBitmap
 import com.madudka.tarot.viewmodel.cards.CardFullViewModel
 
 class InfoFragment : Fragment() {

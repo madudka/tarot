@@ -9,7 +9,7 @@ import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.madudka.tarot.CardType
+import com.madudka.tarot.utils.CardType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.CardsFragmentBinding
 import com.madudka.tarot.model.CardModel

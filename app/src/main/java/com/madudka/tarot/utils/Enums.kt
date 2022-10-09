@@ -1,4 +1,4 @@
-package com.madudka.tarot
+package com.madudka.tarot.utils
 
 import android.app.ActivityManager
 

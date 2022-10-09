@@ -50,6 +50,10 @@ class SettingsFragment : BaseFragment<List<SettingsStylesModel>>() {
             }
         }
 
+        binding.btnClearCache.setOnClickListener {
+            context?.cacheDir?.deleteRecursively()
+        }
+
         val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
         binding.rvStyles.apply {

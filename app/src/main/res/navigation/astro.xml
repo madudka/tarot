@@ -25,9 +25,9 @@
         tools:layout="@layout/astro_info_fragment" >
         <argument
             android:name="signType"
-            app:argType="com.madudka.tarot.SignType" />
+            app:argType="com.madudka.tarot.utils.SignType" />
         <argument
             android:name="dayType"
-            app:argType="com.madudka.tarot.DayType" />
+            app:argType="com.madudka.tarot.utils.DayType" />
     </fragment>
 </navigation>

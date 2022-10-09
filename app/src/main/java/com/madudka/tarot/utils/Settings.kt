@@ -1,4 +1,4 @@
-package com.madudka.tarot.view
+package com.madudka.tarot.utils
 
 import android.content.Context
 import android.content.SharedPreferences

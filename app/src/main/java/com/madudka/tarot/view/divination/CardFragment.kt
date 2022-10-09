@@ -1,6 +1,5 @@
 package com.madudka.tarot.view.divination
 
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.madudka.tarot.databinding.DivinationCardFragmentBinding
-import com.madudka.tarot.view.toBitmap
+import com.madudka.tarot.utils.toBitmap
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class CardFragment : Fragment() {

@@ -1,21 +1,15 @@
 package com.madudka.tarot.view.layouts
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.text.Layout
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.madudka.tarot.LayoutType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.LayoutsInfoFragmentBinding
-import com.madudka.tarot.view.showSignificatorInfo
-import com.madudka.tarot.view.toBitmap
+import com.madudka.tarot.utils.showSignificatorInfo
+import com.madudka.tarot.utils.toBitmap
 import com.madudka.tarot.viewmodel.layouts.LayoutsFullViewModel
 
 class InfoFragment : Fragment() {

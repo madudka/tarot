@@ -1,4 +1,4 @@
-package com.madudka.tarot.view
+package com.madudka.tarot.utils
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

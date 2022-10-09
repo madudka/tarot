@@ -98,6 +98,8 @@
 
     <!--НАСТРОЙКИ-->
     <string name="music">Музыка</string>
+    <string name="clean_cache">Очистить кэш</string>
+    <string name="card_style">Стиль карт</string>
 
 
 </resources>

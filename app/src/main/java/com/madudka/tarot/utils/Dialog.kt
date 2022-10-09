@@ -1,8 +1,7 @@
-package com.madudka.tarot.view
+package com.madudka.tarot.utils
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.madudka.tarot.R

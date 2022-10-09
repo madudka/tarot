@@ -1,11 +1,10 @@
 package com.madudka.tarot.view.adapter
 
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemCardsBinding
 import com.madudka.tarot.model.CardModel
-import com.madudka.tarot.view.toBitmap
+import com.madudka.tarot.utils.toBitmap
 
 class CardsListAdapter : BaseAdapter<CardModel>() {
 

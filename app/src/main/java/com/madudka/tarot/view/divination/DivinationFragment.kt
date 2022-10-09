@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.madudka.tarot.DivinationType
+import com.madudka.tarot.utils.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationFragmentBinding
 import com.madudka.tarot.view.App.Companion.now
 import com.madudka.tarot.view.App.Companion.settings
-import com.madudka.tarot.view.showDialogInfo
+import com.madudka.tarot.utils.showDialogInfo
 
 class DivinationFragment : Fragment() {
 

@@ -1,6 +1,5 @@
 package com.madudka.tarot.view.layouts
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.madudka.tarot.LayoutType
+import com.madudka.tarot.utils.LayoutType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.LayoutsFragmentBinding
 import com.madudka.tarot.model.LayoutModel
