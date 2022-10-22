@@ -1,5 +1,9 @@
 package com.madudka.tarot.model
 
+import com.google.firebase.storage.StorageReference
+import com.madudka.tarot.utils.getPathRefCard
+import com.madudka.tarot.view.App
+
 data class CardFullModel(
     val id: Int,
     val name: String,

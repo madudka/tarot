@@ -18,7 +18,8 @@ class CardViewModel: ViewModel() {
     }
 
     fun getCard(): LiveData<DivinationCardModel> = card
-    fun getImage() = card.value?.image
+//    fun getImage() = card.value?.image
+//    fun getId() = card.value?.id
 
     fun loadDayCard(userNum: Int){
         viewModelScope.launch {

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.madudka.tarot.databinding.CardsImageFragmentBinding
-import com.madudka.tarot.utils.toBitmap
+import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.viewmodel.cards.CardFullViewModel
 
 class ImageFragment : Fragment() {
@@ -24,8 +24,9 @@ class ImageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.getImage()?.let {
-            binding.imgViewCard.setImageBitmap(it.toBitmap())
+        //TODO загрузка изображения
+        viewModel.getCardFull().observe(viewLifecycleOwner){
+            binding.imgViewCard.loadImage(requireContext(), it.image, it.id)
         }
     }
 }

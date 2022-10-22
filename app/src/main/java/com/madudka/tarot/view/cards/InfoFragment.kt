@@ -16,7 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.CardsInfoFragmentBinding
 import com.madudka.tarot.databinding.ItemExpandedTextViewBinding
-import com.madudka.tarot.utils.toBitmap
+import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.viewmodel.cards.CardFullViewModel
 
 class InfoFragment : Fragment() {
@@ -34,7 +34,8 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getCardFull().observe(viewLifecycleOwner){
-            binding.imgViewDayCard.setImageBitmap(it.image.toBitmap())
+            //TODO загрузка изображения
+            binding.imgViewDayCard.loadImage(requireContext(), it.image, it.id)
             binding.tvCardName.text = it.name
             binding.tvCardType.text = it.type
             binding.tvCardOtherName.text = it.other_name

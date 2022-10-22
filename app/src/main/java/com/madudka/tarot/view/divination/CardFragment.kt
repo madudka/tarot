@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.madudka.tarot.databinding.DivinationCardFragmentBinding
-import com.madudka.tarot.utils.toBitmap
+import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class CardFragment : Fragment() {
@@ -33,7 +33,9 @@ class CardFragment : Fragment() {
             binding.tvCardOtherName.text = it.otherName
             binding.tvCardType.text = it.type
             binding.tvCardInfo.text = it.info
-            binding.imgViewDayCard.setImageBitmap(it.image.toBitmap())
+
+            //TODO загрузка изобаржения
+            binding.imgViewDayCard.loadImage(requireContext(), it.image, it.id)
         }
     }
 }

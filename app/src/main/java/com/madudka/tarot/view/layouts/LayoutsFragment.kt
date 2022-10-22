@@ -89,7 +89,8 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         val filterText = (binding.menuFilter.editText as? AutoCompleteTextView)?.text.toString()
         val typeId = LayoutType.values().firstOrNull { it.description == filterText }?.id
 
-        Toast.makeText(requireContext(), filterText +" "+ typeId.toString(), Toast.LENGTH_SHORT).show()
+        //TODO Удалить
+        //Toast.makeText(requireContext(), filterText +" "+ typeId.toString(), Toast.LENGTH_SHORT).show()
 
         listData?.let { _list ->
             var list = if (typeId == null) _list else _list.filter { it.type == typeId }

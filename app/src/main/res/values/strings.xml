@@ -32,8 +32,6 @@
     <string name="ok">Хорошо</string>
 
     <string name="click_to_find_out_more">Нажмите на карту, чтобы узнать подробности...</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--КАРТЫ-->
     <string name="major_arcana">Старшие арканы</string>
@@ -100,6 +98,14 @@
     <string name="music">Музыка</string>
     <string name="clean_cache">Очистить кэш</string>
     <string name="card_style">Стиль карт</string>
+
+    <!--ИНТЕРНЕТ-->
+    <string name="connection">Подключение</string>
+    <string name="connect">Пожалуйста, покдлючитесь к интернету для загрузки контента...</string>
+
+    <!--КЭШ-->
+    <string name="clean">Очистка</string>
+    <string name="clean_success">Кэш и память очищены...</string>
 
 
 </resources>

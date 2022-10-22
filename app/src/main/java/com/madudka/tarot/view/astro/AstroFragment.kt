@@ -12,6 +12,8 @@ import com.madudka.tarot.utils.DayType
 import com.madudka.tarot.R
 import com.madudka.tarot.utils.SignType
 import com.madudka.tarot.databinding.AstroFragmentBinding
+import com.madudka.tarot.utils.showInternetConnectionDialog
+import com.madudka.tarot.view.App
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
 
 class AstroFragment : Fragment() {
@@ -28,6 +30,8 @@ class AstroFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        if (!App.online) showInternetConnectionDialog(requireContext())
+
         binding.imgViewAries.onSignClick()
         binding.imgViewLeo.onSignClick()
         binding.imgViewSagittarius.onSignClick()

@@ -13,6 +13,7 @@ private const val SETTINGS = "SETTINGS"
 private const val DAY_CARD_DATE = "DAY_CARD_DATE"
 private const val VERIFY_DATE = "VERIFY_DATE"
 private const val MUSIC = "MUSIC"
+private const val CARD_STYLE = "CARD_STYLE"
 
 class Settings(context: Context) {
 
@@ -82,6 +83,17 @@ class Settings(context: Context) {
         set(value) {
             editSettings {
                 it.putBoolean(MUSIC, value)
+            }
+        }
+
+    var cardStyle
+        get() = sharedPreferences.getString(
+            CARD_STYLE,
+            "waite"
+        ) ?: "waite"
+        set(value) {
+            editSettings {
+                it.putString(CARD_STYLE, value)
             }
         }
 }

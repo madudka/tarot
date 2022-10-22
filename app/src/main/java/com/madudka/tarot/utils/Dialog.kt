@@ -25,3 +25,18 @@ fun showSignificatorInfo(context: Context): AlertDialog {
         .show()
 }
 
+fun showInternetConnectionDialog(context: Context): AlertDialog =
+    MaterialAlertDialogBuilder(context, R.style.Custom_AlertDialog)
+        .setTitle(context.getString(R.string.connection))
+        .setMessage(context.getString(R.string.connect))
+        .setIcon(R.drawable.ic_dialog_eye_triangle)
+        .setPositiveButton(context.getString(R.string.ok)) { _,_ -> }
+        .show()
+
+fun showCleanCacheDialog(context: Context): AlertDialog =
+    MaterialAlertDialogBuilder(context, R.style.Custom_AlertDialog)
+        .setTitle(context.getString(R.string.clean_cache))
+        .setMessage(context.getString(R.string.clean_success))
+        .setIcon(R.drawable.ic_dialog_eye_triangle)
+        .setPositiveButton(context.getString(R.string.ok)) { _,_ -> }
+        .show()

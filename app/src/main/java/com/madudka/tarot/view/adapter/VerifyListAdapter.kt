@@ -2,8 +2,11 @@ package com.madudka.tarot.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.madudka.tarot.databinding.ListItemDivinationVerifyBinding
+import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.model.VerifyModel
+import com.madudka.tarot.services.NetworkConnection
 import com.madudka.tarot.utils.toBitmap
 
 class VerifyListAdapter : BaseAdapter<VerifyModel>(){
@@ -21,7 +24,8 @@ class VerifyListAdapter : BaseAdapter<VerifyModel>(){
             val item = listData[position]
 
             binding.imgViewItemVerify.apply {
-                setImageBitmap(item.image.toBitmap())
+                //TODO загрузка изображений
+                loadImage(binding.root.context, item.image, item.id)
                 rotation = if (item.inverted) 180F else 0F
             }
 

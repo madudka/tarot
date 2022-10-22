@@ -1,20 +1,21 @@
 package com.madudka.tarot.view
 
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
+import android.content.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
+import com.madudka.tarot.services.NetworkConnection
 import com.madudka.tarot.services.SoundService
 import com.madudka.tarot.utils.fadeHide
 import com.madudka.tarot.utils.fadeShow
+import com.madudka.tarot.utils.showInternetConnectionDialog
+import com.madudka.tarot.view.App.Companion.online
 
 class MainActivity : AppCompatActivity(){
 
@@ -46,6 +47,8 @@ class MainActivity : AppCompatActivity(){
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
+
+        if (!online) showInternetConnectionDialog(this)
     }
 
     override fun onStart() {
@@ -53,6 +56,7 @@ class MainActivity : AppCompatActivity(){
         Intent(this, SoundService::class.java).also {
             bindService(it, ssConnection, Context.BIND_AUTO_CREATE)
         }
+        observeInternetConnection()
     }
 
     override fun onPause() {
@@ -83,5 +87,14 @@ class MainActivity : AppCompatActivity(){
                 else -> binding.topPanel.fadeShow()
             }
         }
+    }
+
+    private fun observeInternetConnection(){
+        val connectionLiveData = NetworkConnection(applicationContext)
+        connectionLiveData.observe(this, Observer { isConnected ->
+            isConnected?.let {
+                online = isConnected
+            }
+        })
     }
 }

@@ -12,18 +12,24 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.firebase.storage.FirebaseStorage
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.SettingsFragmentBinding
-import com.madudka.tarot.model.SettingsStylesModel
+import com.madudka.tarot.glide.GlideApp
+import com.madudka.tarot.glide.loadCardBackImage
 import com.madudka.tarot.view.App.Companion.settings
 import com.madudka.tarot.services.SoundService
+import com.madudka.tarot.utils.showCleanCacheDialog
+import com.madudka.tarot.utils.showInternetConnectionDialog
+import com.madudka.tarot.view.App
 import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.view.adapter.SettingsStylesAdapter
 import com.madudka.tarot.viewmodel.settings.SettingsViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
-class SettingsFragment : BaseFragment<List<SettingsStylesModel>>() {
+class SettingsFragment : BaseFragment<List<String>>() {
 
     private lateinit var binding: SettingsFragmentBinding
     private val viewModel: SettingsViewModel by activityViewModels()
@@ -40,6 +46,8 @@ class SettingsFragment : BaseFragment<List<SettingsStylesModel>>() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        if (!App.online) showInternetConnectionDialog(requireContext())
+
         binding.switchMusic.apply {
             isChecked = settings.music
             setOnCheckedChangeListener { _, isChecked ->
@@ -51,11 +59,17 @@ class SettingsFragment : BaseFragment<List<SettingsStylesModel>>() {
         }
 
         binding.btnClearCache.setOnClickListener {
-            context?.cacheDir?.deleteRecursively()
+            GlideApp.get(requireContext()).clearMemory()
+            runBlocking(Dispatchers.IO){
+                GlideApp.get(requireContext()).clearDiskCache()
+                requireContext().cacheDir.deleteRecursively()
+            }
+            showCleanCacheDialog(requireContext())
         }
 
         val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
+        settingsStylesAdapter.clickListener = clickListener
         binding.rvStyles.apply {
             adapter = settingsStylesAdapter
             layoutManager = manager
@@ -63,8 +77,8 @@ class SettingsFragment : BaseFragment<List<SettingsStylesModel>>() {
             setHasFixedSize(true)
         }
 
-        viewModel.getPrefixes().observe(viewLifecycleOwner){ list ->
-            setData(list.map { createSettingsStyle(it) })
+        viewModel.getPrefixes().observe(viewLifecycleOwner){
+            setData(it)
         }
     }
 
@@ -103,18 +117,11 @@ class SettingsFragment : BaseFragment<List<SettingsStylesModel>>() {
         }
     }
 
-    private val clickListener = object : OnItemClickListener<SettingsStylesModel>{
-        override fun onItemClick(item: SettingsStylesModel, position: Int) {
-            //TODO Загрузка изображений с показом прогресса и сохранение в room
+    private val clickListener = object : OnItemClickListener<String>{
+        override fun onItemClick(item: String, position: Int) {
+            settings.cardStyle = item
+            loadCardBackImage(requireContext())
+            settingsStylesAdapter.notifyDataSetChanged()
         }
-
-    }
-
-    private fun createSettingsStyle(style: String) : SettingsStylesModel{
-        val storageRef = FirebaseStorage.getInstance().reference
-        val pathRefCard = storageRef.child("$style/${(1..22).random()}.jpg")
-        val pathRefCardBack = storageRef.child("$style/0.jpg")
-
-        return SettingsStylesModel(style, pathRefCard, pathRefCardBack)
     }
 }

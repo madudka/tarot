@@ -3,6 +3,7 @@ package com.madudka.tarot.model
 import kotlin.random.Random
 
 data class VerifyModel(
+    val id: Int,
     val image: ByteArray,
     val inverted: Boolean = Random.nextBoolean()
 ) {
@@ -24,4 +25,7 @@ data class VerifyModel(
     }
 }
 
-fun ByteArray.toVerifyModel() = VerifyModel(this)
+fun VerifyDaoModel.toVerifyModel() = VerifyModel(
+    this.id,
+    this.image
+)

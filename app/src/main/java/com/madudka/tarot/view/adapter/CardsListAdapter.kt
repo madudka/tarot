@@ -3,8 +3,8 @@ package com.madudka.tarot.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemCardsBinding
+import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.model.CardModel
-import com.madudka.tarot.utils.toBitmap
 
 class CardsListAdapter : BaseAdapter<CardModel>() {
 
@@ -20,10 +20,9 @@ class CardsListAdapter : BaseAdapter<CardModel>() {
         override fun bindView(position: Int) {
             val item = listData[position]
 
-            binding.imgViewItemCard.setImageBitmap(item.image.toBitmap())
-
+            //TODO Загрузка изображения
+            binding.imgViewItemCard.loadImage(binding.root.context, item.image, item.id)
             binding.tvCardName.text = item.name
-
             binding.layoutItemCards.setOnClickListener {
                 clickListener.onItemClick(item, position)
             }

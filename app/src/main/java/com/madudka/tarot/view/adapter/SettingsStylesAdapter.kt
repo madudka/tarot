@@ -4,33 +4,37 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemSettingsStylesBinding
-import com.madudka.tarot.model.SettingsStylesModel
 import com.madudka.tarot.glide.loadImage
+import com.madudka.tarot.view.App
+import com.madudka.tarot.view.App.Companion.settings
 import java.util.*
 
-class SettingsStylesAdapter : BaseAdapter<SettingsStylesModel>() {
+class SettingsStylesAdapter : BaseAdapter<String>() {
 
-    lateinit var clickListener: OnItemClickListener<SettingsStylesModel>
+    lateinit var clickListener: OnItemClickListener<String>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingsStyleViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ListItemSettingsStylesBinding.inflate(layoutInflater, parent, false)
-        return SettingsStyleViewHolder(binding, parent.context)
+        return SettingsStyleViewHolder(binding)
     }
 
-    inner class SettingsStyleViewHolder(val binding: ListItemSettingsStylesBinding, val context: Context) : BaseViewHolder(binding.root){
+    inner class SettingsStyleViewHolder(private val binding: ListItemSettingsStylesBinding) : BaseViewHolder(binding.root){
         override fun bindView(position: Int) {
             val item = listData[position]
 
-            loadImage(context, item.pathRefCard, binding.imgViewCard)
-            loadImage(context, item.pathRefCardBack, binding.imgViewBackCard)
+            binding.imgViewCard.loadImage(binding.root.context, style = item)
+            binding.imgViewBackCard.loadImage(binding.root.context, id = 0, style = item)
 
-            binding.tvCardStyleName.text = item.name.replaceFirstChar {
+            binding.cardView.isChecked = item == settings.cardStyle
+
+            binding.tvCardStyleName.text = item.replaceFirstChar {
                 if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
             }
 
             binding.cardView.setOnLongClickListener {
                 clickListener.onItemClick(item, position)
+                binding.cardView.isChecked = true
                 true
             }
         }

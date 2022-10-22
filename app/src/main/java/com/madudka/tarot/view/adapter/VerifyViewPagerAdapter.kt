@@ -3,8 +3,8 @@ package com.madudka.tarot.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.DivinationVerifyViewPagerItemBinding
+import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.model.VerifyModel
-import com.madudka.tarot.utils.toBitmap
 
 class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
 
@@ -19,7 +19,8 @@ class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
             val item = listData[position]
 
             binding.imgViewCard.apply {
-                setImageBitmap(item.image.toBitmap())
+                //TODO загрузка изображений
+                loadImage(binding.root.context, item.image, item.id)
                 rotation = if (item.inverted) 180F else 0F
             }
         }
