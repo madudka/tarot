@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.IBinder
 import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.Observer
+import androidx.core.view.*
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
@@ -20,13 +20,11 @@ import com.madudka.tarot.utils.fadeHide
 import com.madudka.tarot.utils.fadeShow
 import com.madudka.tarot.utils.showInternetConnectionDialog
 import com.madudka.tarot.view.App.db
-import com.madudka.tarot.view.App.now
 import com.madudka.tarot.view.App.online
 import com.madudka.tarot.view.App.settings
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import java.time.LocalDate
 
 class MainActivity : AppCompatActivity(){
 
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity(){
         val view = binding.root
         setContentView(view)
 
-        supportActionBar?.hide()
+        //setupInsets(view)
         setupBottomNavigationView()
 
         binding.btnBack.setOnClickListener {
@@ -73,6 +71,7 @@ class MainActivity : AppCompatActivity(){
         Intent(this, SoundService::class.java).also {
             bindService(it, ssConnection, Context.BIND_AUTO_CREATE)
         }
+        setupInsets(binding.root)
     }
 
     override fun onPause() {
@@ -91,7 +90,6 @@ class MainActivity : AppCompatActivity(){
     private fun initializeAppVars(){
         db = TarotDatabase.getInstance(applicationContext)
         settings = Settings.getInstance(applicationContext)
-        now = LocalDate.now().toEpochDay()
         online = false
     }
 
@@ -102,6 +100,22 @@ class MainActivity : AppCompatActivity(){
             }
         }
     }
+
+    private fun setupInsets(view: View){
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        ViewCompat.setOnApplyWindowInsetsListener(view) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
+            view.updatePadding(insets.left, insets.top, insets.right)
+            WindowInsetsCompat.CONSUMED
+        }
+
+        val windowInsetsController = WindowCompat.getInsetsController(window, view)
+        // Configure the behavior of the hidden system bars
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
+    }
+
 
     private fun setupBottomNavigationView(){
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

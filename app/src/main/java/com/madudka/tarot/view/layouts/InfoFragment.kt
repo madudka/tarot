@@ -29,16 +29,16 @@ class InfoFragment : Fragment() {
         viewModel.getLayout().observe(viewLifecycleOwner) {
             //TODO после добавления в БД всех изображений в моделе сделать image не null
             binding.imgViewLayout.setImageBitmap(it.image?.toBitmap())
+
             binding.tvLayoutName.text = it.name
             binding.tvLayoutCardCount.text = getString(R.string.layout_card_count, it.cardCount)
             binding.tvLayoutSignificatorCount.text = getString(
                 R.string.layout_significator_count,
                 if (it.signifierCount > 0) it.signifierCount else getString(R.string.no)
             )
-            binding.tvLayoutType.text = resources.getStringArray(R.array.layouts_filer_list)[it.type]
+            binding.tvLayoutType.text =
+                resources.getStringArray(R.array.layouts_filer_list)[it.type]
             binding.tvInfo.text = it.description
-
-
 
             binding.imgViewSignificator.setOnClickListener {
                 showSignificatorInfo(requireContext())

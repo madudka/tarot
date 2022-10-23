@@ -60,7 +60,7 @@
     <!--РАСКЛАДЫ-->
     <!--enum class LayoutType-->
     <string-array name="layouts_filer_list">
-        <item id="lfl1">Все</item>
+        <item>Все</item>
         <item>Начальные</item>
         <item>На будущее</item>
         <item>Бытовые ситуации</item>

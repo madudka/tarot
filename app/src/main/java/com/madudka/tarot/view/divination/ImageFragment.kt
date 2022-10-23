@@ -46,7 +46,7 @@ class ImageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        if (args.divinationType == DivinationType.DAY_CARD) settings.dayCardDate = now
+        if (args.divinationType == DivinationType.DAY_CARD) settings.dayCardDate = now()
         updateView()
     }
 

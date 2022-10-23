@@ -53,11 +53,11 @@ class DivinationFragment : Fragment() {
     }
 
     private fun checkLimits() {
-        if (now <= settings.verifyDate) {
+        if (now() <= settings.verifyDate) {
             flagVerify = false
             binding.btnDivinationVerify.alpha = 0.5F
         }
-        if (now <= settings.dayCardDate) {
+        if (now() <= settings.dayCardDate) {
             flagDayCard = false
             binding.btnDivinationDayCard.alpha = 0.5F
         }
