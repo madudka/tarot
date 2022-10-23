@@ -10,9 +10,9 @@ import com.bumptech.glide.request.transition.Transition
 import com.madudka.tarot.R
 import com.madudka.tarot.utils.getPathRefCard
 import com.madudka.tarot.utils.toBitmap
-import com.madudka.tarot.view.App.Companion.cardBack
-import com.madudka.tarot.view.App.Companion.online
-import com.madudka.tarot.view.App.Companion.settings
+import com.madudka.tarot.view.App.cardBack
+import com.madudka.tarot.view.App.online
+import com.madudka.tarot.view.App.settings
 
 fun ImageView.loadImage(
     context: Context,

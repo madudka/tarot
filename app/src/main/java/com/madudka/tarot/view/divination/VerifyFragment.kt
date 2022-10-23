@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationVerifyFragmentBinding
 import com.madudka.tarot.model.VerifyModel
-import com.madudka.tarot.view.App.Companion.now
-import com.madudka.tarot.view.App.Companion.settings
+import com.madudka.tarot.view.App.now
+import com.madudka.tarot.view.App.settings
 import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.view.adapter.VerifyListAdapter

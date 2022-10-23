@@ -14,8 +14,8 @@ import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationImageFragmentBinding
 import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.utils.*
-import com.madudka.tarot.view.App.Companion.now
-import com.madudka.tarot.view.App.Companion.settings
+import com.madudka.tarot.view.App.now
+import com.madudka.tarot.view.App.settings
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class ImageFragment : Fragment() {

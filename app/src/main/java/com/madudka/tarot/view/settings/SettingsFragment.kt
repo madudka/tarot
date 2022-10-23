@@ -16,11 +16,11 @@ import com.madudka.tarot.R
 import com.madudka.tarot.databinding.SettingsFragmentBinding
 import com.madudka.tarot.glide.GlideApp
 import com.madudka.tarot.glide.loadCardBackImage
-import com.madudka.tarot.view.App.Companion.settings
 import com.madudka.tarot.services.SoundService
 import com.madudka.tarot.utils.showCleanCacheDialog
 import com.madudka.tarot.utils.showInternetConnectionDialog
 import com.madudka.tarot.view.App
+import com.madudka.tarot.view.App.settings
 import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.view.adapter.SettingsStylesAdapter

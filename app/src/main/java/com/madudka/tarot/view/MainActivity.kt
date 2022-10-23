@@ -5,17 +5,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.view.View
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
+import com.madudka.tarot.glide.loadCardBackImage
+import com.madudka.tarot.model.room.TarotDatabase
 import com.madudka.tarot.services.NetworkConnection
 import com.madudka.tarot.services.SoundService
+import com.madudka.tarot.utils.Settings
 import com.madudka.tarot.utils.fadeHide
 import com.madudka.tarot.utils.fadeShow
 import com.madudka.tarot.utils.showInternetConnectionDialog
-import com.madudka.tarot.view.App.Companion.online
+import com.madudka.tarot.view.App.db
+import com.madudka.tarot.view.App.now
+import com.madudka.tarot.view.App.online
+import com.madudka.tarot.view.App.settings
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity(){
 
@@ -34,21 +45,27 @@ class MainActivity : AppCompatActivity(){
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
+
+        initializeAppVars()
+        observeInternetConnection()
+        //TODO: Удалить очистку настроек к релизу
+        settings.clear()
+        //TODO Загрузка изображения
+        setupCardBackImage()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
         supportActionBar?.hide()
-
         setupBottomNavigationView()
 
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
-
-        if (!online) showInternetConnectionDialog(this)
     }
 
     override fun onStart() {
@@ -56,7 +73,6 @@ class MainActivity : AppCompatActivity(){
         Intent(this, SoundService::class.java).also {
             bindService(it, ssConnection, Context.BIND_AUTO_CREATE)
         }
-        observeInternetConnection()
     }
 
     override fun onPause() {
@@ -69,6 +85,21 @@ class MainActivity : AppCompatActivity(){
         if (ssBound) {
             unbindService(ssConnection)
             ssBound = false
+        }
+    }
+
+    private fun initializeAppVars(){
+        db = TarotDatabase.getInstance(applicationContext)
+        settings = Settings.getInstance(applicationContext)
+        now = LocalDate.now().toEpochDay()
+        online = false
+    }
+
+    private fun setupCardBackImage(){
+        runBlocking {
+            withContext(Dispatchers.IO){
+                loadCardBackImage(applicationContext)
+            }
         }
     }
 
@@ -91,10 +122,11 @@ class MainActivity : AppCompatActivity(){
 
     private fun observeInternetConnection(){
         val connectionLiveData = NetworkConnection(applicationContext)
-        connectionLiveData.observe(this, Observer { isConnected ->
+        connectionLiveData.observe(this) { isConnected ->
             isConnected?.let {
                 online = isConnected
+                if (!online) showInternetConnectionDialog(this)
             }
-        })
+        }
     }
 }

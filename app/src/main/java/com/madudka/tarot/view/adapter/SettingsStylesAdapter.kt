@@ -1,12 +1,10 @@
 package com.madudka.tarot.view.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemSettingsStylesBinding
 import com.madudka.tarot.glide.loadImage
-import com.madudka.tarot.view.App
-import com.madudka.tarot.view.App.Companion.settings
+import com.madudka.tarot.view.App.settings
 import java.util.*
 
 class SettingsStylesAdapter : BaseAdapter<String>() {

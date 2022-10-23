@@ -9,9 +9,9 @@ import androidx.navigation.findNavController
 import com.madudka.tarot.utils.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationFragmentBinding
-import com.madudka.tarot.view.App.Companion.now
-import com.madudka.tarot.view.App.Companion.settings
 import com.madudka.tarot.utils.showDialogInfo
+import com.madudka.tarot.view.App.now
+import com.madudka.tarot.view.App.settings
 
 class DivinationFragment : Fragment() {
 

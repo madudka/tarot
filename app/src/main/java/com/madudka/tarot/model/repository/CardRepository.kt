@@ -3,7 +3,7 @@ package com.madudka.tarot.model.repository
 import com.madudka.tarot.model.CardFullModel
 import com.madudka.tarot.model.CardModel
 import com.madudka.tarot.model.DivinationCardModel
-import com.madudka.tarot.view.App.Companion.db
+import com.madudka.tarot.view.App.db
 
 class CardRepository {
     fun getCardAdviceFromDb(id: Int) : DivinationCardModel = db.getCardAdviceDao().selectCardAdvice(id)

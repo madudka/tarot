@@ -2,7 +2,7 @@ package com.madudka.tarot.model.repository
 
 import com.madudka.tarot.model.VerifyModel
 import com.madudka.tarot.model.toVerifyModel
-import com.madudka.tarot.view.App.Companion.db
+import com.madudka.tarot.view.App.db
 
 class VerifyRepository {
     private val dbAccess = db.getVerifyDao()

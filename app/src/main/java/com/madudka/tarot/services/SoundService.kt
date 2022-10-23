@@ -6,7 +6,7 @@ import android.media.MediaPlayer
 import android.os.Binder
 import android.os.IBinder
 import com.madudka.tarot.R
-import com.madudka.tarot.view.App.Companion.settings
+import com.madudka.tarot.view.App.settings
 
 class SoundService : Service() {
     private var mediaPlayer: MediaPlayer? = null
