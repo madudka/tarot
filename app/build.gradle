@@ -88,4 +88,6 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation 'androidx.core:core-splashscreen:1.0.0'
+
+    implementation 'com.github.faruktoptas:FancyShowCaseView:1.3.9'
 }

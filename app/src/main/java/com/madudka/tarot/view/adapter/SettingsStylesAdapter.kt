@@ -6,10 +6,12 @@ import com.madudka.tarot.databinding.ListItemSettingsStylesBinding
 import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.view.App.settings
 import java.util.*
+import kotlin.properties.Delegates
 
 class SettingsStylesAdapter : BaseAdapter<String>() {
 
     lateinit var clickListener: OnItemClickListener<String>
+    private var lastPosition by Delegates.notNull<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingsStyleViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -24,6 +26,7 @@ class SettingsStylesAdapter : BaseAdapter<String>() {
             binding.imgViewCard.loadImage(binding.root.context, style = item)
             binding.imgViewBackCard.loadImage(binding.root.context, id = 0, style = item)
 
+            if (item == settings.cardStyle) lastPosition = position
             binding.cardView.isChecked = item == settings.cardStyle
 
             binding.tvCardStyleName.text = item.replaceFirstChar {
@@ -32,7 +35,8 @@ class SettingsStylesAdapter : BaseAdapter<String>() {
 
             binding.cardView.setOnLongClickListener {
                 clickListener.onItemClick(item, position)
-                binding.cardView.isChecked = true
+                notifyItemChanged(lastPosition)
+                //binding.cardView.isChecked = true
                 true
             }
         }

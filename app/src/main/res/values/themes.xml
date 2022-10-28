@@ -197,4 +197,9 @@
         <item name="cardBackgroundColor">@color/dark_purple_90</item>
     </style>
 
+    <!--SHOW CASE-->
+    <style name="Custom.ShowCaseTitle" parent="FancyShowCaseDefaultTitleStyle">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline1</item>
+    </style>
+
 </resources>

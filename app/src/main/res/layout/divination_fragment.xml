@@ -33,7 +33,7 @@
             android:id="@+id/btn_divination_day_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="40dp"
             android:text="@string/day_card"
             style="@style/Custom.OutlinedButton"/>
 
@@ -41,7 +41,7 @@
             android:id="@+id/btn_divination_advice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="40dp"
             android:text="@string/card_advice"
             style="@style/Custom.OutlinedButton"/>
 

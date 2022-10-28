@@ -27,7 +27,6 @@ import com.madudka.tarot.view.adapter.SettingsStylesAdapter
 import com.madudka.tarot.viewmodel.settings.SettingsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 
 class SettingsFragment : BaseFragment<List<String>>() {
 
@@ -117,11 +116,11 @@ class SettingsFragment : BaseFragment<List<String>>() {
         }
     }
 
-    private val clickListener = object : OnItemClickListener<String>{
+    private val clickListener = object : OnItemClickListener<String> {
         override fun onItemClick(item: String, position: Int) {
             settings.cardStyle = item
             loadCardBackImage(requireContext())
-            settingsStylesAdapter.notifyDataSetChanged()
+            settingsStylesAdapter.notifyItemChanged(position)
         }
     }
 }
