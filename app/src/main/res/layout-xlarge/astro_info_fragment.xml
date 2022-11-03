@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.astro.InfoFragment"
+    tools:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/img_view_sign"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_gravity="center"
+        android:src="@drawable/taurus_circle"/>
+
+    <TextView
+        android:id="@+id/tv_sign_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+        android:textSize="36sp"
+        tools:text="Тельцы 20.09.2022 Сегодня"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        android:scrollbars="vertical"
+        android:scrollbarSize="6dp"
+        android:scrollbarThumbVertical="@color/peach">
+
+        <LinearLayout
+            android:id="@+id/info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+                android:textSize="32sp"
+                tools:text="Here's the kind of day you can definitely live with -- intense, passionate and meaningful. That goes for each and every encounter you have, no matter how casual it was supposed to be."/>
+
+            <TextView
+                android:id="@+id/tv_compatibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+                android:textSize="32sp"
+                tools:text="Совместимость: Libra"/>
+
+            <TextView
+                android:id="@+id/tv_mood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+                android:textSize="32sp"
+                tools:text="Настроение: Excited"/>
+
+            <TextView
+                android:id="@+id/tv_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+                android:textSize="32sp"
+                tools:text="Цвет: Orchid"/>
+
+            <TextView
+                android:id="@+id/tv_lucky_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+                android:textSize="32sp"
+                tools:text="Счастливое число: 7"/>
+
+            <TextView
+                android:id="@+id/tv_lucky_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+                android:textSize="32sp"
+                tools:text="Удачное время: 05:00"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/img_view_loading"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="130dp"
+        tools:background="@drawable/anim_potions"/>
+
+</LinearLayout>

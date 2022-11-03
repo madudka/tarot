@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity(){
             bindService(it, ssConnection, Context.BIND_AUTO_CREATE)
         }
         setupInsets(binding.root)
+
     }
 
     override fun onPause() {
@@ -85,6 +86,11 @@ class MainActivity : AppCompatActivity(){
             unbindService(ssConnection)
             ssBound = false
         }
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        setupInsets(binding.root)
     }
 
     private fun initializeAppVars(){

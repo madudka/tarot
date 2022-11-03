@@ -1,16 +1,205 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Tarot" parent="Theme.Material3.DayNight">
+    <style name="Theme.Tarot" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/dark_red</item>
+        <item name="colorPrimaryVariant">@color/dark_red</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/dark_red</item>
+        <item name="colorSecondaryVariant">@color/peach</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="checkboxStyle">@style/Custom.CheckBox</item>
     </style>
+
+    <style name="Custom.BottomNavView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/dark_purple</item>
+        <item name="itemTextColor">@color/peach</item>
+        <item name="itemIconTint">@color/peach</item>
+        <item name="itemRippleColor">@drawable/custom_nav_bar_ripple_color_selector</item>
+        <item name="itemIconSize">32dp</item>
+        <item name="itemActiveIndicatorStyle">@style/Custom.Indicator</item>
+        <item name="labelVisibilityMode">auto</item>
+
+    </style>
+
+    <style name="Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/dark_red</item>
+    </style>
+
+    <!--BUTTON-->
+
+    <style name="Custom.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/peach</item>
+        <item name="strokeWidth">4dp</item>
+        <item name="android:textColor">@color/peach</item>
+        <item name="android:textAppearance">@style/Custom.TextAppearance</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="itemRippleColor">@drawable/custom_outline_btn_ripple_color_selector</item>
+    </style>
+
+    <!--TEXT APPEARANCE-->
+
+    <style name="Custom.TextAppearance" parent="TextAppearance.Material3.HeadlineMedium">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="android:textColor">@color/peach</item>
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+    </style>
+
+    <style name="Custom.TextAppearanceNoColor" parent="TextAppearance.Material3.BodySmall">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+    </style>
+
+    <style name="Custom.TextAppearanceHeadline" parent="TextAppearance.Material3.HeadlineLarge">
+        <!--item name="android:fontFamily">@font/elmessiri_bold</item-->
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="fontFamily">@font/elmessiri_bold</item>
+    </style>
+
+    <style name="Custom.TextAppearanceInfo" parent="TextAppearance.Material3.HeadlineMedium">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="android:textColor">@color/platinum</item>
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Custom.TextAppearanceHeadline1" parent="TextAppearance.Material3.HeadlineMedium">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="android:textColor">@color/platinum</item>
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Custom.TextAppearanceHeadline2" parent="TextAppearance.Material3.HeadlineMedium">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="android:textColor">@color/platinum</item>
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Custom.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:textColor">@color/dark_red</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColorHint">@color/platinum</item>
+        <item name="counterTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="errorTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="helperTextTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="hintTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="boxStrokeColor">@drawable/custom_text_input_layout_color_selector</item>
+        <item name="counterTextColor">@color/platinum</item>
+        <item name="helperTextTextColor">@color/platinum</item>
+        <item name="hintTextColor">@color/platinum</item>
+        <item name="placeholderTextColor">@color/dark_red</item>
+        <item name="startIconTint">@color/dark_red</item>
+    </style>
+
+    <style name="Custom.TextAppearanceInfoFull" parent="TextAppearance.Material3.HeadlineMedium">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="android:textColor">@color/platinum</item>
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textAlignment">inherit</item>
+    </style>
+
+    <!--IMAGE SHAPE-->
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <!--ALERT DIALOG-->
+
+    <style name="Custom.AlertDialog" parent="MaterialAlertDialog.Material3">
+        <!--item name="android:fontFamily">@font/elmessiri_semibold</item-->
+        <item name="fontFamily">@font/elmessiri_semibold</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Custom.AlertDialog.Button</item>
+        <item name="android:background">@color/platinum</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Custom.AlertDialog.Button" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
+        <item name="buttonBarButtonStyle">@style/Custom.AlertDialog.Button</item>
+    </style>
+
+    <style name="Custom.AlertDialog.Button.Text" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/dark_red</item>
+    </style>
+
+    <!--CHECKBOX-->
+
+    <style name="Custom.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="android:buttonTint">@drawable/custom_checkbox_color_selector</item>
+        <item name="android:textColor">@color/peach</item>
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
+    </style>
+
+    <!--CHIP-->
+    <style name="Custom.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
+        <item name="android:textColor">@color/peach</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="checkedIcon">@drawable/ic_visibility</item>
+        <item name="chipStrokeColor">@drawable/custom_chip_stroke_color_selector</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
+        <item name="rippleColor">@color/dark_red</item>
+    </style>
+
+    <style name="Custom.ChipChoice" parent="Widget.Material3.Chip.Suggestion">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline2</item>
+        <item name="android:textColor">@color/platinum</item>
+        <item name="android:textSize">22sp</item>
+        <item name="chipBackgroundColor">@drawable/custom_chip_bg_selector</item>
+    </style>
+
+    <!--ExposedDropDownMenu-->
+
+    <style name="Custom.ExposedDropdownMenu"
+        parent="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="android:textColorHint">@color/platinum</item>
+        <item name="android:textAlignment">center</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="counterTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="counterTextColor">@color/platinum</item>
+        <item name="errorTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="helperTextTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="helperTextTextColor">@color/platinum</item>
+        <item name="hintTextAppearance">@style/Custom.TextAppearanceNoColor</item>
+        <item name="hintTextColor">@color/platinum</item>
+        <item name="placeholderTextColor">@color/dark_red</item>
+    </style>
+
+    <style name="Custom.Switch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline1</item>
+        <item name="thumbTint">@drawable/custom_switch_color_selector</item>
+        <item name="trackTint">@drawable/custom_switch_track_color_selector</item>
+    </style>
+
+    <!--CARD VIEW-->
+    <style name="Custom.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/dark_purple_90</item>
+    </style>
+
+    <!--SHOW CASE-->
+    <style name="Custom.ShowCaseTitle" parent="FancyShowCaseDefaultTitleStyle">
+        <item name="android:textAppearance">@style/Custom.TextAppearanceHeadline1</item>
+    </style>
+
 </resources>

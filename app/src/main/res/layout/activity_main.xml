@@ -5,8 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:fitsSystemWindows="true"
     tools:context=".view.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:id="@+id/top_panel"
@@ -25,12 +30,16 @@
             android:padding="15dp"
             android:src="@drawable/ic_arrow_back"/>
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:padding="15dp"
-            android:src="@drawable/ic_broom"/>
+            android:fontFamily="@font/elmessiri_bold"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/magic_phrase"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red_30"
+            android:textSize="24sp"/>
         
     </LinearLayout>
 

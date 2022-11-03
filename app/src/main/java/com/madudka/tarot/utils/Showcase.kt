@@ -31,7 +31,7 @@ private fun buildShowCase(activity: Activity, view: View, description: String, k
         .backgroundColor(R.color.dark_purple)
         .focusBorderColor(R.color.peach)
         .focusShape(FocusShape.ROUNDED_RECTANGLE)
-        .titleStyle(R.style.Custom_ShowCaseTitle, Gravity.CENTER or Gravity.TOP)
+        .titleStyle(R.style.Custom_ShowCaseTitle, Gravity.CENTER or Gravity.BOTTOM)
         .fitSystemWindows(fsw)
         .focusOn(view)
         .title(description)

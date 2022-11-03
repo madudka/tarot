@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.divination.DivinationFragment"
+    tools:background="@drawable/background">
+    <!--tools:background="@drawable/background"-->
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:layout_marginTop="32dp"
+        android:text="@string/select_divination_type"
+        android:textAppearance="@style/Custom.TextAppearanceHeadline1"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btn_divination_verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            app:strokeWidth="6dp"
+            android:text="@string/verify"
+            style="@style/Custom.OutlinedButton"/>
+
+        <Button
+            android:id="@+id/btn_divination_day_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textSize="32sp"
+            app:strokeWidth="6dp"
+            android:text="@string/day_card"
+            style="@style/Custom.OutlinedButton"/>
+
+        <Button
+            android:id="@+id/btn_divination_advice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textSize="32sp"
+            app:strokeWidth="6dp"
+            android:text="@string/card_advice"
+            style="@style/Custom.OutlinedButton"/>
+
+    </LinearLayout>
+
+</FrameLayout>

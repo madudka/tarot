@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".view.divination.ImageFragment"
+    tools:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:textSize="36sp"
+        android:textAppearance="@style/Custom.TextAppearanceHeadline"
+        android:gravity="center"
+        tools:text="Заголовок"/>
+
+    <TextView
+        android:id="@+id/tv_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:textSize="27sp"
+        android:text="Нажмите на карту, чтобы узнать подробности..."
+        android:textAppearance="@style/Custom.TextAppearanceHeadline2"
+        android:gravity="center"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_view_card"
+        android:layout_width="wrap_content"
+        android:layout_height="750dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        tools:src="@drawable/test_back_card_img"/>
+
+</LinearLayout>

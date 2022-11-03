@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="@drawable/background"
+    tools:context=".view.layouts.InfoFragment">
+
+    <androidx.cardview.widget.CardView xmlns:cardView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        cardView:cardBackgroundColor="@android:color/transparent">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/img_view_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="290dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    cardView:layout_constraintLeft_toLeftOf="parent"
+                    cardView:layout_constraintTop_toTopOf="parent"
+                    cardView:shapeAppearance="@style/roundedImageView"
+                    tools:src="@drawable/test_layout_img" />
+
+                <TextView
+                    android:id="@+id/tv_layout_name"
+                    style="@style/Custom.TextAppearanceHeadline1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="36sp"
+                    cardView:layout_constraintBottom_toTopOf="@id/tv_layout_card_count"
+                    cardView:layout_constraintLeft_toRightOf="@id/img_view_layout"
+                    cardView:layout_constraintRight_toRightOf="parent"
+                    cardView:layout_constraintTop_toTopOf="parent"
+                    tools:text="АКНХ" />
+
+                <TextView
+                    android:id="@+id/tv_layout_card_count"
+                    style="@style/Custom.TextAppearanceHeadline2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="27sp"
+                    cardView:layout_constraintBottom_toTopOf="@+id/tv_layout_type"
+                    cardView:layout_constraintLeft_toRightOf="@id/img_view_layout"
+                    cardView:layout_constraintRight_toRightOf="parent"
+                    cardView:layout_constraintTop_toBottomOf="@id/tv_layout_name"
+                    tools:text="Количество карт: 9" />
+
+                <TextView
+                    android:id="@+id/tv_layout_significator_count"
+                    style="@style/Custom.TextAppearanceHeadline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="27sp"
+                    cardView:layout_constraintBottom_toTopOf="@+id/tv_layout_type"
+                    cardView:layout_constraintLeft_toRightOf="@id/img_view_layout"
+                    cardView:layout_constraintRight_toRightOf="parent"
+                    cardView:layout_constraintTop_toBottomOf="@id/tv_layout_card_count"
+                    tools:text="Сигнификаторы: нет" />
+
+                <ImageView
+                    android:id="@+id/img_view_significator"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_question"
+                    cardView:layout_constraintBottom_toBottomOf="@+id/tv_layout_significator_count"
+                    cardView:layout_constraintLeft_toRightOf="@id/tv_layout_significator_count"
+                    cardView:layout_constraintTop_toTopOf="@id/tv_layout_significator_count"
+                    cardView:layout_constraintRight_toRightOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_layout_type"
+                    style="@style/Custom.TextAppearanceHeadline2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="27sp"
+                    cardView:layout_constraintBottom_toBottomOf="parent"
+                    cardView:layout_constraintLeft_toRightOf="@id/img_view_layout"
+                    cardView:layout_constraintRight_toRightOf="parent"
+                    cardView:layout_constraintTop_toBottomOf="@id/tv_layout_significator_count"
+                    tools:text="Начальные" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </HorizontalScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        android:scrollbarSize="6dp"
+        android:scrollbarThumbVertical="@color/peach"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="27sp"
+            android:layout_margin="20dp"
+            android:padding="15dp"
+            android:textAppearance="@style/Custom.TextAppearanceInfoFull"
+            tools:text="Продолжение описания" />
+
+    </ScrollView>
+</LinearLayout>
+

@@ -93,6 +93,9 @@
     <string name="lucky_number">Счастливое число: %1$s</string>
     <string name="lucky_time">Удачное время: %1$s</string>
     <string name="string_with_origin">%1$s (оригинал)</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
 
     <!--НАСТРОЙКИ-->
     <string name="music">Музыка</string>
@@ -111,6 +114,9 @@
     <string name="verify_hint">Можно ли делать расклад сегодня...</string>
     <string name="day_card_hint">Что ожидать от сегодняшнего дня...</string>
     <string name="advice_hint">Спроси совета у карты...</string>
+
+    <!--ФОН-->
+    <string name="magic_phrase">scire facere volo taceo</string>
 
 
 </resources>

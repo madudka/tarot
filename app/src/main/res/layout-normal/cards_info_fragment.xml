@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.cards.InfoFragment"
+    tools:background="@drawable/background">
+
+    <androidx.cardview.widget.CardView xmlns:cardView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        cardView:cardBackgroundColor="@android:color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_view_day_card"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                cardView:shapeAppearance="@style/roundedImageView"
+                cardView:layout_constraintLeft_toLeftOf="parent"
+                cardView:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/test_card_img"/>
+
+            <TextView
+                android:id="@+id/tv_card_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                cardView:layout_constraintLeft_toRightOf="@id/img_view_day_card"
+                cardView:layout_constraintTop_toTopOf="parent"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintBottom_toTopOf="@id/tv_card_other_name"
+                style="@style/Custom.TextAppearanceHeadline1"
+                tools:text="Жрец"/>
+
+            <TextView
+                android:id="@+id/tv_card_other_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                cardView:layout_constraintLeft_toRightOf="@id/img_view_day_card"
+                cardView:layout_constraintTop_toBottomOf="@id/tv_card_name"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintBottom_toTopOf="@+id/tv_card_type"
+                style="@style/Custom.TextAppearanceHeadline2"
+                tools:text="Верховный жрец, Иерофант"/>
+
+            <TextView
+                android:id="@+id/tv_card_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                cardView:layout_constraintLeft_toRightOf="@id/img_view_day_card"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintTop_toBottomOf="@id/tv_card_other_name"
+                cardView:layout_constraintBottom_toBottomOf="parent"
+                style="@style/Custom.TextAppearanceHeadline2"
+                tools:text="Старшие арканы"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="24dp"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        android:scrollbars="vertical"
+        android:scrollbarSize="6dp"
+        android:scrollbarThumbVertical="@color/peach">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/etv_briefly"
+                layout="@layout/item_expanded_text_view"/>
+
+            <include
+                android:id="@+id/etv_common"
+                layout="@layout/item_expanded_text_view"/>
+
+            <include
+                android:id="@+id/etv_love"
+                layout="@layout/item_expanded_text_view"/>
+
+            <include
+                android:id="@+id/etv_question"
+                layout="@layout/item_expanded_text_view"/>
+
+            <include
+                android:id="@+id/etv_day"
+                layout="@layout/item_expanded_text_view"/>
+
+            <include
+                android:id="@+id/etv_advice"
+                layout="@layout/item_expanded_text_view"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
