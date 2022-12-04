@@ -20,8 +20,12 @@ import com.madudka.tarot.databinding.AstroInfoFragmentBinding
 import com.madudka.tarot.utils.SignType
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
 import com.madudka.tarot.viewmodel.astro.TranslatorViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -71,13 +75,14 @@ class InfoFragment : Fragment() {
             binding.tvLuckyNumber.text = getString(R.string.lucky_number, it.lucky_number)
             binding.tvLuckyTime.text = getString(R.string.lucky_time, it.lucky_time.normalizeTime())
 
-            viewLifecycleOwner.lifecycleScope.launch{
-                translatorViewModel.getTranslating().collectLatest { flag ->
+            viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default){
+                translatorViewModel.getTranslating().collect { flag ->
                     if (flag){
-                        (binding.imgViewLoading.background as AnimationDrawable).stop()
-                        binding.imgViewLoading.visibility = View.GONE
-
-                        binding.infoLayout.visibility = View.VISIBLE
+                        withContext(Dispatchers.Main){
+                            (binding.imgViewLoading.background as AnimationDrawable).stop()
+                            binding.imgViewLoading.visibility = View.GONE
+                            binding.infoLayout.visibility = View.VISIBLE
+                        }
                     }
                 }
             }

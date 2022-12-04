@@ -17,7 +17,7 @@ class LayoutsEntity(
     @ColumnInfo(name = "signifier_count")
     val signifier_count: Int,
     @ColumnInfo(name = "description")
-    val description: String?,
+    val description: String,
     @ColumnInfo(name = "image", typeAffinity = ColumnInfo.BLOB)
-    val image: ByteArray?
+    val image: ByteArray
 )

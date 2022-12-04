@@ -4,6 +4,7 @@ import android.content.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
+import android.view.KeyEvent
 import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.*
@@ -22,11 +23,9 @@ import com.madudka.tarot.utils.showInternetConnectionDialog
 import com.madudka.tarot.view.App.db
 import com.madudka.tarot.view.App.online
 import com.madudka.tarot.view.App.settings
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity(), OnKeyboardClosedListener{
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var soundService: SoundService
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity(){
             bindService(it, ssConnection, Context.BIND_AUTO_CREATE)
         }
         setupInsets(binding.root)
-
     }
 
     override fun onPause() {
@@ -93,6 +91,8 @@ class MainActivity : AppCompatActivity(){
         setupInsets(binding.root)
     }
 
+    override fun onKeyboardClosed() = setupInsets(binding.root)
+
     private fun initializeAppVars(){
         db = TarotDatabase.getInstance(applicationContext)
         settings = Settings.getInstance(applicationContext)
@@ -100,10 +100,8 @@ class MainActivity : AppCompatActivity(){
     }
 
     private fun setupCardBackImage(){
-        runBlocking {
-            withContext(Dispatchers.IO){
-                loadCardBackImage(applicationContext)
-            }
+        CoroutineScope(Job() + Dispatchers.IO).launch {
+            loadCardBackImage(applicationContext)
         }
     }
 
@@ -121,7 +119,6 @@ class MainActivity : AppCompatActivity(){
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
     }
-
 
     private fun setupBottomNavigationView(){
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

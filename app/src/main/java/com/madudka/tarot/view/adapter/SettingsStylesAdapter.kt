@@ -23,6 +23,7 @@ class SettingsStylesAdapter : BaseAdapter<String>() {
         override fun bindView(position: Int) {
             val item = listData[position]
 
+            //TODO Загрузка изображения
             binding.imgViewCard.loadImage(binding.root.context, style = item)
             binding.imgViewBackCard.loadImage(binding.root.context, id = 0, style = item)
 

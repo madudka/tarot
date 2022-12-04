@@ -2,12 +2,9 @@ package com.madudka.tarot.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import com.madudka.tarot.databinding.ListItemDivinationVerifyBinding
 import com.madudka.tarot.glide.loadImage
 import com.madudka.tarot.model.VerifyModel
-import com.madudka.tarot.services.NetworkConnection
-import com.madudka.tarot.utils.toBitmap
 
 class VerifyListAdapter : BaseAdapter<VerifyModel>(){
 

@@ -14,7 +14,7 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>
 
     override fun getItemCount() = _listData.size
 
-    fun updateData(data: List<T>, onlineFlag: Boolean = false) {
+    fun updateData(data: List<T>) {
         if (_listData.isNotEmpty() || data.isEmpty()) _listData.clear()
         _listData.addAll(data)
         notifyDataSetChanged()

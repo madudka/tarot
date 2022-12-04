@@ -2,13 +2,13 @@ package com.madudka.tarot.viewmodel.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.madudka.tarot.model.repository.FirebaseRepository
+import com.madudka.tarot.viewmodel.ViewModelExceptionHandle
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class SettingsViewModel : ViewModel() {
+class SettingsViewModel : ViewModelExceptionHandle() {
     private val firebaseRepository = FirebaseRepository()
 
     private val prefixes: MutableLiveData<List<String>> by lazy { MutableLiveData<List<String>>() }
@@ -16,7 +16,7 @@ class SettingsViewModel : ViewModel() {
     fun getPrefixes(): LiveData<List<String>> = prefixes
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionHandler) {
             val fetchPrefixesResult = fetchPrefixes().prefixes.map { it.name }
             prefixes.postValue(fetchPrefixesResult)
         }

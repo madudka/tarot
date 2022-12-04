@@ -1,7 +1,5 @@
 package com.madudka.tarot.utils
 
-import android.app.ActivityManager
-
 enum class DivinationType {
     DAY_CARD,
     ADVICE

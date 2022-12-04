@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationVerifyViewPagerFragmentBinding
 import com.madudka.tarot.model.VerifyModel
 import com.madudka.tarot.view.BaseFragment
@@ -32,6 +34,10 @@ class VerifyViewPagerFragment : BaseFragment<List<VerifyModel>>() {
 
         viewModel.getVerify().observe(viewLifecycleOwner){
             setData(it)
+        }
+
+        viewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
     }
 

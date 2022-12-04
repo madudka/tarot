@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.madudka.tarot.R
@@ -25,8 +26,8 @@ import com.madudka.tarot.view.BaseFragment
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.view.adapter.SettingsStylesAdapter
 import com.madudka.tarot.viewmodel.settings.SettingsViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
+import kotlin.coroutines.coroutineContext
 
 class SettingsFragment : BaseFragment<List<String>>() {
 
@@ -59,11 +60,14 @@ class SettingsFragment : BaseFragment<List<String>>() {
 
         binding.btnClearCache.setOnClickListener {
             GlideApp.get(requireContext()).clearMemory()
-            runBlocking(Dispatchers.IO){
+
+            CoroutineScope(Job() + Dispatchers.IO).launch(CoroutineExceptionHandler{_,_ ->}) {
                 GlideApp.get(requireContext()).clearDiskCache()
                 requireContext().cacheDir.deleteRecursively()
+                withContext(Dispatchers.Main) {
+                    showCleanCacheDialog(requireContext())
+                }
             }
-            showCleanCacheDialog(requireContext())
         }
 
         val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
@@ -78,6 +82,10 @@ class SettingsFragment : BaseFragment<List<String>>() {
 
         viewModel.getPrefixes().observe(viewLifecycleOwner){
             setData(it)
+        }
+
+        viewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
     }
 

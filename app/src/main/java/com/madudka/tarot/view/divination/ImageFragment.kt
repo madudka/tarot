@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -28,12 +29,12 @@ class ImageFragment : Fragment() {
         super.onAttach(context)
 
         //По нажатию кнопки "Назад" уходим по бэкстеку, без отмены анимации
-        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true){
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().popBackStack()
             }
         }
-
+        //TODO Проверить безопасность
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
@@ -55,7 +56,7 @@ class ImageFragment : Fragment() {
             if (args.divinationType == DivinationType.DAY_CARD) getString(R.string.day_card)
             else getString(R.string.card_advice)
 
-        //TODO: убрать тестовую рубашку, определить рабочий вариант
+        //TODO загрузка изображений
         binding.imgViewCard.loadImage(requireContext(), id = 0)
 
         var imgRotate = false
@@ -76,6 +77,10 @@ class ImageFragment : Fragment() {
                     //TODO загрузка изображения
                 }
                 binding.tvHelp.visibility = View.VISIBLE
+
+                viewModel.getError().observe(viewLifecycleOwner){
+                    Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

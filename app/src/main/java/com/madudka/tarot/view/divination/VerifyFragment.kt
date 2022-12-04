@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -28,13 +29,13 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settings.verifyDate = now()
-
         binding = DivinationVerifyFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        settings.verifyDate = now()
+
         val manager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
         val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
         imageCardListAdapter.clickListener = clickListener
@@ -48,6 +49,10 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
         viewModel.getVerify().observe(viewLifecycleOwner) {
             setData(it)
             updateView()
+        }
+
+        viewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
     }
 

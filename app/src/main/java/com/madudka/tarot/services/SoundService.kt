@@ -19,7 +19,6 @@ class SoundService : Service() {
         it.release()
     }
 
-
     override fun onCreate() {
         super.onCreate()
         mediaPlayer = MediaPlayer.create(applicationContext, R.raw.background_sound)

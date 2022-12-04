@@ -7,7 +7,7 @@ import com.madudka.tarot.model.CardModel
 @Dao
 interface CardsDao {
     @Query("SELECT c.id, c.name, c.type, img.image" +
-            " FROM cards c" +
-            " LEFT JOIN images img ON img.id = c.id")
+            " FROM cards c, images img" +
+            " WHERE img.id = c.id")
     fun selectAllCards(): List<CardModel>
 }

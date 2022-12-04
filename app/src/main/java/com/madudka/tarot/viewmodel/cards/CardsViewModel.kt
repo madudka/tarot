@@ -2,15 +2,15 @@ package com.madudka.tarot.viewmodel.cards
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.madudka.tarot.model.CardModel
 import com.madudka.tarot.model.repository.CardRepository
+import com.madudka.tarot.viewmodel.ViewModelExceptionHandle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CardsViewModel : ViewModel() {
+class CardsViewModel : ViewModelExceptionHandle() {
     private val cardRepository = CardRepository()
 
     private val cards: MutableLiveData<List<CardModel>> by lazy {
@@ -20,7 +20,7 @@ class CardsViewModel : ViewModel() {
     fun getCards(): LiveData<List<CardModel>> = cards
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionHandler) {
             val cardsFetchResult = fetchCards()
             cards.postValue(cardsFetchResult)
         }

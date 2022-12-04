@@ -2,15 +2,15 @@ package com.madudka.tarot.viewmodel.divination
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.madudka.tarot.model.VerifyModel
 import com.madudka.tarot.model.repository.VerifyRepository
+import com.madudka.tarot.viewmodel.ViewModelExceptionHandle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class VerifyViewModel : ViewModel() {
+class VerifyViewModel : ViewModelExceptionHandle() {
     private val verifyRepository = VerifyRepository()
 
     private val verify: MutableLiveData<List<VerifyModel>> by lazy {
@@ -20,7 +20,7 @@ class VerifyViewModel : ViewModel() {
     fun getVerify(): LiveData<List<VerifyModel>> = verify
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionHandler) {
             val verifyFetchResult = fetchVerify(getIdArray(), 1)
             verify.postValue(verifyFetchResult)
         }

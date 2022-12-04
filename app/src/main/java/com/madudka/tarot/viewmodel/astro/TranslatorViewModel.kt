@@ -11,6 +11,7 @@ import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import com.madudka.tarot.model.AstroModel
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel.Factory.CONFLATED
 import kotlinx.coroutines.flow.*
 
 private const val NUM_TRANSLATORS = 1
@@ -32,9 +33,8 @@ class TranslatorViewModel : ViewModel() {
             colorFlag.asFlow()
         ){ descriptionFlag, moodFlag, colorFlag ->
             descriptionFlag && moodFlag && colorFlag
-        }.onStart { delay(5000) }
-
-
+        }.buffer(CONFLATED)
+        .onStart { delay(5000) }
 
     private var modelLoadTask: Task<Void> = Tasks.forCanceled()
 
@@ -61,7 +61,6 @@ class TranslatorViewModel : ViewModel() {
 
     fun translateAstro(astro: AstroModel) {
         viewModelScope.launch {
-
             fetchTranslation(astro.description, descriptionFlag).addOnCompleteListener(
                 getTranslationListener(description)
             )
@@ -85,9 +84,7 @@ class TranslatorViewModel : ViewModel() {
             modelLoadTask = translator.downloadModelIfNeeded()
 
             modelLoadTask.onSuccessTask { translator.translate(text) }
-                .addOnCompleteListener {
-                    flag.postValue(true)
-                }
+                .addOnCompleteListener { flag.postValue(true) }
         }
     }
 }

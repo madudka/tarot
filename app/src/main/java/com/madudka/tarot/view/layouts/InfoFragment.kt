@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.madudka.tarot.R
@@ -27,8 +28,8 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getLayout().observe(viewLifecycleOwner) {
-            //TODO после добавления в БД всех изображений в моделе сделать image не null
-            binding.imgViewLayout.setImageBitmap(it.image?.toBitmap())
+            //TODO загрузка изображений
+            binding.imgViewLayout.setImageBitmap(it.image.toBitmap())
 
             binding.tvLayoutName.text = it.name
             binding.tvLayoutCardCount.text = getString(R.string.layout_card_count, it.cardCount)
@@ -43,6 +44,10 @@ class InfoFragment : Fragment() {
             binding.imgViewSignificator.setOnClickListener {
                 showSignificatorInfo(requireContext())
             }
+        }
+
+        viewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
     }
 }

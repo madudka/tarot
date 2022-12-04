@@ -6,8 +6,8 @@ data class LayoutFullModel(
     val type: Int,
     val cardCount: Int,
     val signifierCount: Int,
-    val description: String?,
-    val image: ByteArray?
+    val description: String,
+    val image: ByteArray
     ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -21,10 +21,7 @@ data class LayoutFullModel(
         if (cardCount != other.cardCount) return false
         if (signifierCount != other.signifierCount) return false
         if (description != other.description) return false
-        if (image != null) {
-            if (other.image == null) return false
-            if (!image.contentEquals(other.image)) return false
-        } else if (other.image != null) return false
+        if (!image.contentEquals(other.image)) return false
 
         return true
     }
@@ -35,8 +32,8 @@ data class LayoutFullModel(
         result = 31 * result + type
         result = 31 * result + cardCount
         result = 31 * result + signifierCount
-        result = 31 * result + (description?.hashCode() ?: 0)
-        result = 31 * result + (image?.contentHashCode() ?: 0)
+        result = 31 * result + description.hashCode()
+        result = 31 * result + image.contentHashCode()
         return result
     }
 }

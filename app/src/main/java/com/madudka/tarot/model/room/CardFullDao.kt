@@ -12,10 +12,10 @@ interface CardFullDao {
             " ci.love_straight as loveStraight, ci.love_inverted as loveInverted," +
             " ci.question_straight as questionStraight, ci.question_inverted as questionInverted," +
             " ci.day, ci.advice" +
-            " FROM cards c" +
-            " LEFT JOIN card_types ct ON ct.id = c.type" +
-            " LEFT JOIN images img ON img.id = c.id" +
-            " LEFT JOIN card_info ci ON ci.id = c.id" +
-            " WHERE c.id = :id")
+            " FROM cards c, card_types ct, images img, card_info ci" +
+            " WHERE ct.id = c.type" +
+            " AND img.id = c.id" +
+            " AND ci.id = c.id" +
+            " AND c.id = :id")
     fun selectCard(id: Int) : CardFullModel
 }

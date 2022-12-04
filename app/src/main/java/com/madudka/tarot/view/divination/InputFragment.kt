@@ -13,11 +13,13 @@ import androidx.navigation.fragment.navArgs
 import com.madudka.tarot.utils.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationInputFragmentBinding
+import com.madudka.tarot.view.OnKeyboardClosedListener
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class InputFragment : Fragment() {
 
     private lateinit var binding: DivinationInputFragmentBinding
+    private lateinit var keyboardClosedListener: OnKeyboardClosedListener
     private val viewModel: CardViewModel by activityViewModels()
     private val args: InputFragmentArgs by navArgs()
 
@@ -26,6 +28,7 @@ class InputFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DivinationInputFragmentBinding.inflate(inflater, container, false)
+        activity?.let { keyboardClosedListener = it as OnKeyboardClosedListener }
         return binding.root
     }
 
@@ -49,6 +52,7 @@ class InputFragment : Fragment() {
                 val num = it.toString().toInt()
                 if (num in (0..9)) {
                     viewModel.loadDayCard(num)
+                    keyboardClosedListener.onKeyboardClosed()
                     val action = InputFragmentDirections.actionInputFragmentToImageFragment(DivinationType.DAY_CARD)
                     findNavController().navigate(action)
                 }
@@ -68,6 +72,7 @@ class InputFragment : Fragment() {
         binding.textInput.doOnTextChanged { text, _, _, _ ->
             if (!text.isNullOrEmpty() && text.last() == '?'){
                 viewModel.loadCardAdvice()
+                keyboardClosedListener.onKeyboardClosed()
                 val action = InputFragmentDirections.actionInputFragmentToImageFragment(DivinationType.ADVICE)
                 findNavController().navigate(action)
             }

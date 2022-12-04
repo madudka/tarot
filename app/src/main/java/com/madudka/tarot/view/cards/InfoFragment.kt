@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import androidx.core.text.color
@@ -51,9 +52,11 @@ class InfoFragment : Fragment() {
         binding.imgViewDayCard.setOnClickListener {
             findNavController().navigate(R.id.action_cardsInfoFragment_to_imageFragment)
         }
+
+        viewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
+        }
     }
-
-
 
     private fun setExpandableTextView(etv: ItemExpandedTextViewBinding, header: String, straight: String, inverted: String){
         setExpandImage(etv)

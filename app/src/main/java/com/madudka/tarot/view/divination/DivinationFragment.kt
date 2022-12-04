@@ -9,13 +9,11 @@ import androidx.navigation.findNavController
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationFragmentBinding
 import com.madudka.tarot.utils.DivinationType
-import com.madudka.tarot.utils.showCase
 import com.madudka.tarot.utils.showCases
 import com.madudka.tarot.utils.showDialogInfo
 import com.madudka.tarot.view.App.now
 import com.madudka.tarot.view.App.settings
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import com.madudka.tarot.view.OnKeyboardClosedListener
 
 private const val VERIFY_KEY = "VERIFY"
 private const val DAY_CARD_KEY = "DAY_CARD"
@@ -27,7 +25,6 @@ class DivinationFragment : Fragment() {
     private var flagVerify = true
     private var flagDayCard = true
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +32,6 @@ class DivinationFragment : Fragment() {
         binding = DivinationFragmentBinding.inflate(inflater, container, false)
 
         setupNavController()
-        checkLimits()
 
         return binding.root
     }
@@ -49,6 +45,11 @@ class DivinationFragment : Fragment() {
                 Triple(binding.btnDivinationAdvice, getString(R.string.advice_hint), ADVICE_KEY)
             )
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkLimits()
     }
 
     private fun setupNavController() {

@@ -15,6 +15,7 @@ import com.madudka.tarot.R
 import com.madudka.tarot.databinding.LayoutsFragmentBinding
 import com.madudka.tarot.model.LayoutModel
 import com.madudka.tarot.view.BaseFragment
+import com.madudka.tarot.view.OnKeyboardClosedListener
 import com.madudka.tarot.view.adapter.LayoutsListAdapter
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.viewmodel.layouts.LayoutsFullViewModel
@@ -23,6 +24,7 @@ import com.madudka.tarot.viewmodel.layouts.LayoutsViewModel
 class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
 
     private lateinit var binding: LayoutsFragmentBinding
+    private lateinit var keyboardClosedListener: OnKeyboardClosedListener
     private val viewModel: LayoutsViewModel by activityViewModels()
     private val layoutsListAdapter = LayoutsListAdapter()
     private val viewModelFull: LayoutsFullViewModel by activityViewModels()
@@ -32,6 +34,7 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         savedInstanceState: Bundle?
     ): View? {
         binding = LayoutsFragmentBinding.inflate(inflater, container, false)
+        activity?.let { keyboardClosedListener = it as OnKeyboardClosedListener }
         return binding.root
     }
 
@@ -52,6 +55,10 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         viewModel.getLayouts().observe(viewLifecycleOwner){
             setData(it)
             updateView()
+        }
+
+        viewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -74,6 +81,7 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 filterData(query)
+                keyboardClosedListener.onKeyboardClosed()
                 return false
             }
 
@@ -88,9 +96,6 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
     private fun filterData(s: String? = binding.searchView.query.toString()){
         val filterText = (binding.menuFilter.editText as? AutoCompleteTextView)?.text.toString()
         val typeId = LayoutType.values().firstOrNull { it.description == filterText }?.id
-
-        //TODO Удалить
-        //Toast.makeText(requireContext(), filterText +" "+ typeId.toString(), Toast.LENGTH_SHORT).show()
 
         listData?.let { _list ->
             var list = if (typeId == null) _list else _list.filter { it.type == typeId }

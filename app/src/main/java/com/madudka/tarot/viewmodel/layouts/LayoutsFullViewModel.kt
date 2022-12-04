@@ -2,15 +2,15 @@ package com.madudka.tarot.viewmodel.layouts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.madudka.tarot.model.LayoutFullModel
 import com.madudka.tarot.model.repository.LayoutRepository
+import com.madudka.tarot.viewmodel.ViewModelExceptionHandle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LayoutsFullViewModel : ViewModel() {
+class LayoutsFullViewModel : ViewModelExceptionHandle() {
     private val layoutRepository = LayoutRepository()
 
     private val layoutFull: MutableLiveData<LayoutFullModel> by lazy { MutableLiveData<LayoutFullModel>() }
@@ -18,8 +18,8 @@ class LayoutsFullViewModel : ViewModel() {
     fun getLayout(): LiveData<LayoutFullModel> = layoutFull
 
     fun loadLayout(id: Int){
-        viewModelScope.launch {
-            val fetchResult = fetchLayout(id)
+        viewModelScope.launch(exceptionHandler) {
+            //val fetchResult = fetchLayout(id)
             layoutFull.postValue(fetchLayout(id))
         }
     }

@@ -5,6 +5,8 @@ import com.madudka.tarot.model.LayoutModel
 import com.madudka.tarot.view.App.db
 
 class LayoutRepository {
-    fun getAllLayouts() : List<LayoutModel> = db.getLayoutsDao().selectAllLayouts()
-    fun getLayout(id: Int) : LayoutFullModel = db.getLayoutsDao().selectLayout(id)
+    private val dbAccess = db.getLayoutsDao()
+
+    fun getAllLayouts() : List<LayoutModel> = dbAccess.selectAllLayouts()
+    fun getLayout(id: Int) : LayoutFullModel = dbAccess.selectLayout(id)
 }
