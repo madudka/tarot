@@ -15,7 +15,7 @@ import com.madudka.tarot.R
 import com.madudka.tarot.databinding.LayoutsFragmentBinding
 import com.madudka.tarot.model.LayoutModel
 import com.madudka.tarot.view.BaseFragment
-import com.madudka.tarot.view.OnKeyboardClosedListener
+import com.madudka.tarot.view.OnKeyboardDismissListener
 import com.madudka.tarot.view.adapter.LayoutsListAdapter
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.viewmodel.layouts.LayoutsFullViewModel
@@ -24,17 +24,17 @@ import com.madudka.tarot.viewmodel.layouts.LayoutsViewModel
 class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
 
     private lateinit var binding: LayoutsFragmentBinding
-    private lateinit var keyboardClosedListener: OnKeyboardClosedListener
     private val viewModel: LayoutsViewModel by activityViewModels()
     private val layoutsListAdapter = LayoutsListAdapter()
     private val viewModelFull: LayoutsFullViewModel by activityViewModels()
+    private lateinit var keyboardDismissListener: OnKeyboardDismissListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = LayoutsFragmentBinding.inflate(inflater, container, false)
-        activity?.let { keyboardClosedListener = it as OnKeyboardClosedListener }
+        activity?.let { keyboardDismissListener = it as OnKeyboardDismissListener }
         return binding.root
     }
 
@@ -78,19 +78,24 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
     }
 
     private fun setSearchView(){
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                filterData(query)
-                keyboardClosedListener.onKeyboardClosed()
-                return false
+        binding.searchView.apply {
+            focusable = View.NOT_FOCUSABLE
+            setOnQueryTextFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) keyboardDismissListener.onKeyBoardDismiss()
             }
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    filterData(query)
+                    keyboardDismissListener.onKeyBoardDismiss()
+                    return false
+                }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterData(newText)
-                return false
-            }
-
-        })
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    filterData(newText)
+                    return false
+                }
+            })
+        }
     }
 
     private fun filterData(s: String? = binding.searchView.query.toString()){

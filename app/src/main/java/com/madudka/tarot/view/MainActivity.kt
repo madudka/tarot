@@ -1,11 +1,15 @@
 package com.madudka.tarot.view
 
 import android.content.*
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.view.KeyEvent
 import android.view.View
+import android.view.ViewTreeObserver
+import android.widget.Toast
+import androidx.core.graphics.Insets
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.*
 import androidx.navigation.fragment.NavHostFragment
@@ -25,7 +29,7 @@ import com.madudka.tarot.view.App.online
 import com.madudka.tarot.view.App.settings
 import kotlinx.coroutines.*
 
-class MainActivity : AppCompatActivity(), OnKeyboardClosedListener{
+class MainActivity : AppCompatActivity(), OnKeyboardDismissListener{
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var soundService: SoundService
@@ -40,6 +44,8 @@ class MainActivity : AppCompatActivity(), OnKeyboardClosedListener{
             ssBound = false
         }
     }
+
+    override fun onKeyBoardDismiss() = setupInsets(binding.root)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -57,7 +63,6 @@ class MainActivity : AppCompatActivity(), OnKeyboardClosedListener{
         val view = binding.root
         setContentView(view)
 
-        //setupInsets(view)
         setupBottomNavigationView()
 
         binding.btnBack.setOnClickListener {
@@ -91,8 +96,6 @@ class MainActivity : AppCompatActivity(), OnKeyboardClosedListener{
         setupInsets(binding.root)
     }
 
-    override fun onKeyboardClosed() = setupInsets(binding.root)
-
     private fun initializeAppVars(){
         db = TarotDatabase.getInstance(applicationContext)
         settings = Settings.getInstance(applicationContext)
@@ -107,17 +110,20 @@ class MainActivity : AppCompatActivity(), OnKeyboardClosedListener{
 
     private fun setupInsets(view: View){
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        ViewCompat.setOnApplyWindowInsetsListener(view) { view, windowInsets ->
+        hideSysNavBar()
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
-            view.updatePadding(insets.left, insets.top, insets.right)
+            v.updatePadding(insets.left, insets.top, insets.right)
             WindowInsetsCompat.CONSUMED
         }
+    }
 
-        val windowInsetsController = WindowCompat.getInsetsController(window, view)
-        // Configure the behavior of the hidden system bars
-        windowInsetsController.systemBarsBehavior =
-            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
+    private fun hideSysNavBar(){
+        WindowInsetsControllerCompat(window, window.decorView).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.navigationBars())
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
     }
 
     private fun setupBottomNavigationView(){

@@ -1,9 +1,7 @@
 package com.madudka.tarot.view.cards
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SearchView
 import android.widget.Toast
@@ -15,7 +13,7 @@ import com.madudka.tarot.R
 import com.madudka.tarot.databinding.CardsFragmentBinding
 import com.madudka.tarot.model.CardModel
 import com.madudka.tarot.view.BaseFragment
-import com.madudka.tarot.view.OnKeyboardClosedListener
+import com.madudka.tarot.view.OnKeyboardDismissListener
 import com.madudka.tarot.view.adapter.CardsListAdapter
 import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.viewmodel.cards.CardFullViewModel
@@ -24,17 +22,17 @@ import com.madudka.tarot.viewmodel.cards.CardsViewModel
 class CardsFragment : BaseFragment<List<CardModel>>() {
 
     private lateinit var binding: CardsFragmentBinding
-    private lateinit var keyboardClosedListener: OnKeyboardClosedListener
     private val viewModel: CardsViewModel by activityViewModels()
     private val cardsListAdapter = CardsListAdapter()
     private val viewModelFull: CardFullViewModel by activityViewModels()
+    private lateinit var keyboardDismissListener: OnKeyboardDismissListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = CardsFragmentBinding.inflate(inflater, container, false)
-        activity?.let { keyboardClosedListener = it as OnKeyboardClosedListener }
+        activity?.let { keyboardDismissListener = it as OnKeyboardDismissListener }
         return binding.root
     }
 
@@ -77,18 +75,24 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
     }
 
     private fun setSearchView(){
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                filterData(query)
-                keyboardClosedListener.onKeyboardClosed()
-                return false
+        binding.searchView.apply{
+            focusable = View.NOT_FOCUSABLE
+            setOnQueryTextFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) keyboardDismissListener.onKeyBoardDismiss()
             }
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    filterData(query)
+                    keyboardDismissListener.onKeyBoardDismiss()
+                    return false
+                }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterData(newText)
-                return false
-            }
-        })
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    filterData(newText)
+                    return false
+                }
+            })
+        }
     }
 
     private fun filterData(s: String? = binding.searchView.query.toString()) {

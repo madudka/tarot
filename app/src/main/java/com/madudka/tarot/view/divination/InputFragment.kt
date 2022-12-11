@@ -1,6 +1,7 @@
 package com.madudka.tarot.view.divination
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,28 +14,36 @@ import androidx.navigation.fragment.navArgs
 import com.madudka.tarot.utils.DivinationType
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.DivinationInputFragmentBinding
-import com.madudka.tarot.view.OnKeyboardClosedListener
+import com.madudka.tarot.view.OnKeyboardDismissListener
 import com.madudka.tarot.viewmodel.divination.CardViewModel
 
 class InputFragment : Fragment() {
 
     private lateinit var binding: DivinationInputFragmentBinding
-    private lateinit var keyboardClosedListener: OnKeyboardClosedListener
     private val viewModel: CardViewModel by activityViewModels()
     private val args: InputFragmentArgs by navArgs()
+    private lateinit var keyboardDismissListener: OnKeyboardDismissListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DivinationInputFragmentBinding.inflate(inflater, container, false)
-        activity?.let { keyboardClosedListener = it as OnKeyboardClosedListener }
+        activity?.let { keyboardDismissListener = it as OnKeyboardDismissListener }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         if (args.divinationType == DivinationType.DAY_CARD) updateViewDayCard()
         else updateViewAdvice()
+
+        binding.textInput.setOnKeyListener { _, keyCode, event ->
+            if ((keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_BACK)
+                && event.action == KeyEvent.ACTION_DOWN){
+                keyboardDismissListener.onKeyBoardDismiss()
+                return@setOnKeyListener true
+            } else return@setOnKeyListener false
+        }
     }
 
     private fun updateViewDayCard() {
@@ -51,8 +60,8 @@ class InputFragment : Fragment() {
             text?.let {
                 val num = it.toString().toInt()
                 if (num in (0..9)) {
+                    keyboardDismissListener.onKeyBoardDismiss()
                     viewModel.loadDayCard(num)
-                    keyboardClosedListener.onKeyboardClosed()
                     val action = InputFragmentDirections.actionInputFragmentToImageFragment(DivinationType.DAY_CARD)
                     findNavController().navigate(action)
                 }
@@ -71,8 +80,8 @@ class InputFragment : Fragment() {
 
         binding.textInput.doOnTextChanged { text, _, _, _ ->
             if (!text.isNullOrEmpty() && text.last() == '?'){
+                keyboardDismissListener.onKeyBoardDismiss()
                 viewModel.loadCardAdvice()
-                keyboardClosedListener.onKeyboardClosed()
                 val action = InputFragmentDirections.actionInputFragmentToImageFragment(DivinationType.ADVICE)
                 findNavController().navigate(action)
             }

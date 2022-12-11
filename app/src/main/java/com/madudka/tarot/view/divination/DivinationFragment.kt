@@ -13,7 +13,6 @@ import com.madudka.tarot.utils.showCases
 import com.madudka.tarot.utils.showDialogInfo
 import com.madudka.tarot.view.App.now
 import com.madudka.tarot.view.App.settings
-import com.madudka.tarot.view.OnKeyboardClosedListener
 
 private const val VERIFY_KEY = "VERIFY"
 private const val DAY_CARD_KEY = "DAY_CARD"
