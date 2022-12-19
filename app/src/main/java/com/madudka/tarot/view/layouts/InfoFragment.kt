@@ -21,14 +21,14 @@ class InfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = LayoutsInfoFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getLayout().observe(viewLifecycleOwner) {
-            //TODO загрузка изображений
+            //TODO Load images
             binding.imgViewLayout.setImageBitmap(it.image.toBitmap())
 
             binding.tvLayoutName.text = it.name

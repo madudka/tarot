@@ -20,7 +20,7 @@ class CardFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DivinationCardFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,7 +36,7 @@ class CardFragment : Fragment() {
             binding.tvCardType.text = it.type
             binding.tvCardInfo.text = it.info
 
-            //TODO загрузка изобаржения
+            //TODO Load images
             binding.imgViewDayCard.loadImage(requireContext(), it.image, it.id)
         }
 

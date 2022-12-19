@@ -27,7 +27,7 @@ class InputFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DivinationInputFragmentBinding.inflate(inflater, container, false)
         activity?.let { keyboardDismissListener = it as OnKeyboardDismissListener }
         return binding.root

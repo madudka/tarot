@@ -53,7 +53,7 @@ class TranslatorViewModel : ViewModel() {
         }
     }
 
-    private fun getTranslationListener(receiver: MutableLiveData<String>) = OnCompleteListener<String> {
+    private fun getTranslationListener(receiver: MutableLiveData<String>) = OnCompleteListener {
         if (it.isSuccessful) receiver.postValue(it.result)
         else if (it.isCanceled) return@OnCompleteListener
         else receiver.postValue(it.exception?.message)

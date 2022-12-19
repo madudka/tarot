@@ -1,11 +1,9 @@
 package com.madudka.tarot.model
 
-import kotlin.random.Random
-
 data class VerifyModel(
     val id: Int,
     val image: ByteArray,
-    val inverted: Boolean = Random.nextBoolean()
+    val inverted: Boolean = ((0..2).shuffled().random() == 0)
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

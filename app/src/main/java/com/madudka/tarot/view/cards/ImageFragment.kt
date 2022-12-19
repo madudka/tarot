@@ -20,13 +20,13 @@ class ImageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CardsImageFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //TODO загрузка изображения
+        //TODO Load images
         viewModel.getCardFull().observe(viewLifecycleOwner){
             binding.imgViewCard.loadImage(requireContext(), it.image, it.id)
         }

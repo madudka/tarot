@@ -27,7 +27,6 @@ import com.madudka.tarot.view.adapter.OnItemClickListener
 import com.madudka.tarot.view.adapter.SettingsStylesAdapter
 import com.madudka.tarot.viewmodel.settings.SettingsViewModel
 import kotlinx.coroutines.*
-import kotlin.coroutines.coroutineContext
 
 class SettingsFragment : BaseFragment<List<String>>() {
 
@@ -40,7 +39,7 @@ class SettingsFragment : BaseFragment<List<String>>() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = SettingsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -28,14 +28,14 @@ class InfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CardsInfoFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getCardFull().observe(viewLifecycleOwner){
-            //TODO загрузка изображения
+            //TODO Load images
             binding.imgViewDayCard.loadImage(requireContext(), it.image, it.id)
             binding.tvCardName.text = it.name
             binding.tvCardType.text = it.type

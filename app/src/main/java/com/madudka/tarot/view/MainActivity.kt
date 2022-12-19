@@ -1,15 +1,10 @@
 package com.madudka.tarot.view
 
 import android.content.*
-import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
-import android.view.KeyEvent
 import android.view.View
-import android.view.ViewTreeObserver
-import android.widget.Toast
-import androidx.core.graphics.Insets
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.*
 import androidx.navigation.fragment.NavHostFragment
@@ -54,9 +49,9 @@ class MainActivity : AppCompatActivity(), OnKeyboardDismissListener{
 
         initializeAppVars()
         observeInternetConnection()
-        //TODO: Удалить очистку настроек к релизу
-        settings.clear()
-        //TODO Загрузка изображения
+        //TODO FOR TEST uncomment settings.clear()
+        //settings.clear()
+        //TODO Load images
         setupCardBackImage()
 
         binding = ActivityMainBinding.inflate(layoutInflater)

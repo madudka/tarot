@@ -24,7 +24,7 @@ class VerifyViewPagerFragment : BaseFragment<List<VerifyModel>>() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DivinationVerifyViewPagerFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

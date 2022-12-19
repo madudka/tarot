@@ -32,7 +32,7 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = LayoutsFragmentBinding.inflate(inflater, container, false)
         activity?.let { keyboardDismissListener = it as OnKeyboardDismissListener }
         return binding.root

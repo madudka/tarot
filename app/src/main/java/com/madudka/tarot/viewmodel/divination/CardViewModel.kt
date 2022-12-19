@@ -35,8 +35,7 @@ class CardViewModel: ViewModelExceptionHandle() {
         }
     }
 
-    //TODO: Расширить рандом после добавления полной базы
-    private suspend fun fetchDayCard(id: Int = (1..22).random()): DivinationCardModel{
+    private suspend fun fetchDayCard(id: Int = (1..78).random()): DivinationCardModel{
         return withContext(Dispatchers.IO){
             repository.getDayCardFromDb(id)
         }
@@ -44,10 +43,9 @@ class CardViewModel: ViewModelExceptionHandle() {
 
     private suspend fun fetchCardAdvice(): DivinationCardModel{
         return withContext(Dispatchers.IO){
-            repository.getCardAdviceFromDb((1..22).random())
+            repository.getCardAdviceFromDb((1..78).random())
         }
     }
 
-    //TODO: Расширить рандом после добавления полной базы
-    private fun Int.customRandom() = (this + (1..22).random()) % 22 + 1
+    private fun Int.customRandom() = (this + (1..78).random()) % 78 + 1
 }

@@ -30,7 +30,7 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CardsFragmentBinding.inflate(inflater, container, false)
         activity?.let { keyboardDismissListener = it as OnKeyboardDismissListener }
         return binding.root

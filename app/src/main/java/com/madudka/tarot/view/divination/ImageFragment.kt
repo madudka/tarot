@@ -34,14 +34,13 @@ class ImageFragment : Fragment() {
                 findNavController().popBackStack()
             }
         }
-        //TODO Проверить безопасность
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DivinationImageFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -56,7 +55,7 @@ class ImageFragment : Fragment() {
             if (args.divinationType == DivinationType.DAY_CARD) getString(R.string.day_card)
             else getString(R.string.card_advice)
 
-        //TODO загрузка изображений
+        //TODO Load images
         binding.imgViewCard.loadImage(requireContext(), id = 0)
 
         var imgRotate = false
@@ -74,7 +73,7 @@ class ImageFragment : Fragment() {
                     viewModel.getCard().observe(viewLifecycleOwner){
                         binding.imgViewCard.loadImage(requireContext(), it.image, it.id)
                     }
-                    //TODO загрузка изображения
+                    //TODO Load images
                 }
                 binding.tvHelp.visibility = View.VISIBLE
 

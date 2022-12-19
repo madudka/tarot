@@ -35,6 +35,6 @@ private fun buildShowCase(activity: Activity, view: View, description: String, k
         .fitSystemWindows(fsw)
         .focusOn(view)
         .title(description)
-        //TODO поставить showonce перед публикацией
-        //.showOnce(key)
+        //TODO FOR DEBUG comment showOnce(key)
+        .showOnce(key)
         .build()

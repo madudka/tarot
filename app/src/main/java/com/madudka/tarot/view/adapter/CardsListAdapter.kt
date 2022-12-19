@@ -20,7 +20,7 @@ class CardsListAdapter : BaseAdapter<CardModel>() {
         override fun bindView(position: Int) {
             val item = listData[position]
 
-            //TODO Загрузка изображения
+            //TODO Load images
             binding.imgViewItemCard.loadImage(binding.root.context, item.image, item.id)
             binding.tvCardName.text = item.name
             binding.layoutItemCards.setOnClickListener {

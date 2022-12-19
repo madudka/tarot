@@ -22,8 +22,9 @@ class SettingsStylesAdapter : BaseAdapter<String>() {
     inner class SettingsStyleViewHolder(private val binding: ListItemSettingsStylesBinding) : BaseViewHolder(binding.root){
         override fun bindView(position: Int) {
             val item = listData[position]
+            lastPosition = 0
 
-            //TODO Загрузка изображения
+            //TODO Load images
             binding.imgViewCard.loadImage(binding.root.context, style = item)
             binding.imgViewBackCard.loadImage(binding.root.context, id = 0, style = item)
 

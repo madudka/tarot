@@ -5,7 +5,7 @@ import com.madudka.tarot.model.toVerifyModel
 import com.madudka.tarot.view.App.db
 
 class VerifyRepository {
-    fun getVerifyFromDb(idArray: Array<Int>, type: Int): List<VerifyModel>{
-        return db.getVerifyDao().selectVerifyCards(idArray, type).map { it.toVerifyModel() }
+    fun getVerifyFromDb(idArray: HashSet<Int>): List<VerifyModel>{
+        return db.getVerifyDao().selectVerifyCards(idArray).map { it.toVerifyModel() }
     }
 }

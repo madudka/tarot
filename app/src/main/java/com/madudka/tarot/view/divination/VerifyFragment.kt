@@ -28,7 +28,7 @@ class VerifyFragment : BaseFragment<List<VerifyModel>>() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DivinationVerifyFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

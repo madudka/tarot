@@ -21,18 +21,22 @@ class VerifyViewModel : ViewModelExceptionHandle() {
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val verifyFetchResult = fetchVerify(getIdArray(), 1)
+            val verifyFetchResult = fetchVerify(getIdArray(10))
             verify.postValue(verifyFetchResult)
         }
     }
 
-    private suspend fun fetchVerify(idArray: Array<Int>, type: Int): List<VerifyModel>{
+    private suspend fun fetchVerify(idArray: HashSet<Int>): List<VerifyModel>{
         return withContext(Dispatchers.IO){
-            verifyRepository.getVerifyFromDb(idArray, type)
+            verifyRepository.getVerifyFromDb(idArray)
         }
     }
 
-    private fun getIdArray(): Array<Int> {
-        return (1..10).map { (1..78).random() }.toTypedArray()
+    private fun getIdArray(size : Int): HashSet<Int> {
+        val s = HashSet<Int>(size)
+        while (s.size < size) {
+            s += (1..78).shuffled().random()
+        }
+        return s
     }
 }

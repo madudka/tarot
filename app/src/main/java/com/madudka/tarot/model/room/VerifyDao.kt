@@ -6,6 +6,6 @@ import com.madudka.tarot.model.VerifyDaoModel
 
 @Dao
 interface VerifyDao {
-    @Query("SELECT id, image FROM images WHERE id IN (:idArray) AND type = :type")
-    fun selectVerifyCards(idArray: Array<Int>, type: Int): List<VerifyDaoModel>
+    @Query("SELECT id, image FROM images WHERE id IN (:idArray)")
+    fun selectVerifyCards(idArray: HashSet<Int>): List<VerifyDaoModel>
 }

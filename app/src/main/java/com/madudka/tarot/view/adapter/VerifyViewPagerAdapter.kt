@@ -19,7 +19,7 @@ class VerifyViewPagerAdapter : BaseAdapter<VerifyModel>(){
             val item = listData[position]
 
             binding.imgViewCard.apply {
-                //TODO загрузка изображений
+                //TODO Load images
                 loadImage(binding.root.context, item.image, item.id)
                 rotation = if (item.inverted) 180F else 0F
             }
