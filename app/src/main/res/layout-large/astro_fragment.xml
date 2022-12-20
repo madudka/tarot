@@ -12,48 +12,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        app:selectionRequired="true"
-        app:singleSelection="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_yesterday"
+            style="@style/Custom.ChipChoice"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="@string/yesterday"
+            android:textSize="32sp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_yesterday"
-                style="@style/Custom.ChipChoice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="32sp"
-                android:text="@string/yesterday" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_today"
+            style="@style/Custom.ChipChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:checked="true"
+            android:text="@string/today"
+            android:textSize="32sp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_today"
-                style="@style/Custom.ChipChoice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:checked="true"
-                android:layout_weight="1"
-                android:textSize="32sp"
-                android:text="@string/today" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_tomorrow"
-                style="@style/Custom.ChipChoice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="32sp"
-                android:text="@string/tomorrow" />
-
-        </LinearLayout>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_tomorrow"
+            style="@style/Custom.ChipChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tomorrow"
+            android:textSize="32sp" />
 
     </com.google.android.material.chip.ChipGroup>
 

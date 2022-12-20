@@ -60,6 +60,11 @@ class CardsFragment : BaseFragment<List<CardModel>>() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        filterData()
+    }
+
     override fun updateView() {
         listData?.let { list ->
             cardsListAdapter.updateData(list)

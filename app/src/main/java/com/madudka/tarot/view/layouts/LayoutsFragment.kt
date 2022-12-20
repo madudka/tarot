@@ -29,6 +29,7 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
     private val viewModelFull: LayoutsFullViewModel by activityViewModels()
     private lateinit var keyboardDismissListener: OnKeyboardDismissListener
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,7 +51,7 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         }
 
         setSearchView()
-        setFilters()
+        (binding.menuFilter.editText as? AutoCompleteTextView)?.setText("Все", false)
 
         viewModel.getLayouts().observe(viewLifecycleOwner){
             setData(it)
@@ -60,6 +61,12 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         viewModel.getError().observe(viewLifecycleOwner){
             Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setFilters()
+        filterData()
     }
 
     override fun updateView() {
@@ -113,7 +120,6 @@ class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
         val items = resources.getStringArray(R.array.layouts_filer_list)
         val adapter = ArrayAdapter(requireContext(), R.layout.list_item_layouts_filter, items)
         (binding.menuFilter.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-        (binding.menuFilter.editText as? AutoCompleteTextView)?.setText("Все", false)
         (binding.menuFilter.editText as? AutoCompleteTextView)?.setDropDownBackgroundDrawable(
                 ResourcesCompat.getDrawable(resources, R.drawable.custom_filter_spinner_bg_shape, null)
             )
