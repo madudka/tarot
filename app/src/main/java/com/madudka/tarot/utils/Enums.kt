@@ -1,5 +1,8 @@
 package com.madudka.tarot.utils
 
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 enum class DivinationType {
     DAY_CARD,
     ADVICE
@@ -47,6 +50,14 @@ enum class DayType(val id: Int, val description: String){
     tomorrow(3, "Завтра")
 }
 
+fun DayType.getDateString() : String{
+    val day = when (this){
+        DayType.yesterday -> LocalDate.now().minusDays(1)
+        DayType.tomorrow -> LocalDate.now().plusDays(1)
+        else -> LocalDate.now()
+    }
+    return day.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+}
 
 
 

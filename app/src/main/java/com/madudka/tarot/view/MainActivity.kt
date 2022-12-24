@@ -9,6 +9,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.*
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.ActivityMainBinding
 import com.madudka.tarot.glide.loadCardBackImage
@@ -48,6 +52,7 @@ class MainActivity : AppCompatActivity(), OnKeyboardDismissListener{
         super.onCreate(savedInstanceState)
 
         initializeAppVars()
+        initializeFirebaseAppCheck()
         observeInternetConnection()
         //TODO FOR TEST uncomment settings.clear()
         //settings.clear()
@@ -95,6 +100,16 @@ class MainActivity : AppCompatActivity(), OnKeyboardDismissListener{
         db = TarotDatabase.getInstance(applicationContext)
         settings = Settings.getInstance(applicationContext)
         online = false
+    }
+
+    private fun initializeFirebaseAppCheck(){
+        FirebaseApp.initializeApp(/*context=*/this)
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(
+            //PlayIntegrityAppCheckProviderFactory.getInstance()
+            DebugAppCheckProviderFactory.getInstance()
+            //TODO In DEBUG MODE SET DebugAppCheckProviderFactory.getInstance()
+        )
     }
 
     private fun setupCardBackImage(){

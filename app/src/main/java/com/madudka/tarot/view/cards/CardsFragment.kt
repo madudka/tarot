@@ -6,6 +6,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.madudka.tarot.utils.CardType
@@ -22,7 +23,7 @@ import com.madudka.tarot.viewmodel.cards.CardsViewModel
 class CardsFragment : BaseFragment<List<CardModel>>() {
 
     private lateinit var binding: CardsFragmentBinding
-    private val viewModel: CardsViewModel by activityViewModels()
+    private val viewModel: CardsViewModel by viewModels()
     private val cardsListAdapter = CardsListAdapter()
     private val viewModelFull: CardFullViewModel by activityViewModels()
     private lateinit var keyboardDismissListener: OnKeyboardDismissListener

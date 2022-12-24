@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.madudka.tarot.utils.LayoutType
@@ -24,7 +25,7 @@ import com.madudka.tarot.viewmodel.layouts.LayoutsViewModel
 class LayoutsFragment : BaseFragment<List<LayoutModel>>() {
 
     private lateinit var binding: LayoutsFragmentBinding
-    private val viewModel: LayoutsViewModel by activityViewModels()
+    private val viewModel: LayoutsViewModel by viewModels()
     private val layoutsListAdapter = LayoutsListAdapter()
     private val viewModelFull: LayoutsFullViewModel by activityViewModels()
     private lateinit var keyboardDismissListener: OnKeyboardDismissListener

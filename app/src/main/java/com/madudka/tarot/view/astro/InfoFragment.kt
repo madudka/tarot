@@ -18,12 +18,12 @@ import androidx.navigation.fragment.navArgs
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.AstroInfoFragmentBinding
 import com.madudka.tarot.utils.SignType
+import com.madudka.tarot.utils.getDateString
 import com.madudka.tarot.viewmodel.astro.AstroViewModel
 import com.madudka.tarot.viewmodel.astro.TranslatorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
@@ -44,41 +44,50 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.imgViewLoading.setBackgroundResource(R.drawable.anim_potions)
-        (binding.imgViewLoading.background as AnimationDrawable).start()
 
         binding.imgViewSign.setImageResource(getSignDrawable())
         binding.tvSignDate.text = StringBuilder()
             .append(args.signType.description)
             .append(" ")
-            .append(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
+            .append(args.dayType.getDateString())
             .append(" ")
             .append(args.dayType.description)
 
         viewModel.getAstro().observe(viewLifecycleOwner){
-            translatorViewModel.translateAstro(it)
-            translatorViewModel.getDescription().observe(viewLifecycleOwner){ description ->
-                binding.tvDescription.setClickableOrigin(description, it.description)
-            }
+            it?.let {
+                translatorViewModel.translateAstro(it)
+                translatorViewModel.getDescription().observe(viewLifecycleOwner) { description ->
+                    binding.tvDescription.setClickableOrigin(description, it.description)
+                }
 
-            binding.tvCompatibility.text = getString(R.string.compatibility, it.compatibility.signTranslate())
+                binding.tvCompatibility.text =
+                    getString(R.string.compatibility, it.compatibility.signTranslate())
 
-            translatorViewModel.getMood().observe(viewLifecycleOwner){ mood ->
-                binding.tvMood.setClickableOrigin(getString(R.string.mood, mood), getString(R.string.mood, it.mood))
-            }
-            translatorViewModel.getColor().observe(viewLifecycleOwner){ color ->
-                binding.tvColor.setClickableOrigin(getString(R.string.color, color), getString(R.string.color, it.color))
-            }
+                translatorViewModel.getMood().observe(viewLifecycleOwner) { mood ->
+                    binding.tvMood.setClickableOrigin(
+                        getString(R.string.mood, mood),
+                        getString(R.string.mood, it.mood)
+                    )
+                }
+                translatorViewModel.getColor().observe(viewLifecycleOwner) { color ->
+                    binding.tvColor.setClickableOrigin(
+                        getString(R.string.color, color),
+                        getString(R.string.color, it.color)
+                    )
+                }
 
-            binding.tvLuckyNumber.text = getString(R.string.lucky_number, it.lucky_number)
-            binding.tvLuckyTime.text = getString(R.string.lucky_time, it.lucky_time.normalizeTime())
+                binding.tvLuckyNumber.text = getString(R.string.lucky_number, it.lucky_number)
+                binding.tvLuckyTime.text =
+                    getString(R.string.lucky_time, it.lucky_time.normalizeTime())
 
-            viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default){
-                translatorViewModel.getTranslating().collect { flag ->
-                    if (flag){
-                        withContext(Dispatchers.Main){
-                            (binding.imgViewLoading.background as AnimationDrawable).stop()
-                            binding.imgViewLoading.visibility = View.GONE
-                            binding.infoLayout.visibility = View.VISIBLE
+                viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
+                    translatorViewModel.getTranslating().collect { flag ->
+                        if (flag) {
+                            withContext(Dispatchers.Main) {
+                                (binding.imgViewLoading.background as AnimationDrawable).stop()
+                                binding.imgViewLoading.visibility = View.GONE
+                                binding.infoLayout.visibility = View.VISIBLE
+                            }
                         }
                     }
                 }
@@ -86,10 +95,19 @@ class InfoFragment : Fragment() {
         }
 
         viewModel.getError().observe(viewLifecycleOwner){
-            binding.infoLayout.visibility = View.GONE
-            (binding.imgViewLoading.background as AnimationDrawable).stop()
-            binding.imgViewLoading.setBackgroundResource(R.drawable.ic_error)
+            it?.let {
+                binding.infoLayout.visibility = View.GONE
+                //if (binding.imgViewLoading.background is AnimationDrawable){
+                (binding.imgViewLoading.background as AnimationDrawable).stop()
+                //}
+                binding.imgViewLoading.setBackgroundResource(R.drawable.ic_error)
+            }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (binding.imgViewLoading.background as AnimationDrawable).start()
     }
 
     private fun getSignDrawable(): Int = when (args.signType) {
