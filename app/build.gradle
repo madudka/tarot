@@ -79,7 +79,10 @@ dependencies {
     implementation 'com.google.mlkit:translate:17.0.1'
 
     implementation platform('com.google.firebase:firebase-bom:30.5.0')
-    implementation 'com.google.firebase:firebase-storage-ktx:20.0.2'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-appcheck-ktx'
+    implementation 'com.google.firebase:firebase-appcheck-playintegrity'
+    implementation 'com.google.firebase:firebase-appcheck-debug'
     implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'

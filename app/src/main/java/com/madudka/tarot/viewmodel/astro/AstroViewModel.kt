@@ -18,13 +18,16 @@ class AstroViewModel : ViewModelExceptionHandle() {
 
     private val astroRepository = AstroRepository(API())
 
-    private val astro: MutableLiveData<AstroModel> by lazy { MutableLiveData<AstroModel>() }
+    val astro: MutableLiveData<AstroModel> by lazy { MutableLiveData<AstroModel>() }
     //private val error: MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
     fun getAstro(): LiveData<AstroModel> = astro
     //fun getError(): LiveData<String> = error
 
     fun loadAstro(signType: SignType, dayType: DayType){
+        error.postValue(null)
+        astro.postValue(null)
+
         viewModelScope.launch(exceptionHandler) {
             val fetchResult = fetchAstro(signType.name, dayType.name)
             if (fetchResult.isSuccessful) astro.postValue(fetchResult.body())
