@@ -36,5 +36,5 @@ private fun buildShowCase(activity: Activity, view: View, description: String, k
         .focusOn(view)
         .title(description)
         //TODO FOR DEBUG comment showOnce(key)
-        .showOnce(key)
+        //.showOnce(key)
         .build()

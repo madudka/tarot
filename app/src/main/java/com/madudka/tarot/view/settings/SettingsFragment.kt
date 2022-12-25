@@ -7,7 +7,6 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -16,7 +15,6 @@ import androidx.core.view.get
 import androidx.core.view.size
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.madudka.tarot.R
 import com.madudka.tarot.databinding.SettingsFragmentBinding
 import com.madudka.tarot.glide.GlideApp
@@ -67,7 +65,7 @@ class SettingsFragment : BaseFragment<List<String>>() {
         binding.btnClearCache.setOnClickListener {
             GlideApp.get(requireContext()).clearMemory()
 
-            CoroutineScope(Job() + Dispatchers.IO).launch(CoroutineExceptionHandler{_,_ ->}) {
+            CoroutineScope(Job() + Dispatchers.IO).launch(CoroutineExceptionHandler { _, _ -> }) {
                 GlideApp.get(requireContext()).clearDiskCache()
                 requireContext().cacheDir.deleteRecursively()
                 withContext(Dispatchers.Main) {
@@ -78,11 +76,11 @@ class SettingsFragment : BaseFragment<List<String>>() {
 
         setupRecyclerView()
 
-        viewModel.getPrefixes().observe(viewLifecycleOwner){
+        viewModel.getPrefixes().observe(viewLifecycleOwner) {
             setData(it)
         }
 
-        viewModel.getError().observe(viewLifecycleOwner){
+        viewModel.getError().observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), R.string.dark_forces, Toast.LENGTH_SHORT).show()
         }
     }
@@ -113,34 +111,19 @@ class SettingsFragment : BaseFragment<List<String>>() {
 
     private fun setupRecyclerView() {
         val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
-        val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
-        settingsStylesAdapter.clickListener = clickListener
+        val animation =
+            AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
+        settingsStylesAdapter.apply {
+            this.longClickListener = this@SettingsFragment.longClickListener
+            this.clickListener = this@SettingsFragment.clickListener
+        }
         binding.rvStyles.apply {
             adapter = settingsStylesAdapter
             layoutManager = manager
             layoutAnimation = animation
             setHasFixedSize(true)
-            addOnItemTouchListener(object : RecyclerView.OnItemTouchListener{
-                override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-                    return true
-                }
-
-                override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
-                    if (binding.rvStyles.size > 0){
-                        showCase(
-                            requireActivity(),
-                            binding.rvStyles[0],
-                            getString(R.string.taro_style_hint),
-                            SETTINGS_KEY
-                        )
-                    }
-                }
-
-                override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
-
-                }
-            })
         }
+
     }
 
     private val ssConnection = object : ServiceConnection {
@@ -154,11 +137,22 @@ class SettingsFragment : BaseFragment<List<String>>() {
         }
     }
 
-    private val clickListener = object : OnItemClickListener<String> {
+    private val longClickListener = object : OnItemClickListener<String> {
         override fun onItemClick(item: String, position: Int) {
             settings.cardStyle = item
             loadCardBackImage(requireContext())
             settingsStylesAdapter.notifyItemChanged(position)
+        }
+    }
+
+    private val clickListener = View.OnClickListener {
+        if (binding.rvStyles.size > 0) {
+            showCase(
+                requireActivity(),
+                binding.rvStyles[0],
+                getString(R.string.taro_style_hint),
+                SETTINGS_KEY
+            )
         }
     }
 }

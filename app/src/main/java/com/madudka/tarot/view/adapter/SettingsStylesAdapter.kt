@@ -1,6 +1,7 @@
 package com.madudka.tarot.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.madudka.tarot.databinding.ListItemSettingsStylesBinding
 import com.madudka.tarot.glide.loadImage
@@ -10,7 +11,8 @@ import kotlin.properties.Delegates
 
 class SettingsStylesAdapter : BaseAdapter<String>() {
 
-    lateinit var clickListener: OnItemClickListener<String>
+    lateinit var longClickListener: OnItemClickListener<String>
+    lateinit var clickListener: View.OnClickListener
     private var lastPosition by Delegates.notNull<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingsStyleViewHolder {
@@ -36,10 +38,14 @@ class SettingsStylesAdapter : BaseAdapter<String>() {
             }
 
             binding.cardView.setOnLongClickListener {
-                clickListener.onItemClick(item, position)
+                longClickListener.onItemClick(item, position)
                 notifyItemChanged(lastPosition)
                 //binding.cardView.isChecked = true
                 true
+            }
+
+            binding.cardView.setOnClickListener {
+                clickListener.onClick(it)
             }
         }
     }
