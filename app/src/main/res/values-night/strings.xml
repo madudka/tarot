@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Таро</string>
+    <string name="label_cards">Карты</string>
+    <string name="label_layouts">Расклады</string>
+    <string name="label_divination">Гадание</string>
+    <string name="label_astro">Астро</string>
+    <string name="label_settings">Настройки</string>
+    <!--ГАДАНИЕ-->
+    <string name="day_card">Карта дня</string>
+    <string name="card_advice">Совет карты</string>
+    <string name="select_divination_type">Выберите тип гадания</string>
+    <string name="verify">Верификация</string>
+    <string name="your_choice">Вы сами делаете свой выбор…\nНикто не сделает его за Вас…</string>
+    <string name="write_num_0_9">Введите число от 0 до 9</string>
+    <string name="num_influence">Число влияет на результат гадания</string>
+    <string name="your_question">Введите Ваш вопрос…\nИли проговаривайте вопрос про себя…</string>
+    <string name="write_question_mark">Введите знак «?»</string>
+    <string name="think_question">Обязательно думайте о вопросе</string>
+    <!--ВЕРИФИКАЦИЯ-->
+    <string name="verify_info_yes">%1$d из 10 карт находятся в прямом положении.
+        \nВысшие силы сегодня настроены благосклонно.
+        \nМожно делать расклад.</string>
+    <string name="verify_info_unknown">5 из 10 карт находятся в прямом положении.
+        \nНе рекомендуется гадать самастоятельно.
+        \nОбратитесь за раскладом к тарологу.</string>
+    <string name="verify_info_no">%1$d из 10 карт находятся в прямом положении.
+        \nВысшие силы сегодня не готовы ответить на Ваши вопросы.
+        \nРасклад лучше перенести на другой день.</string>
+    <!--ДИАЛОГ-->
+    <string name="title_limit">Не сегодня…</string>
+    <string name="day_limit">Данное гадание можно осуществлять раз в сутки, пожалуйста приходите завтра</string>
+    <string name="ok">Хорошо</string>
+
+    <string name="click_to_find_out_more">Нажмите на карту, чтобы узнать подробности...</string>
+    <string name="dark_forces">Темные силы мешают нам...</string>
+
+    <!--КАРТЫ-->
+    <string name="major_arcana">Старшие арканы</string>
+    <string name="wands">Жезлы</string>
+    <string name="cups">Кубки</string>
+    <string name="swords">Мечи</string>
+    <string name="pentacles">Пентакли</string>
+
+    <string name="briefly">Кратко</string>
+    <string name="common">Общее</string>
+    <string name="love">Любовь/отношения</string>
+    <string name="question">Ситуация/вопрос</string>
+    <string name="day">Карта дня\n</string>
+    <string name="advice">Совет карты\n</string>
+    <string name="straight">\nПрямое положение\n</string>
+    <string name="inverted">\nПеревернутое положение\n</string>
+    <string name="card_info">%1$s
+        \n<b>Прямое положение</b>
+        \n%2$s
+        \n<b>Перевернутое положение</b>
+        \n%3$s</string>
+    <string name="card_info_single">%1$s\n%2$s/</string>
+    <string name="select_category">Выберите категорию</string>
+
+
+    <!--РАСКЛАДЫ-->
+    <!--enum class LayoutType-->
+    <string-array name="layouts_filer_list">
+        <item>Все</item>
+        <item>Начальные</item>
+        <item>На будущее</item>
+        <item>Бытовые ситуации</item>
+        <item>Любовь</item>
+        <item>Работа/бизнес/карьера</item>
+        <item>Самопознание</item>
+        <item>Здоровье</item>
+        <item>Дети</item>
+        <item>Поездки/переезды/путешествия</item>
+    </string-array>
+
+    <string name="layout_card_count">Количество карт: %1$d</string>
+    <string name="layout_significator_count">Сигнификаторы: %1$s</string>
+    <string name="no">Нет</string>
+    <string name="significator">Сигнификатор</string>
+    <string name="significator_info">Сигнификатор — это специальная карта, значение которой отражает суть вопроса или определяет человека, который вопрос задает.
+        \nСигнификатор выбирается из колоды перед тем, как предсказатель тасует колоду, и кладется на пункт расклада (в схеме расклада обозначается буквой S). После этого предсказатель задает вопрос, тасует колоду и выкладывает остальные карты соответственно пунктов расклада.
+        \nНекоторые предсказатели используют сигнификаторы для всех раскладов, некоторые не используют их вовсе.
+        \nПо Уэйту предлагается использовать карты Маг для мужчины-вопрошающего и Папесса для вопрошающей-женщины.
+        \nОчень часто в качестве сигнификатора используются придворные карты — Пажи, Рыцари, Дамы, Короли всех четырех мастей. Выбор конкретной карты в данном случае зависит от представления предсказателя о самом вопрошающем (цвет волос, знак зодиака, социальное положение, возраст и т.д.)
+        \nНо также можно использовать в качестве сигнификатора любую карту, если понятна суть вопроса — например, 10 пентаклей, если речь идет о наследстве и богатстве, 2 кубков — о дружеских отношениях вопрошающего с кем-либо, 7 жезлов — вопрос о защите диплома и т.д.
+        \nТаро — интуитивный Оракул, поэтому я вам рекомендую выбирать сигнификатор расклада также интуитивно. Если изображение на карте вызывает у вас чувство абсолютной уверенности, что лучше эту ситуацию никакая другая карта описать не может — значит, эта карта и будет самым правильным сигнификатором.
+        \nЕсли вы хорошо знаете значение карт Таро — можете использовать и перевернутые карты в качестве Сигнификатора.
+    </string>
+
+    <!--АСТРО-->
+    <string name="compatibility">Совместимость: %1$s</string>
+    <string name="mood">Настроение: %1$s</string>
+    <string name="color">Цвет: %1$s</string>
+    <string name="lucky_number">Счастливое число: %1$s</string>
+    <string name="lucky_time">Удачное время: %1$s</string>
+    <string name="string_with_origin">%1$s (оригинал)</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
+
+    <!--НАСТРОЙКИ-->
+    <string name="music">Музыка</string>
+    <string name="clean_cache">Очистить кэш</string>
+    <string name="card_style">Стиль карт</string>
+
+    <!--ИНТЕРНЕТ-->
+    <string name="connection">Подключение</string>
+    <string name="connect">Пожалуйста, покдлючитесь к интернету для загрузки контента...</string>
+
+    <!--КЭШ-->
+    <string name="clean">Очистка</string>
+    <string name="clean_success">Кэш и память очищены...</string>
+
+    <!--ПОДСКАЗКИ-->
+    <string name="verify_hint">Можно ли делать расклад сегодня...</string>
+    <string name="day_card_hint">Что ожидать от сегодняшнего дня...</string>
+    <string name="advice_hint">Спроси совета у карты...</string>
+    <string name="taro_style_hint">Зажмите, чтобы сменить стиль колоды</string>
+
+    <!--ФОН-->
+    <string name="magic_phrase">scire facere volo taceo</string>
+
 
 </resources>

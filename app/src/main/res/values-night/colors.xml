@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
+
     <color name="platinum">#FFE5E4E2</color>
     <color name="dark_blue">#FF0C071B</color>
     <color name="dark_purple">#FF2E1028</color>
@@ -15,6 +15,7 @@
     <color name="peach">#FFF9A952</color>
 
     <color name="dark_red_50">#804D1828</color>
+    <color name="dark_red_30">#4D4D1828</color>
     <color name="peach_50">#80F9A952</color>
     <color name="dark_purple_90">#E64D1828</color>
     <color name="purple_bg">#834B81</color>
